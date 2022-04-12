@@ -1,0 +1,546 @@
+/*banner*/
+.indexBannerDiv{
+  color: #FFFFFF;
+  background-size: cover;
+  background-position: center center;
+  padding-top: 150px;
+  box-sizing: border-box;
+}
+.indexBannerText{
+  padding-top: 100px;
+}
+.indexBannerText>h1{
+  font-size: 60px;
+}
+.indexBannerText .text{
+  padding: 30px 0;
+  line-height: 2;
+  font-size: 30px;
+}
+.indexBannerText>button{
+  border-radius: 50px;
+  border: 1px solid rgba(114, 200, 255, 1);
+  color: #FFFFFF;
+  padding: 15px 50px;
+  position: relative;
+  background: rgba(114, 200, 255, 1);
+}
+.indexBannerText>button:hover{
+  transform: scale(0.9);
+}
+@media screen and (max-width:1300px){
+  .indexBannerText>h1{
+    font-size: 48px;
+  }
+  .indexBannerText .text{
+    font-size: 24px;
+    line-height: 1.6;
+  }
+  .indexBannerText{
+    padding-top: 60px;
+  }
+}
+@media screen and (max-width:767px){
+  .indexBannerText>h1{
+    font-size: 32px;
+  }
+  .indexBannerText .text{
+    font-size: 16px;
+    padding: 10px 0;
+    line-height: 1.4;
+  }
+  .indexBannerDiv{
+    padding-top: 100px;
+  }
+  .indexBannerText>button{
+    padding: 10px 40px;
+  }
+}
+
+/*开发流程*/
+.processDiv{
+  color: #254051;
+  text-align: center;
+}
+.processDivBg{
+  background: url("../img/process_bg@1x.png") repeat;
+}
+.processWrap{
+  padding: 40px 0;
+  margin: 0 -1.38889%;
+}
+.processStep{
+  width: 13.88889%;
+  float: left;
+  margin-left: 1.38889%;
+  margin-right: 1.38889%;
+  text-align: center;
+  position: relative;
+  padding: 50px 0 90px;
+  background-size: cover!important;
+  background-repeat: no-repeat!important;
+}
+.processStep>i{
+  font-size: 80px;
+}
+.processStep>p{
+  font-size: 24px;
+  margin: 20px 0 0;
+  font-weight: bolder;
+}
+.processStep>a{
+  font-size: 14px;
+  transition: none;
+  color: #254051;
+}
+.processStep>a:hover{
+  text-decoration: underline;
+}
+.processStep:before{
+  content: "";
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+  position: absolute;
+  right: 0;
+  opacity: 0.8;
+  transform: translate(100%, -50%);
+  transition: transform 500ms ease-out;
+  top: 50%;
+  background-image: url('../img/arrowRight.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+.processStep:after{
+  width: 0%;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  content: "";
+  display: block;
+  background-color: #00b2f6;
+  height: 5px;
+}
+.processStep:hover:before{
+  transform: translate(150%, -50%);
+  transition: transform 500ms ease-out;
+}
+.processStep:hover:after{
+  width:100%;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1)
+}
+.processStep:hover{
+  color: #FFFFFF;
+}
+.processStep:hover a{
+  color: #FFFFFF;
+}
+.processStepBg1:hover{
+  background: url("../img/process_pic1.png");
+}
+.processStepBg2:hover{
+  background: url("../img/process_pic2.png");
+}
+.processStepBg3:hover{
+  background: url("../img/process_pic3.png");
+}
+.processStepBg4:hover{
+  background: url("../img/process_pic4.png");
+}
+.processStepBg5:hover{
+  background: url("../img/process_pic5.png");
+}
+.processStepBg6:hover{
+  background: url("../img/process_pic6.png");
+}
+.processStep:last-child:before {
+  background-image: none;
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+.processBtn{
+  display: inline-block;
+  border: 2px solid #254051;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.processBtn span,.processBtn i{
+  display: inline-block;
+  vertical-align: middle;
+}
+.processBtn span{
+  padding: 10px 20px;
+  font-size: 24px;
+}
+.processBtn i{
+  width: 53px;
+  height: 53px;
+  line-height: 53px;
+}
+.processBtn span{
+  border-right: 2px solid #254051;
+}
+.processBtn:hover{
+  background: #254051;
+  transition: 0.4s;
+}
+.processBtn:hover a{
+  color: #FFFFFF;
+}
+@media screen and (max-width:1300px){
+  .processStep{
+    padding: 50px 0 70px;
+  }
+}
+@media screen and (min-width:768px) and (max-width:1023px){
+  .processWrap{
+    margin: 0 -1.66666%;
+  }
+  .processStep{
+    width: 30%;
+    margin-left: 1.66666%;
+    margin-right: 1.66666%;
+  }
+  .processStep:nth-child(3n):before{
+    content: none;
+  }
+}
+@media screen and (max-width:767px){
+  .processWrap{
+    margin: 0 -2%;
+  }
+  .processStep{
+    width: 46%;
+    margin-left: 2%;
+    margin-right: 2%;
+    padding: 35px 0;
+  }
+  .processStep>i{
+    font-size: 60px;
+  }
+  .processStep>p{
+    font-size: 20px;
+  }
+  .processStep:nth-child(2n):before{
+    content: none;
+  }
+  .processWrap{
+    padding: 20px 0;
+  }
+  .processStep:before{
+    transform: translate(50%, -50%);
+  }
+}
+
+/*it服务*/
+.serviceDiv{
+  padding: 40px 0;
+}
+.serviceSingle img{
+  width: 55px;
+}
+.serviceSingle h3{
+  font-size: 22px;
+  margin: 10px 0;
+}
+.serviceSingle .text{
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+.serviceSingle a{
+  color: #FFFFFF;
+  font-size: 14px;
+  transition: 0.5s;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+.serviceSingle{
+  text-align: center;
+  position: relative;
+  padding: 30px 70px;
+  margin-bottom: 30px;
+  transition: all .5s ease;
+  border-radius: 4px;
+  z-index: 1;
+  overflow: hidden;
+  box-shadow: 0 3px 17px 2px #e3dede;
+  background: #205085;
+  color: #FFFFFF;
+  box-sizing: border-box;
+}
+.serviceSingle:before {
+  position: absolute;
+  content: '';
+  top: 0;
+  width: 100%;
+  height: 100%;
+  left: 100%;
+  z-index: -1;
+  background: #FFFFFF;
+  transition: all .5s ease;
+}
+/*.serviceSingle:after {*/
+/*  position: absolute;*/
+/*  content: '';*/
+/*  top: 0;*/
+/*  width: 100%;*/
+/*  height: 100%;*/
+/*  right: 100%;*/
+/*  z-index: -1;*/
+/*  background-image: url(../img/service-hover.png);*/
+/*  transition: all .5s ease;*/
+/*  background-size: cover;*/
+/*}*/
+/*.serviceSingle:hover::after{*/
+/*	right: 0;*/
+/*}*/
+.serviceSingle:hover::before{
+	left: 0;
+}
+.serviceSingle:hover{
+	transform: translateY(-10px);
+  color: #254051;
+}
+.serviceSingle:hover .text{
+  color: #83929C;
+}
+.serviceSingle:hover a{
+  color: #254051;
+}
+.serviceSingle a:hover{
+  font-size: 15px;
+  letter-spacing: 5px;
+}
+@media screen and (max-width:1300px){
+  .serviceSingle{
+    padding: 30px 40px;
+  }
+  .processBtn span{
+    font-size: 20px;
+  }
+  .processBtn i{
+    width: 48px;
+    height: 48px;
+    line-height: 48px;
+  }
+}
+@media screen and (max-width:767px){
+  .serviceSingle{
+    padding: 30px;
+  }
+  .serviceDiv{
+    padding: 0;
+  }
+  .serviceSingle h3{
+    font-size: 18px;
+  }
+  .serviceSingle .text{
+    font-size: 13px;
+  }
+  .processBtn span{
+    font-size: 16px;
+  }
+  .processBtn i{
+    width: 42px;
+    height: 42px;
+    line-height: 42px;
+  }
+}
+
+/*開發案例*/
+.projectBox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 40px 0;
+}
+.projectBox > .projectBoxItem {
+  width: 49.4%;
+  margin-bottom: 1.1vw;
+  transition: z-index .5s;
+  position: relative;
+  color: #fff;
+  z-index: 4;
+  overflow: hidden;
+}
+.projectImgPc,.projectImgWeb{
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 0;
+}
+.projectImgPc{
+  left: 0px;
+}
+.projectImgPc img,.projectImgWeb img{
+  width: 100%;
+  height: 100%;
+}
+/*
+.projectImgPc img{
+  filter: brightness(80%);
+}
+*/
+.projectBoxItem .projectImgPc{
+  transition: 0.5s;
+}
+.projectImgWeb{
+  opacity: 0;
+  transform: perspective(340px) rotateY(-40deg);
+  transition: 0.5s;
+}
+.projectBoxItem:hover .projectImgPc{
+  transform: perspective(340px) rotateY(5deg) scale(0.9);
+}
+.projectBoxItem:hover .projectImgPc img{
+  transition: transform 4s .4s linear, opacity .5s;
+  transform: translate3d(-8%, 0, 0)
+}
+.projectBoxItem:hover .projectImgWeb{
+  opacity: 1;
+  transform: perspective(340px) rotateY(0);
+}
+
+.projectBox > .projectBoxItem,.projectBoxText {
+  min-height: 450px;
+}
+
+.projectBoxText {
+  position: relative;
+  z-index: 2;
+  /*transform: translate3d(0,-60px,0);*/
+  overflow: hidden;
+  transition: transform .4s ease-in-out;
+  padding: 0 5%;
+  pointer-events: none;
+  display: flex;
+  align-items: flex-end;
+  transform-origin: 0 50%;
+  color: #FFFFFF;
+  background: rgba(137,137,137,0.1);
+}
+.projectBoxText>div{
+  font-size: 16px;
+  padding-bottom: 7%;
+  transition: all .4s ease-in-out;
+  transform: translate3d(0, 80%, 0);
+  transform-origin: 0 50%;
+}
+.projectBoxText>div .rpTop{
+  transition: transform .4s ease-in-out;
+  transform: translate3d(0,-100%,0);
+}
+.projectBoxText .rpText{
+  padding: 20px 0;
+  max-width: 70%;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.projectBoxItem:hover .projectBoxText>div,.projectBoxItem:hover .projectBoxText>div .rpTop{
+  transform: translate3d(0, 10%, 0);
+}
+.projectBoxText .rpTitle{
+  font-size: 24px;
+  font-weight: bolder;
+  padding-top: 15px;
+}
+.projectBoxText a{
+  color: #72C8FF;
+  pointer-events: auto;
+  display: inline-block;
+  margin-top: 15px;
+}
+.projectBoxText a i{
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+.projectBoxText .rpTop a{
+  display: none;
+}
+
+@media screen and (max-width:1390px){
+  .projectBox > .projectBoxItem, .projectBoxText{
+    min-height: 400px;
+  }
+}
+@media screen and (max-width:1200px){
+  .projectBox > .projectBoxItem, .projectBoxText{
+    min-height: 350px;
+  }
+  .projectBoxText .rpText{
+    display: none;
+  }
+  .projectBoxText .rpTop a{
+    display: block;
+  }
+  .projectBoxItem:hover .projectImgPc,.projectBoxItem:hover .projectImgPc img{
+    transform: initial;
+  }
+  .projectBoxItem:hover .projectImgWeb{
+    transform: none;
+    display: none;
+    opacity: 0;
+  }
+}
+@media screen and (max-width:1023px){
+  .projectBox > .projectBoxItem, .projectBoxText{
+    min-height: 250px;
+  }
+  .projectBoxText .rpTitle{
+    padding-top: 10px;
+  }
+  .projectBoxText a{
+    margin-top: 10px;
+  }
+}
+@media screen and (max-width:767px){
+  .projectBox{
+    padding: 15px 0;
+  }
+  .projectBox > .projectBoxItem {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
+
+/*立即訂閱*/
+.subscriptionBg{
+  background: #205085;
+  padding: 50px 0;
+}
+.subscriptionDiv{
+  text-align: center;
+}
+.subscriptionDiv>input{
+  width: 400px;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid #FFFFFF;
+  outline: none;
+  color: #FFFFFF;
+  height: 40px;
+  box-sizing: border-box;
+  margin-right: 10px;
+}
+.subscriptionDiv>input,.subscriptionDiv>p{
+  display: inline-block;
+  vertical-align: middle;
+}
+@media screen and (max-width:767px){
+  .subscriptionBg{
+    padding: 25px 0;
+  }
+  .subscriptionDiv>input{
+    width: 100%;
+    margin-bottom: 15px;
+    margin-right: 0;
+  }
+
+}
+
+

@@ -1,0 +1,151 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 3254992 */
+  src: url('iconfont.woff2?t=1649324195612') format('woff2'),
+       url('iconfont.woff?t=1649324195612') format('woff'),
+       url('iconfont.ttf?t=1649324195612') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-kaifa:before {
+  content: "\e618";
+}
+
+.icon-mrpcount:before {
+  content: "\e628";
+}
+
+.icon-qianbao:before {
+  content: "\e63e";
+}
+
+.icon-quxiantu:before {
+  content: "\e6a0";
+}
+
+.icon-insert:before {
+  content: "\e6f7";
+}
+
+.icon-shengji:before {
+  content: "\e6ba";
+}
+
+.icon-quanqiu:before {
+  content: "\e87b";
+}
+
+.icon-tuandui:before {
+  content: "\e62d";
+}
+
+.icon-xinhao:before {
+  content: "\e773";
+}
+
+.icon-paper:before {
+  content: "\ea0b";
+}
+
+.icon-Right-:before {
+  content: "\e600";
+}
+
+.icon-qiehuanyou:before {
+  content: "\e627";
+}
+
+.icon-shuangjiantouyou:before {
+  content: "\e640";
+}
+
+.icon-facebook:before {
+  content: "\e6e0";
+}
+
+.icon-whatsapp1:before {
+  content: "\e69f";
+}
+
+.icon-weixin:before {
+  content: "\e883";
+}
+
+.icon-mulu:before {
+  content: "\e621";
+}
+
+.icon-phoneLoudspeaker:before {
+  content: "\e860";
+}
+
+.icon-whatsapp:before {
+  content: "\e69c";
+}
+
+.icon-cha:before {
+  content: "\e609";
+}
+
+.icon-shejiyukaifa:before {
+  content: "\eaca";
+}
+
+.icon-shejiyukaifa-1:before {
+  content: "\ead9";
+}
+
+.icon-App:before {
+  content: "\e647";
+}
+
+.icon-weixinxiaochengxu:before {
+  content: "\e648";
+}
+
+.icon-shichangtuiguang:before {
+  content: "\e602";
+}
+
+.icon-shujufenxi:before {
+  content: "\e604";
+}
+
+.icon-tounaofengbao:before {
+  content: "\e603";
+}
+
+.icon-tuanduichengyuan:before {
+  content: "\e605";
+}
+
+.icon-xiangmutixi:before {
+  content: "\e607";
+}
+
+.icon-xiangmuzhouqi:before {
+  content: "\e608";
+}
+
+.icon-jiantouzuo:before {
+  content: "\e620";
+}
+
+.icon-jiantoushang:before {
+  content: "\e62c";
+}
+
+.icon-jiantouyou:before {
+  content: "\e62e";
+}
+
+.icon-jiantouxia:before {
+  content: "\e62f";
+}
+
