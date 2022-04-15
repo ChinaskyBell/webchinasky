@@ -1,0 +1,117 @@
+.aboutUsDiv>div{
+  display: table-cell;
+  vertical-align: top;
+  box-sizing: border-box;
+}
+.aboutLeftDiv{
+  width: 40%;
+  position: relative;
+}
+.aboutRightDiv{
+  width: 60%;
+  padding-left: 80px;
+}
+.aboutLeftDiv .div1{
+  background: #419eef;
+  display: flex;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  padding: 20px 30px;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border: 40px solid #fff;
+  border-left: none;
+  color: #fff;
+  font-size: 16px;
+}
+.aboutLeftDiv .div1 .spanline {
+  width: 60px;
+}
+.aboutLeftDiv .div1 strong {
+  display: block;
+  font-size: 60px;
+  padding: 0 15px;
+}
+.aboutLeftDiv .div1 span {
+  display: block;
+  height: 3px;
+  background: #fff;
+  animation: load1 1s infinite ease-in-out;
+  width: 23px;
+  margin: 12px 0;
+  animation-delay: -0.16s;
+}
+.aboutLeftDiv .div1 .span2 {
+  animation-delay: -0.32s;
+}
+.aboutLeftDiv .div1 .span3 {
+  animation-delay: -0.46s;
+}
+@-webkit-keyframes load1 {
+  0%, 80%, 100% {
+    width: 13px;
+  }
+  40% {
+    width: 60px;
+  }
+}
+/*使命*/
+.missionDiv>div{
+  display: table-cell;
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+.missionLeftDiv{
+  padding-right: 80px;
+  width: 60%;
+}
+.missionRightDiv{
+  width: 40%;
+}
+.missionLeftDiv li{
+  padding: 5px 0;
+}
+.missionLeftDiv li i{
+  font-size: 25px;
+  color: #419eef;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 15px;
+}
+.missionLeftDiv li span{
+  font-size: 16px;
+  color: #757575;
+}
+.ChooseDiv{
+  margin-top: 50px;
+  text-align: center;
+}
+.ChooseDiv .rowHDiv>div{
+  width: 30%;
+  padding: 15px;
+  box-sizing: border-box;
+}
+.ChooseDiv .divs{
+  box-shadow: 1px 1px 6px 0 rgba(0,0,0,0.17);
+  padding: 30px 30px 50px;
+  box-sizing: border-box;
+  height: 100%;
+  border-radius: 5px;
+}
+.ChooseDiv .divs>i{
+  font-size: 80px;
+  color: #419eef;
+  line-height: 1;
+}
+.ChooseDiv .divs>p{
+  font-size: 22px;
+  margin: 20px 0;
+}
+.ChooseDiv .divs>div{
+  margin: auto;
+  font-size: 15px;
+  color: #757575;
+  line-height: 2.2;
+}
