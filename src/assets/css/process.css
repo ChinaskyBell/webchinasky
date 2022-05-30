@@ -1,0 +1,139 @@
+.processBanner{
+  border-bottom: 6px solid #205085;
+}
+.processDivItem{
+  position: relative;
+  background: url("../img/pattern.jpg") repeat;
+}
+.processBigDiv .processDivItem>div{
+  width: 50%;
+  min-height: 50px;
+}
+.processBigDiv .processDivItem .processImg{
+  position: relative;
+}
+.processBigDiv .processDivItem:nth-child(odd) .processText{
+  float: left;
+}
+.processBigDiv .processDivItem:nth-child(odd) .processImg{
+  float: right;
+}
+.processBigDiv .processDivItem:nth-child(even) .processText{
+  float: right;
+}
+.processBigDiv .processDivItem:nth-child(even) .processImg{
+  float: left;
+}
+.processBigDiv .processDivItem .processImg>i{
+  position: absolute;
+  top: 50%;
+  font-size: 50px;
+  color: #FFFFFF;
+  transform: translate(0,-50%);
+}
+.processBigDiv .processDivItem:nth-child(odd) .processImg>i{
+  left: -1px;
+}
+.processBigDiv .processDivItem:nth-child(even) .processImg>i{
+  right: -1px;
+  transform:rotate(180deg);
+}
+.processBigDiv .processDivItem:nth-child(odd) .processText>div{
+  left: 0;
+}
+.processBigDiv .processDivItem:nth-child(even) .processText>div{
+  right: 0;
+}
+.processBigDiv .processDivItem .processText>div{
+  position: absolute;
+  top: 50%;
+  transform: translate(0,-50%);
+  width: 50%;
+  padding: 0 8%;
+  box-sizing: border-box;
+}
+.processBigDiv .processDivItem .processText .tit{
+  position: relative;
+  margin-bottom: 20px;
+  color: #254051;
+}
+/*
+.processBigDiv .processDivItem .processText .tit:after{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  content: "";
+  width: 15%;
+  height: 2px;
+  background: #00b2f6;
+}
+*/
+.processBigDiv .processDivItem .processText .tit>i{
+  font-size: 80px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.processBigDiv .processDivItem .processText .tit>strong{
+  font-size: 32px;
+  display: inline-block;
+  vertical-align: middle;
+  font-weight: bolder;
+}
+.processBigDiv .processDivItem .processText .text{
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+.processBigDiv .processDivItem .processText .text>a{
+  color: #72C8FF;
+}
+@media screen and (max-width:1080px){
+  .processBigDiv .processDivItem .processText .tit>i{
+    font-size: 65px;
+  }
+  .processBigDiv .processDivItem .processText .tit>strong{
+    font-size: 28px;
+  }
+  .processBigDiv .processDivItem .processText .text{
+    font-size: 14px;
+    line-height: 1.6;
+  }
+}
+@media screen and (max-width:1023px){
+  .processBigDiv .processDivItem .processText>div {
+    padding: 0 5%;
+  }
+  .processBigDiv .processDivItem .processText .text{
+    font-size: 12px;
+  }
+  .processBigDiv .processDivItem .processText .tit{
+    margin-bottom: 10px;
+  }
+}
+@media screen and (max-width:767px){
+  .processBigDiv .processDivItem>div{
+    float: initial!important;
+    width: 100%;
+  }
+  .processBigDiv .processDivItem .processText{
+    padding: 20px 0 40px;
+  }
+  .processBigDiv .processDivItem .processText>div{
+    position: initial;
+    transform: initial;
+    width: 100%;
+  }
+  .processBigDiv .processDivItem .processText .tit>i{
+    font-size: 50px;
+  }
+  .processBigDiv .processDivItem .processText .tit>strong{
+    font-size: 22px;
+  }
+  .processBigDiv .processDivItem .processImg>i{
+    top: initial;
+    bottom: 0;
+    left: 50%!important;
+    right: initial!important;
+    transform: translate(-50%,0) rotate(-90deg)!important;
+  }
+}

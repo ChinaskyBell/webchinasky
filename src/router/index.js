@@ -6,6 +6,14 @@ import Test from '../views/Test'
 import Maintain from '../views/Maintain'
 import Software from '../views/Software'
 import ContactUs from '../views/ContactUs'
+import AboutUs from '../views/AboutUs'
+import Move from '../views/Move'
+import WeChat from '../views/WeChat'
+import Mall from '../views/Mall'
+import Website from '../views/Website'
+import ITArticle from '../views/ITArticle'
+import Process from '../views/Process'
+
 Vue.use(Router)
 export default new Router({
   // mode: 'history',
@@ -32,9 +40,44 @@ export default new Router({
       component: ContactUs
     },
     {
+      path: '/AboutUs',
+      name: 'AboutUs',
+      component: AboutUs
+    },
+    {
+      path: '/Move',
+      name: 'Move',
+      component: Move
+    },
+    {
+      path: '/WeChat',
+      name: 'WeChat',
+      component: WeChat
+    },
+    {
+      path: '/Mall',
+      name: 'Mall',
+      component: Mall
+    },
+    {
+      path: '/Website',
+      name: 'Website',
+      component: Website
+    },
+    {
       path: '/Test',
       name: 'Test',
       component: Test
+    },
+    {
+      path: '/ITArticle',
+      name: 'ITArticle',
+      component: ITArticle
+    },
+    {
+      path: '/Process',
+      name: 'Process',
+      component: Process
     }
   ],
   // 跳转后页面置顶

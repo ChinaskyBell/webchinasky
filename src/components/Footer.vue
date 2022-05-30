@@ -78,67 +78,29 @@ export default {
   text-align: center;
   padding: 25px 0;
 }
-.footIconDiv{
-  margin-top: 30px;
-}
-.footIconDiv li i{
-  font-size: 25px;
-  color: #FFFFFF;
-}
-.footIconDiv li{
-  text-align: center;
-  list-style: none;
-  display: inline-block;
-  margin-right: 10px;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  border-radius: 50%;
-  background: #205085;
-  position: relative;
-}
-.footIconDiv>li:nth-child(1){
-  background: #3B5998;
-  cursor: pointer;
-}
-.footIconDiv>li:nth-child(2){
-  background: #2BA245;
-}
-.footIconDiv>li:nth-child(3){
-  background: #4DC247;
-  cursor: pointer;
-}
-.wechatCode{
-  opacity: 0;
-  position: absolute;
-  bottom: 45px;
-  box-shadow: 0 0 6px rgba(14,22,30,0.3);
-  margin-left: -45px;
-  padding: 5px;
-  background: #fff;
-  box-sizing: border-box;
-  z-index: 5;
-  border-radius: 3px;
-  transition: 0.7s;
-  transform: scale(0, 0);
-  left: -1000px;
-  width: 130px;
-  height: 130px;
-}
-.wechatCode img{
-  width: 100%;
-  height: 100%;
-}
-.footIconDiv li:nth-child(2):hover .wechatCode{
-  opacity: 1;
-  left: auto;
-  transform: scale(1, 1);
-}
 .footerConnect>div{
   font-size: 14px;
 }
 .footerConnect .phone{
   font-size: 24px;
+}
+
+.footDiv>div{
+  display: table-cell;
+  box-sizing: border-box;
+  vertical-align: top;
+}
+.footerConnect>div{
+  padding: 5px 0;
+  color: #87898A;
+}
+.footerConnect span{
+  color: #205085;
+  cursor: pointer;
+}
+.footerConnect .phone{
+  font-weight: bold;
+  margin-top: 20px;
 }
 @media screen and (max-width:1024px){
 	.footDiv{
@@ -153,6 +115,10 @@ export default {
 		text-align: center;
 		margin-bottom: 15px;
     width: 100%;
+	}
+  div.footerConnect{
+		display: inline-block;
+		width: 49%;
 	}
 }
 @media screen and (max-width:767px){
@@ -169,6 +135,19 @@ export default {
   }
   .footerConnect .phone {
     font-size: 16px;
+  }
+
+  div.footerConnect,.footDiv>.div1{
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+  }
+  .footerConnect > div {
+    padding: 0;
+  }
+  .footerConnect .phone {
+    margin-top: 10px;
   }
 }
 </style>

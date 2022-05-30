@@ -13,9 +13,11 @@
   font-size: 60px;
 }
 .indexBannerText .text{
-  padding: 30px 0;
-  line-height: 2;
+  padding: 20px 0;
   font-size: 30px;
+}
+.indexBannerText .text>p{
+  padding: 10px 0;
 }
 .indexBannerText>button{
   border-radius: 50px;
@@ -26,7 +28,7 @@
   background: rgba(114, 200, 255, 1);
 }
 .indexBannerText>button:hover{
-  transform: scale(0.9);
+  font-size: 20px;
 }
 @media screen and (max-width:1300px){
   .indexBannerText>h1{
@@ -160,35 +162,7 @@
   width: 0;
   visibility: hidden;
 }
-.processBtn{
-  display: inline-block;
-  border: 2px solid #254051;
-  cursor: pointer;
-  transition: 0.4s;
-}
-.processBtn span,.processBtn i{
-  display: inline-block;
-  vertical-align: middle;
-}
-.processBtn span{
-  padding: 10px 20px;
-  font-size: 24px;
-}
-.processBtn i{
-  width: 53px;
-  height: 53px;
-  line-height: 53px;
-}
-.processBtn span{
-  border-right: 2px solid #254051;
-}
-.processBtn:hover{
-  background: #254051;
-  transition: 0.4s;
-}
-.processBtn:hover a{
-  color: #FFFFFF;
-}
+
 @media screen and (max-width:1300px){
   .processStep{
     padding: 50px 0 70px;
@@ -249,6 +223,7 @@
   font-size: 14px;
   line-height: 1.7;
   margin-bottom: 20px;
+  height: 70px;
 }
 .serviceSingle a{
   color: #FFFFFF;
@@ -318,14 +293,6 @@
   .serviceSingle{
     padding: 30px 40px;
   }
-  .processBtn span{
-    font-size: 20px;
-  }
-  .processBtn i{
-    width: 48px;
-    height: 48px;
-    line-height: 48px;
-  }
 }
 @media screen and (max-width:767px){
   .serviceSingle{
@@ -339,172 +306,6 @@
   }
   .serviceSingle .text{
     font-size: 13px;
-  }
-  .processBtn span{
-    font-size: 16px;
-  }
-  .processBtn i{
-    width: 42px;
-    height: 42px;
-    line-height: 42px;
-  }
-}
-
-/*開發案例*/
-.projectBox {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 40px 0;
-}
-.projectBox > .projectBoxItem {
-  width: 49.4%;
-  margin-bottom: 1.1vw;
-  transition: z-index .5s;
-  position: relative;
-  color: #fff;
-  z-index: 4;
-  overflow: hidden;
-}
-.projectImgPc,.projectImgWeb{
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  z-index: 0;
-}
-.projectImgPc{
-  left: 0px;
-}
-.projectImgPc img,.projectImgWeb img{
-  width: 100%;
-  height: 100%;
-}
-/*
-.projectImgPc img{
-  filter: brightness(80%);
-}
-*/
-.projectBoxItem .projectImgPc{
-  transition: 0.5s;
-}
-.projectImgWeb{
-  opacity: 0;
-  transform: perspective(340px) rotateY(-40deg);
-  transition: 0.5s;
-}
-.projectBoxItem:hover .projectImgPc{
-  transform: perspective(340px) rotateY(5deg) scale(0.9);
-}
-.projectBoxItem:hover .projectImgPc img{
-  transition: transform 4s .4s linear, opacity .5s;
-  transform: translate3d(-8%, 0, 0)
-}
-.projectBoxItem:hover .projectImgWeb{
-  opacity: 1;
-  transform: perspective(340px) rotateY(0);
-}
-
-.projectBox > .projectBoxItem,.projectBoxText {
-  min-height: 450px;
-}
-
-.projectBoxText {
-  position: relative;
-  z-index: 2;
-  /*transform: translate3d(0,-60px,0);*/
-  overflow: hidden;
-  transition: transform .4s ease-in-out;
-  padding: 0 5%;
-  pointer-events: none;
-  display: flex;
-  align-items: flex-end;
-  transform-origin: 0 50%;
-  color: #FFFFFF;
-  background: rgba(137,137,137,0.1);
-}
-.projectBoxText>div{
-  font-size: 16px;
-  padding-bottom: 7%;
-  transition: all .4s ease-in-out;
-  transform: translate3d(0, 80%, 0);
-  transform-origin: 0 50%;
-}
-.projectBoxText>div .rpTop{
-  transition: transform .4s ease-in-out;
-  transform: translate3d(0,-100%,0);
-}
-.projectBoxText .rpText{
-  padding: 20px 0;
-  max-width: 70%;
-  font-size: 15px;
-  line-height: 1.6;
-}
-.projectBoxItem:hover .projectBoxText>div,.projectBoxItem:hover .projectBoxText>div .rpTop{
-  transform: translate3d(0, 10%, 0);
-}
-.projectBoxText .rpTitle{
-  font-size: 24px;
-  font-weight: bolder;
-  padding-top: 15px;
-}
-.projectBoxText a{
-  color: #72C8FF;
-  pointer-events: auto;
-  display: inline-block;
-  margin-top: 15px;
-}
-.projectBoxText a i{
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: 10px;
-}
-.projectBoxText .rpTop a{
-  display: none;
-}
-
-@media screen and (max-width:1390px){
-  .projectBox > .projectBoxItem, .projectBoxText{
-    min-height: 400px;
-  }
-}
-@media screen and (max-width:1200px){
-  .projectBox > .projectBoxItem, .projectBoxText{
-    min-height: 350px;
-  }
-  .projectBoxText .rpText{
-    display: none;
-  }
-  .projectBoxText .rpTop a{
-    display: block;
-  }
-  .projectBoxItem:hover .projectImgPc,.projectBoxItem:hover .projectImgPc img{
-    transform: initial;
-  }
-  .projectBoxItem:hover .projectImgWeb{
-    transform: none;
-    display: none;
-    opacity: 0;
-  }
-}
-@media screen and (max-width:1023px){
-  .projectBox > .projectBoxItem, .projectBoxText{
-    min-height: 250px;
-  }
-  .projectBoxText .rpTitle{
-    padding-top: 10px;
-  }
-  .projectBoxText a{
-    margin-top: 10px;
-  }
-}
-@media screen and (max-width:767px){
-  .projectBox{
-    padding: 15px 0;
-  }
-  .projectBox > .projectBoxItem {
-    width: 100%;
-    margin-bottom: 15px;
   }
 }
 

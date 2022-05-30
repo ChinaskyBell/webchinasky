@@ -4,9 +4,9 @@
     <div class="Width1400 headerTopDiv">
       <div class="languageDiv" :class="{'languageShow':isMenu}">
         <ul>
-          <li class="active">繁</li>
-          <li>简</li>
-          <li>EN</li>
+          <li :class="{'active': lang === 'tw'}" @click="getLang('tw')">繁</li>
+          <li :class="{'active': lang === 'cn'}" @click="getLang('cn')">简</li>
+          <li :class="{'active': lang === 'en'}" @click="getLang('en')">EN</li>
         </ul>
       </div>
       <div class="headerNav">
@@ -26,7 +26,7 @@
                 <span>（852）2490-2300</span>
               </li>
               <li class="quote">
-                <button>索取報價</button>
+                <router-link to="/ContactUs" tag="button">{{$t("message.SuoQuBJ")}}</router-link>
               </li>
               <li class="menu" @click="appNavBtn" :class="{'open':isMenu}">
                 <div class="p1">
@@ -35,7 +35,7 @@
                     <span></span>
                     <span></span>
                   </div>
-                  <span>目錄</span>
+                  <span>{{$t("message.MuLu")}}</span>
                 </div>
                 <div class="nav-cross"></div>
               </li>
@@ -47,7 +47,7 @@
 
     <div class="menusWrapper" :class="{'menuShow':isMenu}">
       <div class="menuButton">
-        <button>索取報價</button>
+        <router-link to="/ContactUs" tag="button">{{$t("message.SuoQuBJ")}}</router-link>
       </div>
       <div class="menusBg">
         <video autoplay="" loop="" muted="" preload="none" class="videoBg" data-ll-status="loaded"
@@ -57,35 +57,43 @@
         <ul class="menu_main_menu">
           <li>
             <router-link to="/">
-              <p>首頁</p>
+              <p>{{$t("message.Home")}}</p>
 <!--              <span class="span1">擁有15年為不同行業客戶提供不同的IT服務的經驗</span>-->
             </router-link>
           </li>
           <li>
-            <router-link to="/Maintain">
-              <p>網絡維護</p>
-            </router-link>
+            <p><router-link to="/Maintain">{{$t("message.WangLuoWH")}}</router-link> <label class="open" @click="phoneMenu(1)">{{isAppMenu === 1  ? '-' : '+'}}</label></p>
+            <div :class='["span1","menuUl","menuUlHeight1",isAppMenu === 1 ? "openItem" : "downItem"]'>
+              <ul class="menu_main_item">
+                <li><router-link :to="{path:'/ITArticle',query:{id:1}}">{{$t("message.ZiLiaoBFHeBZ")}}</router-link></li>
+                <li><router-link :to="{path:'/ITArticle',query:{id:2}}">{{$t("message.ZhuoMianWH")}}</router-link></li>
+                <li><router-link :to="{path:'/ITArticle',query:{id:3}}">{{$t("message.DianNaoJSZC")}}</router-link></li>
+                <li><router-link :to="{path:'/ITArticle',query:{id:4}}">{{$t("message.ITWeiHu")}}</router-link></li>
+                <li><router-link :to="{path:'/ITArticle',query:{id:5}}">{{$t("message.WangLuoGL")}}</router-link></li>
+                <li><router-link :to="{path:'/ITArticle',query:{id:6}}">{{$t("message.FuWuQiGL")}}</router-link></li>
+              </ul>
+            </div>
           </li>
           <li>
-            <p @click="phoneMenu">產品開發 <label class="open">{{isAppMenu  ? '+' : '-'}}</label></p>
-            <div :class='["span1","menuUl",isAppMenu ? "downItem" : "openItem"]'>
+            <p @click="phoneMenu(2)">{{$t("message.ChanPinKF")}} <label class="open">{{isAppMenu === 2  ? '-' : '+'}}</label></p>
+            <div :class='["span1","menuUl","menuUlHeight2",isAppMenu === 2 ? "openItem" : "downItem"]'>
               <ul class="menu_main_item">
-                <li><router-link to="/Software">軟件開發</router-link></li>
-                <li><router-link to="#22">網站開發</router-link></li>
-                <li><router-link to="#23">App開發</router-link></li>
-                <li><router-link to="#24">微信開發</router-link></li>
-                <li><router-link to="#25">網上商城</router-link></li>
+                <li><router-link to="/Software">{{$t("message.RuanJianKF")}}</router-link></li>
+                <li><router-link to="/Website">{{$t("message.WangZhanKF")}}</router-link></li>
+                <li><router-link to="/Move">{{$t("message.AppKF")}}</router-link></li>
+                <li><router-link to="/WeChat">{{$t("message.WeiXinKF")}}</router-link></li>
+                <li><router-link to="/Mall">{{$t("message.WangShangSC")}}</router-link></li>
               </ul>
             </div>
           </li>
           <li>
             <router-link to="/AboutUs">
-              <p>關於我們</p>
+              <p>{{$t("message.GuanYuWM")}}</p>
             </router-link>
           </li>
           <li>
             <router-link to="/ContactUs">
-              <p>聯繫我們</p>
+              <p>{{$t("message.LianXiWM")}}</p>
             </router-link>
           </li>
         </ul>
@@ -103,7 +111,8 @@ export default {
       isHeader: false,
       isMenu: false,
       isAppActive: 0,
-      isAppMenu: false
+      isAppMenu: 0,
+      lang: this.$store.state.languageName || 'tw'
     }
   },
   mounted () {
@@ -135,12 +144,12 @@ export default {
       }
     },
     // 移动端子目录
-    phoneMenu () {
+    phoneMenu (Type) {
       let that = this
-      if (that.isAppMenu){
-        that.isAppMenu = false
+      if (that.isAppMenu === Type){
+        that.isAppMenu = 0
       } else {
-        that.isAppMenu = true
+        that.isAppMenu = Type
       }
     },
     // 跳转外部链接
@@ -150,12 +159,18 @@ export default {
       } else {
         window.location.href = Url
       }
+    },
+    // 切换语言
+    getLang (Type) {
+      this.$store.commit('set_languageName', Type)
+      this.$i18n.locale = this.lang = Type
+      // window.location.reload()
     }
   },
   watch:{
     $route:{
       handler(){
-        location. reload()
+        location.reload()
       }
     }
   }

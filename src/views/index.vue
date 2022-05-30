@@ -3,13 +3,12 @@
     <section class="indexBannerDiv" id="jqueryImg">
       <div class="Width1000">
         <div class="indexBannerText">
-          <h1 class="wow fadeInDown" data-wow-delay="0.5s">網絡維護</h1>
+          <h1 class="wow fadeInDown" data-wow-delay="0.5s">{{$t("message.WangLuoWH")}}</h1>
           <div class="text wow fadeInDown" data-wow-delay="1s">
-            為企業打造最優化的網絡工作環境
-            <br>
-            一支健全的技術團隊，向外界承接網絡維護服務
+            <p>{{$t("message.IndexBannerText1")}}</p>
+            <p>{{$t("message.IndexBannerText2")}}</p>
           </div>
-          <button class="wow fadeInDown" data-wow-delay="1.5s">更多</button>
+          <button class="wow fadeInDown" data-wow-delay="1.5s">{{$t("message.GenDuo")}}</button>
         </div>
       </div>
     </section>
@@ -17,32 +16,32 @@
     <section>
       <div class="swiperBoxDiv">
         <div class="swiperBox1">
-          <h1 class="h1Title">開發服務</h1>
+          <h1 class="h1Title textCenter">{{$t("message.KaiFaFW")}}</h1>
           <div class="Width1400">
             <div class="swiper gallery_thumbs">
               <div class="swiper-wrapper">
                 <div class="swiper-slide wow fadeInUp" data-wow-delay="0.5s">
                   <div class="gallery_topBox">
                     <i class="iconfont icon-shejiyukaifa-1"></i>
-                    <span>網站設計 & 開發</span>
+                    <span>{{$t("message.WangZhanSJHeKF")}}</span>
                   </div>
                 </div>
                 <div class="swiper-slide wow fadeInUp" data-wow-delay="1s">
                   <div class="gallery_topBox">
                     <i class="iconfont icon-App"></i>
-                    <span>App開發</span>
+                    <span>{{$t("message.AppKF")}}</span>
                   </div>
                 </div>
                 <div class="swiper-slide wow fadeInUp" data-wow-delay="1.5s">
                   <div class="gallery_topBox">
                     <i class="iconfont icon-weixinxiaochengxu"></i>
-                    <span>微信開發</span>
+                    <span>{{$t("message.WeiXinKF")}}</span>
                   </div>
                 </div>
                 <div class="swiper-slide wow fadeInUp" data-wow-delay="2s">
                   <div class="gallery_topBox">
                     <i class="iconfont icon-shejiyukaifa"></i>
-                    <span>軟件開發</span>
+                    <span>{{$t("message.RuanJianKF")}}</span>
                   </div>
                 </div>
               </div>
@@ -69,13 +68,13 @@
                 <div class="thumbsText">
                   <div>
                     <div class="run_txt">
-                      <p>我們的服務包括設計、開發及推廣</p>
-                      <p>做響應式，我們是專業的</p>
-                      <p>針對所有螢幕尺寸做出漂亮和簡潔的設計</p>
+                      <p>{{$t("message.IndexKFText1_1")}}</p>
+                      <p>{{$t("message.IndexKFText1_2")}}</p>
+                      <p>{{$t("message.IndexKFText1_3")}}</p>
                     </div>
-                    <router-link to="/Test">
+                    <router-link to="/Website">
                       <div class="run_btn">
-                        <span>查看網站服務詳細</span>
+                        <span>{{$t("message.CKWZFWXQ")}}</span>
                         <i class="iconfont icon-Right-"></i>
                       </div>
                     </router-link>
@@ -95,13 +94,13 @@
                 <div class="thumbsText">
                   <div>
                     <div class="run_txt">
-                      <p>移動應用程序開發</p>
-                      <p>用適當的技術去做客戶所需的移動應用程序</p>
-                      <p>原生APP, 混合APP, Web APP</p>
+                      <p>{{$t("message.IndexKFText2_1")}}</p>
+                      <p>{{$t("message.IndexKFText2_2")}}</p>
+                      <p>{{$t("message.IndexKFText2_3")}}</p>
                     </div>
-                    <router-link to="/Test">
+                    <router-link to="/Move">
                       <div class="run_btn">
-                        <span>查看網站服務詳細</span>
+                        <span>{{$t("message.CKWZFWXQ")}}</span>
                         <i class="iconfont icon-Right-"></i>
                       </div>
                     </router-link>
@@ -121,14 +120,14 @@
                 <div class="thumbsText">
                   <div>
                     <div class="run_txt">
-                      <p>為企業定制功能更齊全、更强大的公眾號服務平臺</p>
-                      <p>微信公眾號定制開發</p>
-                      <p>小程序定制開發</p>
-                      <p>企業微信定制開發</p>
+                      <p>{{$t("message.IndexKFText3_1")}}</p>
+                      <p>{{$t("message.IndexKFText3_2")}}</p>
+                      <p>{{$t("message.IndexKFText3_3")}}</p>
+                      <p>{{$t("message.IndexKFText3_4")}}</p>
                     </div>
-                    <router-link to="/Test">
+                    <router-link to="/WeChat">
                       <div class="run_btn">
-                        <span>查看網站服務詳細</span>
+                        <span>{{$t("message.CKWZFWXQ")}}</span>
                         <i class="iconfont icon-Right-"></i>
                       </div>
                     </router-link>
@@ -148,13 +147,13 @@
                 <div class="thumbsText">
                   <div>
                     <div class="run_txt">
-                      <p>為企業定制開發專用軟件</p>
-                      <p>我們會反復檢查您的目標及需求，並為您提供最適合實施方案</p>
-                      <p>提供最佳質量的軟件開發服務</p>
+                      <p>{{$t("message.IndexKFText4_1")}}</p>
+                      <p>{{$t("message.IndexKFText4_2")}}</p>
+                      <p>{{$t("message.IndexKFText4_3")}}</p>
                     </div>
-                    <router-link to="/Test">
+                    <router-link to="/Software">
                       <div class="run_btn">
-                        <span>查看網站服務詳細</span>
+                        <span>{{$t("message.CKWZFWXQ")}}</span>
                         <i class="iconfont icon-Right-"></i>
                       </div>
                     </router-link>
@@ -173,120 +172,118 @@
 <!--開發流程-->
     <section class="pad_100 processDivBg">
       <div class="processDiv Width1400">
-        <h1 class="h1Title h1TitAfter">開發流程</h1>
-        <p class="h1TitleItem">我們將如何去開發</p>
+        <h1 class="h1Title h1TitAfter">{{$t("message.KaiFaLC")}}</h1>
+        <p class="h1TitleItem">{{$t("message.KaiFaLCText1")}}</p>
         <div class="processWrap clearfix">
           <div class="processStep processStepBg1 wow fadeIn" data-wow-delay="0.4s">
             <i class="iconfont icon-tounaofengbao"></i>
-            <p>想法</p>
-            <a href="#">更多 »</a>
+            <p>{{$t("message.ZhuCe")}}</p>
+            <router-link :to="{path:'/Process',query:{id:'process1'}}">{{$t("message.GenDuo")}} »</router-link>
           </div>
           <div class="processStep processStepBg2 wow fadeIn" data-wow-delay="0.8s">
             <i class="iconfont icon-tuanduichengyuan"></i>
-            <p>討論</p>
-            <a href="#">更多 »</a>
+            <p>{{$t("message.DiaoYan")}}</p>
+            <router-link :to="{path:'/Process',query:{id:'process2'}}">{{$t("message.GenDuo")}} »</router-link>
           </div>
           <div class="processStep processStepBg3 wow fadeIn" data-wow-delay="1.2s">
             <i class="iconfont icon-xiangmutixi"></i>
-            <p>設計</p>
-            <a href="#">更多 »</a>
+            <p>{{$t("message.SheJi")}}</p>
+            <router-link :to="{path:'/Process',query:{id:'process3'}}">{{$t("message.GenDuo")}} »</router-link>
           </div>
           <div class="processStep processStepBg4 wow fadeIn" data-wow-delay="1.6s">
             <i class="iconfont icon-xiangmuzhouqi"></i>
-            <p>開發</p>
-            <a href="#">更多 »</a>
+            <p>{{$t("message.Dajian")}}</p>
+            <router-link :to="{path:'/Process',query:{id:'process4'}}">{{$t("message.GenDuo")}} »</router-link>
           </div>
           <div class="processStep processStepBg5 wow fadeIn" data-wow-delay="2s">
             <i class="iconfont icon-shichangtuiguang"></i>
-            <p>推廣</p>
-            <a href="#">更多 »</a>
+            <p>{{$t("message.QiDong")}}</p>
+            <router-link :to="{path:'/Process',query:{id:'process5'}}">{{$t("message.GenDuo")}} »</router-link>
           </div>
           <div class="processStep processStepBg6 wow fadeIn" data-wow-delay="2.4s">
             <i class="iconfont icon-shujufenxi"></i>
-            <p>維護</p>
-            <a href="#">更多 »</a>
+            <p>{{$t("message.ZhiChi")}}</p>
+            <router-link :to="{path:'/Process',query:{id:'process6'}}">{{$t("message.GenDuo")}} »</router-link>
           </div>
         </div>
-        <div class="processBtn">
-          <router-link to="#">
-            <span>索取報價</span><i class="iconfont icon-shuangjiantouyou"></i>
-          </router-link>
+        <div class="processBtn" @click="handleScroll('IdContactUs')">
+          <span>{{$t("message.SuoQuBJ")}}</span><i class="iconfont icon-shuangjiantouyou"></i>
         </div>
       </div>
     </section>
 <!--IT服務-->
     <section class="padBottom_100">
       <div class="Width1400">
-        <h1 class="h1Title col_254051">IT服務</h1>
+        <div class="textCenter">
+          <h1 class="h1Title col_254051">{{$t("message.ITFuWu")}}</h1>
+        </div>
         <div class="serviceDiv">
           <div class="row rowCol3 rowCol2_sm rowCol1_xs">
             <div class="wow fadeInUp" data-wow-delay="0.2s">
               <div class="serviceSingle">
                 <img src="../assets/img/itService1.png">
-                <h3>資料備份和保護服務</h3>
+                <h3>{{$t("message.ZiLiaoBFHeBZ")}}</h3>
                 <div class="text">
-                  資料備份和保護服務資料備份和保護服務資料備份和保護服務備份和保護服務備份和保護服務備份和保護服務
+                  {{$t("message.ITFuWuText1")}}
                 </div>
-                <router-link to="/Maintain">查看更多</router-link>
+                <router-link :to="{path:'/ITArticle',query:{id:1}}">{{$t("message.ChaKanGD")}}</router-link>
               </div>
             </div>
             <div class="wow fadeInUp" data-wow-delay="0.4s">
               <div class="serviceSingle">
                 <img src="../assets/img/itService2.png">
-                <h3>服務台支持</h3>
+                <h3>{{$t("message.ZhuoMianWH")}}</h3>
                 <div class="text">
-                  資料備份和保護服務資料備份和保護服務資料備份和保護服務備份和保護服務備份和保護服務備份和保護服務
+                  {{$t("message.ITFuWuText2")}}
                 </div>
-                <router-link to="/Maintain">查看更多</router-link>
+                <router-link :to="{path:'/ITArticle',query:{id:2}}">{{$t("message.ChaKanGD")}}</router-link>
               </div>
             </div>
             <div class="wow fadeInUp" data-wow-delay="0.6s">
               <div class="serviceSingle">
                 <img src="../assets/img/itService3.png">
-                <h3>電腦技術支持</h3>
+                <h3>{{$t("message.DianNaoJSZC")}}</h3>
                 <div class="text">
-                  資料備份和保護服務資料備份和保護服務資料備份和保護服務備份和保護服務備份和保護服務備份和保護服務
+                  {{$t("message.ITFuWuText3")}}
                 </div>
-                <router-link to="/Maintain">查看更多</router-link>
+                <router-link :to="{path:'/ITArticle',query:{id:3}}">{{$t("message.ChaKanGD")}}</router-link>
               </div>
             </div>
             <div class="wow fadeInUp" data-wow-delay="0.8s">
               <div class="serviceSingle">
                 <img src="../assets/img/itService4.png">
-                <h3>IT維護服務</h3>
+                <h3>{{$t("message.ITWeiHu")}}</h3>
                 <div class="text">
-                  資料備份和保護服務資料備份和保護服務資料備份和保護服務備份和保護服務備份和保護服務備份和保護服務
+                  {{$t("message.ITFuWuText4")}}
                 </div>
-                <router-link to="/Maintain">查看更多</router-link>
+                <router-link :to="{path:'/ITArticle',query:{id:4}}">{{$t("message.ChaKanGD")}}</router-link>
               </div>
             </div>
             <div class="wow fadeInUp" data-wow-delay="1s">
               <div class="serviceSingle">
                 <img src="../assets/img/itService5.png">
-                <h3>網路管理服務</h3>
+                <h3>{{$t("message.WangLuoGL")}}</h3>
                 <div class="text">
-                  資料備份和保護服務資料備份和保護服務資料備份和保護服務備份和保護服務備份和保護服務備份和保護服務
+                  {{$t("message.ITFuWuText5")}}
                 </div>
-                <router-link to="/Maintain">查看更多</router-link>
+                <router-link :to="{path:'/ITArticle',query:{id:5}}">{{$t("message.ChaKanGD")}}</router-link>
               </div>
             </div>
             <div class="wow fadeInUp" data-wow-delay="1.2s">
               <div class="serviceSingle">
                 <img src="../assets/img/itService6.png">
-                <h3>服務器管理</h3>
+                <h3>{{$t("message.FuWuQiGL")}}</h3>
                 <div class="text">
-                  資料備份和保護服務資料備份和保護服務資料備份和保護服務備份和保護服務備份和保護服務備份和保護服務
+                  {{$t("message.ITFuWuText6")}}
                 </div>
-                <router-link to="/Maintain">查看更多</router-link>
+                <router-link :to="{path:'/ITArticle',query:{id:6}}">{{$t("message.ChaKanGD")}}</router-link>
               </div>
             </div>
           </div>
         </div>
         <div class="textCenter">
-          <div class="processBtn">
-            <router-link to="#">
-              <span>索取報價</span><i class="iconfont icon-shuangjiantouyou"></i>
-            </router-link>
+          <div class="processBtn" @click="handleScroll('IdContactUs')">
+            <span>{{$t("message.SuoQuBJ")}}</span><i class="iconfont icon-shuangjiantouyou"></i>
           </div>
         </div>
       </div>
@@ -295,8 +292,8 @@
 <!--開發案例-->
     <section class="">
       <div class="Width1400">
-        <div>
-          <h1 class="h1Title col_254051">開發案例</h1>
+        <div class="textCenter">
+          <h1 class="h1Title col_254051">{{$t("message.KaiFaAL")}}</h1>
         </div>
         <div class="projectBox">
           <div class="projectBoxItem">
@@ -311,11 +308,10 @@
                 <div class="rpTop">
                   <img src="../assets/img/logo_alpha.png">
                   <p class="rpTitle">Alpha Omega</p>
-                  <a href="#" target="_blank"><span>查看</span><i class="iconfont icon-Right-"></i></a>
                 </div>
                 <div class="rpText">
                   <p>案例簡介案例簡介案例簡介案例簡介案例簡介案例簡介2</p>
-                  <a href="#" target="_blank"><span>查看</span><i class="iconfont icon-Right-"></i></a>
+                  <a href="#" target="_blank"><span>{{$t("message.ChaKan")}}</span><i class="iconfont icon-Right-"></i></a>
                 </div>
               </div>
             </div>
@@ -332,11 +328,10 @@
                 <div class="rpTop">
                   <img src="../assets/img/logo_baoxian.png">
                   <p class="rpTitle">德誠保險顧問</p>
-                  <a href="#" target="_blank"><span>查看</span><i class="iconfont icon-Right-"></i></a>
                 </div>
                 <div class="rpText">
                   <p>案例簡介案例簡介案例簡介案例簡介案例簡介案例簡介2</p>
-                  <a href="#" target="_blank"><span>查看</span><i class="iconfont icon-Right-"></i></a>
+                  <a href="#" target="_blank"><span>{{$t("message.ChaKan")}}</span><i class="iconfont icon-Right-"></i></a>
                 </div>
               </div>
             </div>
@@ -353,11 +348,10 @@
                 <div class="rpTop">
                   <img src="../assets/img/logo_atli.png">
                   <p class="rpTitle">aTli</p>
-                  <a href="#" target="_blank"><span>查看</span><i class="iconfont icon-Right-"></i></a>
                 </div>
                 <div class="rpText">
                   <p>案例簡介案例簡介案例簡介案例簡介案例簡介案例簡介2</p>
-                  <a href="#" target="_blank"><span>查看</span><i class="iconfont icon-Right-"></i></a>
+                  <a href="#" target="_blank"><span>{{$t("message.ChaKan")}}</span><i class="iconfont icon-Right-"></i></a>
                 </div>
               </div>
             </div>
@@ -374,11 +368,10 @@
                 <div class="rpTop">
                   <img src="../assets/img/logo_minibox.png">
                   <p class="rpTitle">miniBox</p>
-                  <a href="#" target="_blank"><span>查看</span><i class="iconfont icon-Right-"></i></a>
                 </div>
                 <div class="rpText">
                   <p>案例簡介案例簡介案例簡介案例簡介案例簡介案例簡介2</p>
-                  <a href="#" target="_blank"><span>查看</span><i class="iconfont icon-Right-"></i></a>
+                  <a href="#" target="_blank"><span>{{$t("message.ChaKan")}}</span><i class="iconfont icon-Right-"></i></a>
                 </div>
               </div>
             </div>
@@ -391,38 +384,42 @@
 <!--立即订阅-->
     <section class="subscriptionBg">
       <div class="Width1000">
-        <h1 class="h1Title col_FFF">立即訂閱</h1>
+        <div class="textCenter">
+          <h1 class="h1Title col_FFF">{{$t("message.LiJiDY")}}</h1>
+        </div>
         <div class="subscriptionDiv">
-          <input type="text" placeholder="請輸入電郵以收取最新資訊">
+          <input type="text" :placeholder='$t("message.QSRDYEmail")'>
           <p class="buttonIcon borderFFF">
-            <span>訂閱</span><i class="iconfont icon-Right-"></i>
+            <span>{{$t("message.DinYue")}}</span><i class="iconfont icon-Right-"></i>
           </p>
         </div>
       </div>
     </section>
 <!--聯絡我們-->
-    <section class="pad_100">
+    <section class="pad_100" id="IdContactUs">
       <div class="Width1400">
-        <div class="textCenter"><p class="h1Title col_254051">聯絡我們</p></div>
+        <div class="textCenter">
+          <h1 class="h1Title col_254051">{{$t("message.LianLuoWm")}}</h1>
+        </div>
         <div class="contentBtnDiv">
           <div class="row rowCol3 rowCol1_xs">
             <div class="inputDiv">
-              <input type="text" placeholder="請輸入聯絡人">
+              <input type="text" :placeholder='$t("message.QSRLianLuoRen")'>
             </div>
             <div class="inputDiv">
-              <input type="text" placeholder="請輸入電郵地址">
+              <input type="text" :placeholder='$t("message.QSRDianYou")'>
             </div>
             <div class="inputDiv">
-              <input type="text" placeholder="請輸入聯絡電話">
+              <input type="text" :placeholder='$t("message.QSRDianHua")'>
             </div>
           </div>
           <div class="inputDiv connectTextarea">
-            <textarea placeholder="留言"></textarea>
+            <textarea :placeholder='$t("message.LiuYan")'></textarea>
           </div>
         </div>
         <div class="textCenter">
           <div class="buttonIcon border_205085">
-            <span>提交</span><i class="iconfont icon-Right-"></i>
+            <span>{{$t("message.TiJiao")}}</span><i class="iconfont icon-Right-"></i>
           </div>
         </div>
       </div>
@@ -505,7 +502,7 @@ export default {
         breakpoints: {
           100: {
             slidesPerView: 1,
-            spaceBetween: 35,
+            spaceBetween: 45,
             allowTouchMove:false
           },
           767: {
@@ -520,6 +517,14 @@ export default {
           }
         }
       })
+    },
+    // 索取報價
+    handleScroll (id) {
+      let element = document.getElementById(id);
+	    element.scrollIntoView({
+         behavior: "smooth",  // 平滑过渡
+         block:    "end"
+      });
     }
 
   }

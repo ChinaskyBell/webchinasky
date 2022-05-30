@@ -6,7 +6,7 @@ import tw from './lang/tw'
 
 Vue.use(VueI18n)
 const i18n = new VueI18n({
-  locale: localStorage.getItem('locale') || 'cn',
+  locale: localStorage.getItem('locale') || 'tw',
   messages: {
     'cn': cn,
     'en': en,

@@ -3,8 +3,8 @@
       <div class="caseBg">
         <div class="Width1400">
           <div class="projectBtnBox">
-            <p>準備好開始你的項目了嗎？</p>
-            <button class="btn">索取報價</button>
+            <p>{{$t("message.SuoQuBJText")}}</p>
+            <router-link to="/ContactUs" tag="button" class="btn">{{$t("message.SuoQuBJ")}}</router-link>
           </div>
         </div>
       </div>
@@ -27,7 +27,7 @@ name: "Offer"
 .projectBtnBox{
   color: #FFFFFF;
   text-align: center;
-  padding: 80px 0 120px;
+  padding: 110px 0;
 }
 .projectBtnBox>p{
   font-size: 48px;
@@ -42,7 +42,7 @@ name: "Offer"
 }
 @media screen and (max-width:1390px){
   .projectBtnBox{
-    padding: 70px 0 100px;
+    padding: 100px 0;
   }
 }
 @media screen and (max-width:1023px){
@@ -51,20 +51,20 @@ name: "Offer"
     font-size: 32px;
   }
   .projectBtnBox{
-    padding: 50px 0 70px;
+    padding: 70px 0;
   }
 }
 @media screen and (max-width:767px){
   .projectBtnBox>p{
-    font-size: 24px;
+    font-size: 20px;
     margin-bottom: 15px;
   }
   .projectBtnBox>button{
-    font-size: 16px;
-    padding: 8px 30px;
+    font-size: 14px;
+    padding: 5px 20px;
   }
   .projectBtnBox{
-    padding: 20px 0 30px;
+    padding: 30px 0;
   }
 }
 </style>

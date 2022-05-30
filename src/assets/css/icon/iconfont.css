@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 3254992 */
-  src: url('iconfont.woff2?t=1649324195612') format('woff2'),
-       url('iconfont.woff?t=1649324195612') format('woff'),
-       url('iconfont.ttf?t=1649324195612') format('truetype');
+  src: url('iconfont.woff2?t=1652928922508') format('woff2'),
+       url('iconfont.woff?t=1652928922508') format('woff'),
+       url('iconfont.ttf?t=1652928922508') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +11,94 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-jiantou:before {
+  content: "\e606";
+}
+
+.icon-shengyin:before {
+  content: "\e60c";
+}
+
+.icon-https:before {
+  content: "\e60e";
+}
+
+.icon-xiangyi:before {
+  content: "\e601";
+}
+
+.icon-SEO:before {
+  content: "\e68e";
+}
+
+.icon-jiagebiao:before {
+  content: "\e60d";
+}
+
+.icon-jingyanzhi:before {
+  content: "\e615";
+}
+
+.icon-zhuanye:before {
+  content: "\e617";
+}
+
+.icon-duigou:before {
+  content: "\e629";
+}
+
+.icon-app:before {
+  content: "\e655";
+}
+
+.icon-APP:before {
+  content: "\e60b";
+}
+
+.icon-APPkaifa:before {
+  content: "\e6cc";
+}
+
+.icon-gongzhonghao:before {
+  content: "\e712";
+}
+
+.icon-xiaochengxu:before {
+  content: "\e636";
+}
+
+.icon-qiyeweixin:before {
+  content: "\e619";
+}
+
+.icon-fenxiang:before {
+  content: "\e739";
+}
+
+.icon-youhuiquan:before {
+  content: "\e616";
+}
+
+.icon-duozhongzhifu:before {
+  content: "\e8f9";
+}
+
+.icon-pingjia:before {
+  content: "\e641";
+}
+
+.icon-tuijian:before {
+  content: "\e60a";
+}
+
+.icon-chanpin:before {
+  content: "\e6c7";
+}
+
+.icon-gou1:before {
+  content: "\e61e";
 }
 
 .icon-kaifa:before {

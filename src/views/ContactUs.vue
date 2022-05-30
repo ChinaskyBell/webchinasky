@@ -2,27 +2,56 @@
   <div class="mianDiv">
 <!-- 顶部标题 -->
     <section class="">
-      <img src="../assets/img/network_banner.png" class="bannerImg">
+      <img src="../assets/img/contactUs_banner.png" class="bannerImg">
       <div class="bannerTit wow fadeInDown" data-wow-delay="0.5s">
-        <strong>联络我们</strong>
+        <strong>聯繫我們</strong>
       </div>
     </section>
 <!--    联络我们-->
     <section class="pad_100">
       <div class="Width1200">
+        <h1 class="h1Title col_254051">聯絡我們</h1>
         <div class="disTable contactDiv">
           <div class="">
-            <div class="footerConnect">
-              <div>中天科技系统有限公司</div>
-              <div>地址：荃湾海盛路11号One Midtown 15楼13A室</div>
-              <div>E-mail: <span @click="toLink('mailto:'+emailHk)">{{ emailHk }}</span></div>
-              <div class="phone"><span @click="toLink('tel:(852)24902300')">+852-24902300</span></div>
-            </div>
-            <div class="footerConnect">
-              <div>中天动力系统(深圳)有限公司</div>
-              <div>地址：深圳市罗湖区南湖街道春风路庐山大厦B栋5C</div>
-              <div>E-mail: <span @click="toLink('mailto:'+emailCn)">{{ emailCn }}</span></div>
-              <div class="phone"><span @click="toLink('tel' +':(0755)25100512')">+86-755-25100512</span></div>
+            <ul class="contactConnect">
+              <li>
+                <strong>中天科技系統有限公司</strong>
+              </li>
+              <li>
+                <strong>地址：荃灣海盛路11號One Midtown 15樓13A室</strong>
+              </li>
+              <li>
+                電話: <span @click="toLink('tel:(852)24902300')">(852) 2490-2300</span>
+              </li>
+              <li>
+                E-mail: <span @click="toLink('mailto:'+emailHk)">{{ emailHk }}</span>
+              </li>
+            </ul>
+            <ul class="contactConnect">
+              <li>
+                <strong>中天动力系统(深圳)有限公司</strong>
+              </li>
+              <li>
+                <strong>地址：深圳市羅湖區南湖街道春風路廬山大廈B棟5C</strong>
+              </li>
+              <li>
+                電話: <span @click="toLink('tel' +':(0755)25100512')">+86-755-25100512</span>
+              </li>
+              <li>
+                E-mail: <span @click="toLink('mailto:'+emailCn)">{{ emailCn }}</span>
+              </li>
+            </ul>
+            <div>
+              <ul class="footIconDiv">
+                <li @click="toLink(1,'https://www.facebook.com/chinaskynet')"><i class="iconfont icon-facebook"></i></li>
+                <li>
+                  <i class="iconfont icon-weixin"></i>
+                  <div class="wechatCode">
+                    <img src="../assets/img/weixin.png"/>
+                  </div>
+                </li>
+                <li @click="toLink(1,'https://api.whatsapp.com/send?phone=85251750111')"><i class="iconfont icon-whatsapp1"></i></li>
+              </ul>
             </div>
           </div>
           <div>
@@ -40,7 +69,7 @@
                 <textarea placeholder="留言"></textarea>
               </div>
             </div>
-            <div class="textCenter">
+            <div class="">
               <div class="buttonIcon border_205085">
                 <span>提交</span><i class="iconfont icon-Right-"></i>
               </div>
@@ -83,8 +112,29 @@ export default {
 <style scoped>
 .contactDiv>div{
   display: table-cell;
-  vertical-align: top;
-  width: 50%;
+  vertical-align: middle;
+  table-layout: fixed;
+}
+.contactDiv>div:first-child{
+  width: 40%;
+  color: #254051;
+  font-size: 14px;
+}
+.contactDiv>div:last-child{
+  width: 60%;
+}
+.contactDiv>div .contactConnect:first-child{
+  margin-bottom: 40px;
+}
+.contactConnect li>strong{
+  color: #205085;
+  display: block;
+}
+.contactConnect>li:first-child{
+  padding-top: 0;
+}
+.contactConnect>li{
+  padding-top: 15px;
 }
 .contactInput>.inputDiv:first-child{
   margin-top: 0;
@@ -97,26 +147,24 @@ export default {
   width: 100%;
   background: aliceblue;
 }
-.contactDiv .footerConnect:last-child{
-  margin-top: 40px;
-}
-.footerConnect>div{
-  font-size: 16px;
-}
-.footerConnect .phone{
-  font-size: 28px;
-}
 
 @media screen and (max-width:1024px){
 	.contactDiv>div{
     display: block;
     width: 100%;
   }
-  .contactDiv .footerConnect:last-child{
-    margin-top: 0px;
-  }
   .contactDiv>div:first-child{
     margin-bottom: 50px;
+  }
+  .contactDiv>div .contactConnect{
+    display: inline-block;
+    width: 48%;
+  }
+  .contactDiv>div .contactConnect:first-child{
+    margin-bottom: 0;
+  }
+  .contactDiv>div:first-child,.contactDiv>div:last-child{
+    width: 100%;
   }
 }
 @media screen and (max-width:767px){
@@ -126,14 +174,22 @@ export default {
   .contactInput>.inputDiv{
     margin-top: 20px;
   }
-  .contactDiv .footerConnect:last-child{
-    margin-top: 10px;
-  }
   .footerConnect>div{
     font-size: 13px;
   }
   .footerConnect .phone {
     font-size: 20px;
+  }
+
+  .contactDiv>div .contactConnect{
+    display: block;
+    width: 100%;
+  }
+  .contactDiv>div .contactConnect:first-child{
+    margin-bottom: 15px;
+  }
+  .contactConnect>li{
+    padding-top: 8px;
   }
 }
 </style>

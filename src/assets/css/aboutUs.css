@@ -1,6 +1,66 @@
+/*視頻*/
+.fixedBgImg{
+  position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	opacity: 0.5;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	background-blend-mode: hard-light;
+	background-position: center center;
+  z-index: -1;
+}
+.funfactImg{
+	background-image: url('../img/software_banner.png');
+}
+.indexVideo{
+	position: relative;
+	z-index: 0;
+	margin: auto;
+	max-width: 1250px;
+}
+.indexVideo>video{
+	width: 100%;
+  display: block;
+}
+.indexVideoMuted{
+	position: absolute;
+	right: 2.5%;
+	bottom: 10%;
+	cursor: pointer;
+}
+.indexVideoMuted .icon-shengyin{
+	background: rgba(0,0,0,0.6);
+	border-radius: 50%;
+}
+.indexVideoMuted i{
+	font-size: 35px;
+	color: #FFFFFF;
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+}
+.indexVideoMuted .icon-cha{
+	position: absolute;
+	right: 0;
+  top: 0;
+	color: #f44336;
+	opacity: 1;
+	transition: .5s;
+	font-size: 30px;
+}
+.indexVideoMuted.active .icon-cha{
+	opacity: 0;
+}
+/*關於我們*/
 .aboutUsDiv>div{
   display: table-cell;
-  vertical-align: top;
+  vertical-align: middle;
   box-sizing: border-box;
 }
 .aboutLeftDiv{
@@ -11,51 +71,15 @@
   width: 60%;
   padding-left: 80px;
 }
-.aboutLeftDiv .div1{
-  background: #419eef;
-  display: flex;
-  display: -ms-flexbox;
-  display: -moz-flex;
-  padding: 20px 30px;
-  align-items: center;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  border: 40px solid #fff;
-  border-left: none;
-  color: #fff;
+.itemTitle{
+  color: #254051;
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+.spanText{
+  color: #83929c;
   font-size: 16px;
-}
-.aboutLeftDiv .div1 .spanline {
-  width: 60px;
-}
-.aboutLeftDiv .div1 strong {
-  display: block;
-  font-size: 60px;
-  padding: 0 15px;
-}
-.aboutLeftDiv .div1 span {
-  display: block;
-  height: 3px;
-  background: #fff;
-  animation: load1 1s infinite ease-in-out;
-  width: 23px;
-  margin: 12px 0;
-  animation-delay: -0.16s;
-}
-.aboutLeftDiv .div1 .span2 {
-  animation-delay: -0.32s;
-}
-.aboutLeftDiv .div1 .span3 {
-  animation-delay: -0.46s;
-}
-@-webkit-keyframes load1 {
-  0%, 80%, 100% {
-    width: 13px;
-  }
-  40% {
-    width: 60px;
-  }
+  line-height: 2;
 }
 /*使命*/
 .missionDiv>div{
@@ -70,48 +94,166 @@
 .missionRightDiv{
   width: 40%;
 }
+.missionLeftDiv ul{
+  margin-top: 20px;
+}
 .missionLeftDiv li{
   padding: 5px 0;
 }
 .missionLeftDiv li i{
   font-size: 25px;
-  color: #419eef;
+  color: #71c8ff;
   display: inline-block;
   vertical-align: middle;
   margin-right: 15px;
 }
 .missionLeftDiv li span{
   font-size: 16px;
-  color: #757575;
+  color: #254051;
 }
+/*为什么选择我们*/
 .ChooseDiv{
   margin-top: 50px;
   text-align: center;
 }
 .ChooseDiv .rowHDiv>div{
   width: 30%;
-  padding: 15px;
   box-sizing: border-box;
 }
 .ChooseDiv .divs{
-  box-shadow: 1px 1px 6px 0 rgba(0,0,0,0.17);
-  padding: 30px 30px 50px;
+  box-shadow: 0 0 28px rgba(0, 0, 0, 0.16);
+  padding: 50px 35px;
   box-sizing: border-box;
   height: 100%;
-  border-radius: 5px;
+  transition: all 0.3s;
+}
+.ChooseDiv .divs:hover{
+  transform: translateY(-10px);
 }
 .ChooseDiv .divs>i{
   font-size: 80px;
-  color: #419eef;
+  color: #205085;
   line-height: 1;
 }
 .ChooseDiv .divs>p{
-  font-size: 22px;
-  margin: 20px 0;
+  font-size: 24px;
+  margin: 30px 0 20px;
+  color: #254051;
 }
 .ChooseDiv .divs>div{
   margin: auto;
-  font-size: 15px;
-  color: #757575;
-  line-height: 2.2;
+  font-size: 16px;
+  color: #83929c;
+  line-height: 1.8;
+}
+/*pre*/
+.preText{
+  white-space: pre-line;
+  line-height: 1.8;
+  color: #83929c;
+  font-size: 16px;
+  min-height: 50px;
+  transition: all 0.3s;
+}
+.aboutPreText{
+  min-height: 350px;
+}
+@media screen and (max-width:1024px){
+  .aboutUsDiv>div{
+    display: block;
+    width: 100%;
+  }
+  div.aboutLeftDiv{
+    display: none;
+  }
+  .aboutRightDiv{
+    padding-left: 0;
+  }
+  .aboutPreText{
+    min-height: 250px;
+  }
+  .missionLeftDiv{
+    padding-right: 20px;
+  }
+  .preText{
+    line-height: 1.6;
+  }
+  .missionLeftDiv ul{
+    margin-top: 10px;
+  }
+  .ChooseDiv{
+    margin-top: 20px;
+  }
+  .ChooseDiv .rowHDiv>div{
+    width: 31%;
+  }
+  .ChooseDiv .divs>p{
+    font-size: 18px;
+    margin: 20px 0 15px;
+  }
+  .ChooseDiv .divs>i{
+    font-size: 70px;
+  }
+  .ChooseDiv .divs>div{
+    font-size: 14px;
+  }
+}
+@media screen and (max-width:767px) {
+  .indexVideoMuted i{
+    font-size: 25px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+  }
+  .indexVideoMuted .icon-cha{
+    font-size: 20px;
+  }
+
+  .itemTitle{
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+  .preText{
+    font-size: 13px;
+  }
+  .missionDiv>div{
+    display: block;
+    width: 100%;
+  }
+  .missionLeftDiv ul{
+    margin-top: 5px;
+    padding-bottom: 20px;
+  }
+  .missionLeftDiv li span{
+    font-size: 13px;
+  }
+  .missionLeftDiv li i{
+    margin-right: 5px;
+    font-size: 20px;
+  }
+  .missionLeftDiv li{
+    padding: 2px 0;
+  }
+  .ChooseDiv{
+    margin-top: 10px;
+  }
+  .ChooseDiv .rowHDiv>div{
+    width: 48%;
+    margin-bottom: 15px;
+  }
+  .ChooseDiv .divs{
+    padding: 25px 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.16);
+  }
+  .ChooseDiv .divs>p{
+    font-size: 14px;
+    margin: 10px 0;
+  }
+  .ChooseDiv .divs>div{
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  .ChooseDiv .divs>i{
+    font-size: 50px;
+  }
 }

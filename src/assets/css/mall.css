@@ -1,0 +1,198 @@
+.swiper-button-prev, .swiper-button-next {
+  top: 45%;
+  background: #000;
+  width: 50px;
+  padding: 10px 0;
+}
+@media screen and (max-width: 767px) {
+  .swiper-button-prev, .swiper-button-next {
+    top: 50%;
+    width: auto;
+    padding: 0;
+  }
+}
+/*限时优惠*/
+.mallBigDiv{
+  padding: 100px 0 60px;
+}
+.discountSpan{
+  color: #FAA236;
+}
+.discountDiv{
+  padding: 45px 0;
+}
+.discountDiv>ul{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.discountDiv>ul>li{
+  width: 23%;
+}
+.discountDiv>ul>li .text{
+  margin: 25px 0;
+}
+.discountDiv>ul>li .text>span,.discountDiv>ul>li .text>strong{
+  display: inline-block;
+  vertical-align: top;
+}
+.discountDiv>ul>li .text>strong{
+  font-size: 40px;
+  line-height: 1;
+}
+.discountDiv>ul>li .text label{
+  font-size: 18px;
+  font-weight: initial;
+}
+.discountDiv>ul>li>button{
+  width: 100%;
+  text-align: center;
+  padding: 7px;
+  box-sizing: border-box;
+  font-size: 18px;
+  border-radius: 40px;
+  font-weight: bolder;
+}
+.discountDivText>ul{
+  margin: 10px 0;
+}
+.discountDivText>ul>li{
+  padding: 20px;
+  box-sizing: border-box;
+}
+.discountDivText>ul>li:last-child{
+  border-bottom: 0;
+}
+.discountDivText>ul>li i,.discountDivText>ul>li p{
+  display: inline-block;
+  vertical-align: middle;
+}
+.discountDivText>ul>li i{
+  color: #11A0FE;
+  font-size: 20px;
+  max-width: 20px;
+  margin-right: 10px;
+}
+.discountDivText>ul>li p{
+  width: calc(100% - 40px);
+}
+.discountDivText .p2{
+  margin-top: 10px;
+}
+
+/*
+購買
+*/
+.mallBgImg{
+  background: url("../img/mall_bg.png") no-repeat;
+  background-size: 100% 100%;
+}
+.discountBg_blue1,.discountBg_blue2{
+  color: #FFFFFF;
+}
+.discountBg_blue1>li button{
+  border: 1px solid #FFFFFF;
+  color: #FFFFFF;
+}
+.discountBg_blue1>li button:hover{
+  color: #205085;
+  background: #FFFFFF;
+}
+.discountBg_blue2>ul{
+  border: 1px solid #8498B8;
+}
+.discountBg_blue2>ul li{
+  border-bottom: 1px solid #8498B8;
+}
+/*
+租用
+*/
+.discountBg_white1>li button{
+  border: 1px solid #205085;
+  color: #205085;
+}
+.discountBg_white1>li button:hover{
+  color: #FFFFFF;
+  background: #205085;
+}
+.discountBg_white2{
+  color: #A2A2A2;
+}
+.discountBg_white2>ul{
+  border: 1px solid #D0D0D0;
+}
+.discountBg_white2>ul li{
+  border-bottom: 1px solid #D0D0D0;
+}
+@media screen and (max-width:1200px){
+  .discountDiv>ul>li .text>strong{
+    font-size: 32px;
+  }
+  .discountDiv>ul>li>p{
+    white-space: nowrap;
+  }
+}
+@media screen and (max-width:1023px){
+  .mallBigDiv{
+    padding: 50px 0 35px;
+    font-size: 16px;
+  }
+  .discountDiv{
+    padding: 0 0 20px;
+  }
+  .discountDiv>ul>li{
+    width: 48%;
+    padding: 20px 0;
+  }
+  .discountBg_blue1>li{
+    border-bottom: 1px solid #8498B8;
+  }
+  .discountBg_white1>li{
+    border-bottom: 1px solid #D0D0D0;
+  }
+  .discountDivText>ul>li{
+    padding: 15px;
+  }
+  .discountDiv>ul>li>button{
+    font-size: 16px;
+  }
+}
+@media screen and (max-width:767px){
+  .mallBigDiv{
+    font-size: 14px;
+  }
+  .discountDiv{
+    padding: 10px 0;
+  }
+  .discountDiv>ul>li{
+    width: 100%;
+    padding: 10px 0;
+  }
+  .discountDivText>ul>li{
+    padding: 10px;
+    font-size: 12px;
+  }
+  .discountDivText>ul>li i{
+    margin-right: 3px;
+    font-size: 16px;
+    max-width: 16px;
+  }
+  .discountDivText>ul>li p{
+    width: calc(100% - 25px);
+  }
+  .discountDiv>ul>li .text{
+    margin: 15px 0;
+  }
+  .discountDiv>ul>li .text>strong{
+    font-size: 28px;
+  }
+  .discountDivText .p2{
+    margin-top: 0;
+  }
+  .mallBigDiv .h1Title{
+    padding-bottom: 5px;
+  }
+  .mallBgImg{
+    background: #205085;
+  }
+}

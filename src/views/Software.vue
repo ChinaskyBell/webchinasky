@@ -11,7 +11,9 @@
     <section id="swiperBoxDiv">
       <div class="swiperBoxDiv">
         <div class="swiperBox1">
-          <h1 class="h1Title">軟件開發</h1>
+          <div class="textCenter">
+            <h1 class="h1Title">軟件開發</h1>
+          </div>
           <div class="Width1400">
             <div class="swiper gallery_thumbs">
               <div class="swiper-wrapper">
@@ -438,7 +440,7 @@ export default {
         breakpoints: {
           100: {
             slidesPerView: 1,
-            spaceBetween: 35,
+            spaceBetween: 45,
             allowTouchMove:false
           },
           767: {
@@ -464,71 +466,7 @@ export default {
 </script>
 
 <style scoped>
-.softwareHeight{
-  height: 20px;
-  width: 100%;
-  background: #72C8FF;
-}
-.softwareDivsItem{
-  position: relative;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s linear;
-}
-div.showSoftwareDiv{
-  max-height: 2000px;
-}
-.softwareDivsItem .Width1400{
-  padding-top: 70px;
-  padding-bottom: 100px;
-}
-.softwareDivsItem .closeIcon{
-  position: absolute;
-  right: 30px;
-  top: 30px;
-  color: #FFFFFF;
-  cursor: pointer;
-}
-.softwareDivFlex{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-.softwareDivFlex>div{
-  border: 1px solid #FFFFFF;
-  box-sizing: border-box;
-  color: #FFFFFF;
-  margin-top: 50px;
-  padding: 30px;
-}
-.softwareDivsItem .softwareTit{
-  font-size: 48px;
-  text-align: center;
-  color: #FFFFFF;
-}
-.softwareDivFlex .title{
-  color: #8AAFC0;
-  font-size: 24px;
-  padding-bottom: 15px;
-}
-.softwareDivFlex .title>i{
-  font-size: 24px;
-  margin-right: 10px;
-}
-.softwareDivFlex .text{
-  font-size: 16px;
-  line-height: 1.6;
-}
-.softwareDivFlex .text>p{
-  padding-top: 10px;
-}
-.softwareDivFlex .borderTop{
-  text-align: center;
-}
-.softwareDivFlex .borderTop .text{
-  border-top: 1px solid #FFFFFF;
-  padding-top: 10px;
-}
+@import "../assets/css/develop.css";
 .softwareDiv1{
   background: url("../assets/img/development_pic1_l.png") no-repeat;
   background-size: cover;
@@ -544,72 +482,5 @@ div.showSoftwareDiv{
 .softwareDiv4{
   background: url("../assets/img/development_pic4_l.png") no-repeat;
   background-size: cover;
-}
-.flexRow3>div{
-  width: 30%;
-}
-.flexRow4>div{
-  width: 22.5%;
-}
-.flexRow5>div{
-  width: 18%;
-}
-@media screen and (max-width:1023px){
-  .softwareDivsItem .Width1400{
-    padding-top: 40px;
-    padding-bottom: 50px;
-  }
-  .softwareDivsItem .softwareTit{
-    font-size: 32px;
-  }
-  .softwareDivFlex>div{
-    margin-top: 30px;
-    padding: 20px;
-  }
-  .softwareDivFlex .title>i,.softwareDivFlex .title{
-    font-size: 20px;
-  }
-  .softwareDivFlex .title>i{
-    margin-right: 0;
-  }
-  .flexRow5>div{
-    width: 30%;
-  }
-  .softwareDivFlex .text{
-    font-size: 14px;
-  }
-}
-@media screen and (max-width:767px){
-  .run_txtTit .title{
-    font-size: 18px;
-    margin-bottom: 0;
-  }
-  .thumbsText div.run_txtTit{
-    font-size: 10px;
-  }
-  .softwareDivsItem .softwareTit{
-    font-size: 20px;
-  }
-  .softwareDivFlex .title{
-    font-size: 16px;
-    padding-bottom: 10px;
-  }
-  .softwareDivFlex>div{
-    margin-top: 15px;
-    padding: 10px;
-  }
-  .flexRow3>div,.flexRow4>div,.flexRow5>div{
-    width: 48%;
-  }
-  .softwareDivFlex .text{
-    font-size: 12px;
-  }
-  .softwareDivsItem .closeIcon{
-    right: 10px;
-    top: 10px;
-  }
-  .softwareHeight{
-    height: 10px;
-  }
 }
 </style>
