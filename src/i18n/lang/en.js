@@ -55,7 +55,7 @@ module.exports = {
     ITFuWuText4: 'Our network maintenance service helps your computer and peripheral hardware and software to operate normally. Customers can focus on their business. ',
     ITFuWuText5: 'Our network maintenance services include setting up network architecture, security and technical support. ',
     ITFuWuText6: 'Our server maintenance includes server setup, completion and software updates. Make sure your server can maintain normal operation. ',
-    KaiFaAL: 'Development case',
+    KaiFaAL: 'Development Case',
     ChaKan: 'View',
     LiJiDY: 'Subscribe Now',
     QSRDYEmail: 'Please enter your email to receive the latest news',

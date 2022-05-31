@@ -4,24 +4,24 @@
     <section class="">
       <img src="../assets/img/contactUs_banner.png" class="bannerImg">
       <div class="bannerTit wow fadeInDown" data-wow-delay="0.5s">
-        <strong>聯繫我們</strong>
+        <strong>{{$t("message.LianXiWM")}}</strong>
       </div>
     </section>
 <!--    联络我们-->
     <section class="pad_100">
       <div class="Width1200">
-        <h1 class="h1Title col_254051">聯絡我們</h1>
+        <h1 class="h1Title col_254051">{{$t("message.LianLuoWm")}}</h1>
         <div class="disTable contactDiv">
           <div class="">
             <ul class="contactConnect">
               <li>
-                <strong>中天科技系統有限公司</strong>
+                <strong>{{$t("message.GongSiHK")}}</strong>
               </li>
               <li>
-                <strong>地址：荃灣海盛路11號One Midtown 15樓13A室</strong>
+                <strong>{{$t("message.DiZhiHK")}}</strong>
               </li>
               <li>
-                電話: <span @click="toLink('tel:(852)24902300')">(852) 2490-2300</span>
+                {{$t("message.DianHua")}}: <span @click="toLink('tel:(852)24902300')">(852) 2490-2300</span>
               </li>
               <li>
                 E-mail: <span @click="toLink('mailto:'+emailHk)">{{ emailHk }}</span>
@@ -29,13 +29,13 @@
             </ul>
             <ul class="contactConnect">
               <li>
-                <strong>中天动力系统(深圳)有限公司</strong>
+                <strong>{{$t("message.GongSiSZ")}}</strong>
               </li>
               <li>
-                <strong>地址：深圳市羅湖區南湖街道春風路廬山大廈B棟5C</strong>
+                <strong>{{$t("message.DiZhiSZ")}}</strong>
               </li>
               <li>
-                電話: <span @click="toLink('tel' +':(0755)25100512')">+86-755-25100512</span>
+                {{$t("message.DianHua")}}: <span @click="toLink('tel' +':(0755)25100512')">+86-755-25100512</span>
               </li>
               <li>
                 E-mail: <span @click="toLink('mailto:'+emailCn)">{{ emailCn }}</span>
@@ -57,21 +57,21 @@
           <div>
             <div class="contactInput">
               <div class="inputDiv">
-                <input type="text" placeholder="聯絡人">
+                <input type="text" :placeholder='$t("message.QSRLianLuoRen")'>
               </div>
               <div class="inputDiv">
-                <input type="text" placeholder="電子郵件">
+                <input type="text" :placeholder='$t("message.QSRDianYou")'>
               </div>
               <div class="inputDiv">
-                <input type="text" placeholder="電話號碼">
+                <input type="text" :placeholder='$t("message.QSRDianHua")'>
               </div>
               <div class="inputDiv">
-                <textarea placeholder="留言"></textarea>
+                <textarea :placeholder='$t("message.LiuYan")'></textarea>
               </div>
             </div>
             <div class="">
               <div class="buttonIcon border_205085">
-                <span>提交</span><i class="iconfont icon-Right-"></i>
+                <span>{{$t("message.TiJiao")}}</span><i class="iconfont icon-Right-"></i>
               </div>
             </div>
           </div>
