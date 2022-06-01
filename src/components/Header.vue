@@ -164,7 +164,7 @@ export default {
     getLang (Type) {
       this.$store.commit('set_languageName', Type)
       this.$i18n.locale = this.lang = Type
-      // window.location.reload()
+      window.location.reload()
     }
   },
   watch:{

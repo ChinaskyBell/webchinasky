@@ -9,7 +9,7 @@
       <div class="swiperBoxDiv">
         <div class="swiperBox1">
           <div class="textCenter">
-            <h1 class="h1Title">網上商城</h1>
+            <h1 class="h1Title">{{ $t("message.WangShangSC") }}</h1>
           </div>
           <div class="Width1400">
             <div class="swiper gallery_thumbs">
@@ -44,11 +44,8 @@
                 <div class="thumbsText">
                   <div>
                     <div class="run_txt run_txtTit">
-                      <p class="title">商品詳細全面展示</p>
-                      <p>網上商城可使更多的用戶獲得更大量的商品信息，</p>
-                      <p>可以面向更多區域地銷售， 商品可大圖多圖展示，</p>
-                      <p>規格、顏色、銷量、評價一系列信息全面展示，</p>
-                      <p>用戶足不出戶也能了解購買商品。</p>
+                      <p class="title">{{ $t("message.mallSwiperTit1") }}</p>
+                      <pre>{{developText}}</pre>
                     </div>
                   </div>
                 </div>
@@ -65,9 +62,8 @@
                 <div class="thumbsText">
                   <div>
                     <div class="run_txt run_txtTit">
-                      <p class="title">熱門商品推薦</p>
-                      <p>可根據銷售目的，在指定位置向用戶推薦商品，</p>
-                      <p>更有效地實現銷售目標，提高銷售額。</p>
+                      <p class="title">{{ $t("message.mallSwiperTit2") }}</p>
+                      <pre>{{developText}}</pre>
                     </div>
                   </div>
                 </div>
@@ -84,10 +80,8 @@
                 <div class="thumbsText">
                   <div>
                     <div class="run_txt run_txtTit">
-                      <p class="title">電子優惠券</p>
-                      <p>電子優惠券可幫助商家在一定的短時期內，對商品進行促銷刺激消費者購買。</p>
-                      <p>促進用戶消費；電子消費券可無限製作，無任何成本，</p>
-                      <p>同時用戶的接收也更及時，數據的查看更便捷</p>
+                      <p class="title">{{ $t("message.mallSwiperTit3") }}</p>
+                      <pre>{{developText}}</pre>
                     </div>
                   </div>
                 </div>
@@ -104,10 +98,8 @@
                 <div class="thumbsText">
                   <div>
                     <div class="run_txt run_txtTit">
-                      <p class="title">分享商品拓展更多客戶</p>
-                      <p>通過用戶活躍率更高的社交平台分享商品給好友，</p>
-                      <p>讓用戶主動分享商品，以達到APP拉新人和促銷商品的目的，</p>
-                      <p>通過好友間的分享可使商品達到更廣泛的傳播，獲取更多目標客戶</p>
+                      <p class="title">{{ $t("message.mallSwiperTit4") }}</p>
+                      <pre>{{developText}}</pre>
                     </div>
                   </div>
                 </div>
@@ -124,9 +116,8 @@
                 <div class="thumbsText">
                   <div>
                     <div class="run_txt run_txtTit">
-                      <p class="title">支持多種支付方式</p>
-                      <p>網上商城支持多種支付方式，</p>
-                      <p>滿足用戶多種需求，方便快捷交易。</p>
+                      <p class="title">{{ $t("message.mallSwiperTit5") }}</p>
+                      <pre>{{developText}}</pre>
                     </div>
                   </div>
                 </div>
@@ -143,10 +134,8 @@
                 <div class="thumbsText">
                   <div>
                     <div class="run_txt run_txtTit">
-                      <p class="title">交易評價收集客戶反饋</p>
-                      <p>通過消費者消費之後對商品的評價，</p>
-                      <p>可以幫助商家更好地了解自身商品，</p>
-                      <p>更好地銷售和優化商品。</p>
+                      <p class="title">{{ $t("message.mallSwiperTit6") }}</p>
+                      <pre>{{developText}}</pre>
                     </div>
                   </div>
                 </div>
@@ -163,7 +152,7 @@
     <section class="BgF2F5F6 pad_100">
       <div class="Width1400">
         <div class="textCenter">
-          <h1 class="h1Title col_254051">使用中天服務的好處</h1>
+          <h1 class="h1Title col_254051">{{this.$t("message.mallCoreBigT")}}</h1>
         </div>
         <div class="">
           <div class="separateUl separateUl4li">
@@ -184,7 +173,7 @@
     <section class="mallBigDiv mallBgImg">
       <div class="Width1200">
         <div class="textCenter">
-          <h1 class="h1Title col_FFF">購買限時優惠</h1>
+          <h1 class="h1Title col_FFF">{{$t("message.mallBuyTit")}}</h1>
           <span class="discountSpan">2022.05.01-2022.06.30</span>
         </div>
         <div class="discountDiv">
@@ -195,35 +184,35 @@
                 <span>HKD</span>
                 <strong>{{ item.price }}</strong>
               </div>
-              <button>購買</button>
+              <button>{{$t("message.mallBuyBtn")}}</button>
             </li>
           </ul>
         </div>
         <div class="discountDivText discountBg_blue2">
-          <p>購買包含</p>
+          <p>{{$t("message.mallBuyInclude")}}</p>
           <ul>
             <li>
               <i class="iconfont icon-duigou"></i>
-              <p>3種語言版本（繁、簡、英）</p>
+              <p>{{$t("message.mallDiscountText1")}}</p>
             </li>
             <li>
               <i class="iconfont icon-duigou"></i>
-              <p>含一年雲端空間10G空間及每月50G流量</p>
+              <p>{{$t("message.mallDiscountText2")}}</p>
             </li>
             <li>
               <i class="iconfont icon-duigou"></i>
-              <p>含一年維護費用（包括系統除錯服務及app版本更新）</p>
+              <p>{{$t("message.mallDiscountText2")}}</p>
             </li>
             <li>
               <i class="iconfont icon-duigou"></i>
-              <p><span class="discountSpan">優惠價-</span>第二年開始收取HKD 2,900.00元（雲端空間及維護費用-含同樣的服務即10G空間及每月50G流量，系統除錯服務及app版本更新)</p>
+              <p><span class="discountSpan">{{$t("message.mallDiscountText4_1")}}</span>{{$t("message.mallDiscountText4_2")}}</p>
             </li>
             <li>
               <i class="iconfont icon-duigou"></i>
-              <p>第三年開始取正價HKD 5,800.00元（雲端空間及維護費用-含同樣的服務即10G空間及每月50G流量，系統除錯服務及app版本更新)</p>
+              <p>{{$t("message.mallDiscountText5")}}</p>
             </li>
           </ul>
-          <p>只接入最多4種支付方式，多於4種會額外收取費用</p>
+          <p>{{$t("message.mallDiscountText6")}}</p>
         </div>
       </div>
 
@@ -232,7 +221,7 @@
     <section class="mallBigDiv BgFAFAFA">
       <div class="Width1200">
         <div class="textCenter">
-          <h1 class="h1Title">租用限時優惠</h1>
+          <h1 class="h1Title">{{$t("message.mallRentTit")}}</h1>
           <span class="discountSpan">2022.05.01-2022.06.30</span>
         </div>
         <div class="discountDiv">
@@ -243,28 +232,28 @@
                 <span>HKD</span>
                 <strong>{{ item.price }}<label>/{{item.cycle}}</label></strong>
               </div>
-              <button>租用</button>
+              <button>{{$t("message.mallRentBtn")}}</button>
             </li>
           </ul>
         </div>
         <div class="discountDivText discountBg_white2">
-          <p>購買包含</p>
+          <p>{{$t("message.mallRentInclude")}}</p>
           <ul>
             <li>
               <i class="iconfont icon-duigou"></i>
-              <p>3種語言版本（繁、簡、英）</p>
+              <p>{{$t("message.mallDiscountText1")}}</p>
             </li>
             <li>
               <i class="iconfont icon-duigou"></i>
-              <p>含雲端空間10G及每月50G流量</p>
+              <p>{{$t("message.mallDiscountText22")}}</p>
             </li>
             <li>
               <i class="iconfont icon-duigou"></i>
-              <p>含維護費用（包括系統除錯服務及app版本更新）</p>
+              <p>{{$t("message.mallDiscountText33")}}</p>
             </li>
           </ul>
-          <p>只接入最多4種支付方式，多於4種會額外收取費用</p>
-          <p class="p2">註：網上商城租用服務費用每年付一次</p>
+          <p>{{$t("message.mallDiscountText6")}}</p>
+          <p class="p2">{{$t("message.mallDiscountText8")}}</p>
         </div>
       </div>
     </section>
@@ -287,35 +276,48 @@ export default {
   data () {
     return {
       swiperTit:[
-        {'title': '商品詳細全面展示','time': 0.5,'icon':'icon-chanpin'},
-        {'title': '熱門商品推薦','time': 1,'icon':'icon-tuijian'},
-        {'title': '電子優惠券','time': 1.5,'icon':'icon-youhuiquan'},
-        {'title': '分享商品拓展更多客戶','time': 2,'icon':'icon-fenxiang'},
-        {'title': '支持多種支付方式','time': 0,'icon':'icon-duozhongzhifu'},
-        {'title': '交易評價收集客戶反饋','time': 0,'icon':'icon-pingjia'}
+        {'title': this.$t("message.mallSwiperTit1"),'time': 0.5,'icon':'icon-chanpin'},
+        {'title': this.$t("message.mallSwiperTit2"),'time': 1,'icon':'icon-tuijian'},
+        {'title': this.$t("message.mallSwiperTit3"),'time': 1.5,'icon':'icon-youhuiquan'},
+        {'title': this.$t("message.mallSwiperTit4"),'time': 2,'icon':'icon-fenxiang'},
+        {'title': this.$t("message.mallSwiperTit5"),'time': 0,'icon':'icon-duozhongzhifu'},
+        {'title': this.$t("message.mallSwiperTit6"),'time': 0,'icon':'icon-pingjia'}
       ],
       coreArr:[
-        {"title":"商品管理","content":"客戶可自主對商品分類展示，可根據商品價格、人氣、銷量進行排序，展示商品一系列信息等","img":"https://test41.chinaskynet.net/assets/image/mall1.png","time":0.15},
-        {"title":"購物車功能","content":"用戶可將商品加入購物車一起結算，根據用戶的選擇合計價格","img":"https://test41.chinaskynet.net/assets/image/mall2.png","time":0.3},
-        {"title":"收藏","content":"用戶可將喜歡的商品一鍵收藏，方便促進後期後買","img":"https://test41.chinaskynet.net/assets/image/mall3.png","time":0.45},
-        {"title":"營銷活動","content":"限時折扣、積分兌換等活動，購買時可以獲得對應積分，積分可以在結算時抵扣訂單金額","img":"https://test41.chinaskynet.net/assets/image/mall4.png","time":0.6},
-        {"title":"訂單管理","content":"可根據下單時間，訂單號等精確檢索到不同狀態（如待付款、待發貨、待收貨、待評價等）訂單","img":"https://test41.chinaskynet.net/assets/image/mall5.png","time":0.75},
-        {"title":"登錄/註冊","content":"可使用手機號和手機短信驗證碼快速註冊/使用帳號密碼直接註冊，第三方授權登錄，如微信Facebook，Twitter等","img":"https://test41.chinaskynet.net/assets/image/mall6.png","time":0.9},
-        {"title":"會員中心","content":"用戶基本信息管理，如手機號、郵件地址、收貨地址、密碼修改等","img":"https://test41.chinaskynet.net/assets/image/mall7.png","time":1.05},
-        {"title":"售後退款","content":"用戶可提交退款退貨申請，查看退款訂單，跟蹤退貨狀態","img":"https://test41.chinaskynet.net/assets/image/mall8.png","time":1.2},
+        {"title":this.$t("message.mallCoreTit1"),"content":this.$t("message.mallCoreText1"),"img":"https://test41.chinaskynet.net/assets/image/mall1.png","time":0.15},
+        {"title":this.$t("message.mallCoreTit2"),"content":this.$t("message.mallCoreText2"),"img":"https://test41.chinaskynet.net/assets/image/mall2.png","time":0.3},
+        {"title":this.$t("message.mallCoreTit3"),"content":this.$t("message.mallCoreText3"),"img":"https://test41.chinaskynet.net/assets/image/mall3.png","time":0.45},
+        {"title":this.$t("message.mallCoreTit4"),"content":this.$t("message.mallCoreText4"),"img":"https://test41.chinaskynet.net/assets/image/mall4.png","time":0.6},
+        {"title":this.$t("message.mallCoreTit5"),"content":this.$t("message.mallCoreText5"),"img":"https://test41.chinaskynet.net/assets/image/mall5.png","time":0.75},
+        {"title":this.$t("message.mallCoreTit6"),"content":this.$t("message.mallCoreText6"),"img":"https://test41.chinaskynet.net/assets/image/mall6.png","time":0.9},
+        {"title":this.$t("message.mallCoreTit7"),"content":this.$t("message.mallCoreText7"),"img":"https://test41.chinaskynet.net/assets/image/mall7.png","time":1.05},
+        {"title":this.$t("message.mallCoreTit8"),"content":this.$t("message.mallCoreText8"),"img":"https://test41.chinaskynet.net/assets/image/mall8.png","time":1.2},
         {"title":"","content":"","img":"","time":0}
       ],
       buyArr:[
-        {'title': '網站+APP商城（iOS+Android）','price':'58,000.00'},
-        {'title': 'APP商城（iOS+Android）','price':'48,000.00'},
-        {'title': '網站商城','price':'20,000.00'}
+        {'title': this.$t("message.mallDiscountTit1"),'price':'58,000.00'},
+        {'title': this.$t("message.mallDiscountTit2"),'price':'48,000.00'},
+        {'title': this.$t("message.mallDiscountTit3"),'price':'20,000.00'}
       ],
       rentArr:[
-        {'title': '網站+APP商城（iOS+Android）','price':'22,800.00','cycle':'年'},
-        {'title': 'iOS APP商城','price':'700.00','cycle':'月'},
-        {'title': 'Android APP商城','price':'700.00','cycle':'月'},
-        {'title': '網站商城','price':'500.00','cycle':'月'}
-      ]
+        {'title': this.$t("message.mallDiscountTit1"),'price':'22,800.00','cycle':this.$t("message.Year")},
+        {'title': this.$t("message.mallDiscountTit4"),'price':'700.00','cycle':this.$t("message.Moon")},
+        {'title': this.$t("message.mallDiscountTit5"),'price':'700.00','cycle':this.$t("message.Moon")},
+        {'title': this.$t("message.mallDiscountTit3"),'price':'500.00','cycle':this.$t("message.Moon")}
+      ],
+      // 打字机
+      developContent: [
+        this.$t("message.mallSwiperText1"),
+        this.$t("message.mallSwiperText2"),
+        this.$t("message.mallSwiperText3"),
+        this.$t("message.mallSwiperText4"),
+        this.$t("message.mallSwiperText5"),
+        this.$t("message.mallSwiperText6")
+      ],
+      developText: "",
+      isDevelopText: 0,
+      timer: null,
+      developTextIndex: 0
     }
   },
   comments:{
@@ -330,6 +332,7 @@ export default {
       this.galleryThumbsLunbo();
       this.galleryTopLunbo();
     });
+    this.typewriter(this.developTextIndex)
   },
   methods: {
     // 缩略图轮播
@@ -346,6 +349,19 @@ export default {
         thumbs: {
           swiper: this.galleryThumbs,
           slideThumbActiveClass: 'swiper-slide-thumb-active',
+        },
+        on: {
+          slideChange: function(){
+            if (this.activeIndex === that.developTextIndex){
+              console.log("同一个")
+            }else {
+              clearInterval(that.timer)
+              that.developTextIndex = this.activeIndex
+              that.developText = ""
+              that.isDevelopText = 0
+              that.typewriter(this.activeIndex)
+            }
+          }
         }
       })
     },
@@ -371,6 +387,20 @@ export default {
         }
       })
     },
+    //打字机
+    typewriter (x){
+      const that =this
+      if (this.isDevelopText === 0) {
+        this.isDevelopText = 1
+        let index = 0
+        that.timer = setInterval(function () {
+          that.developText = that.developContent[x].substring(0, index++);
+          if (that.developContent[x].length + 1 === index) {
+            clearInterval(that.timer)
+          }
+        }, 15);
+      }
+    }
   }
 }
 </script>

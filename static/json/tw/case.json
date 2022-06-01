@@ -1,0 +1,29 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "type": 1,
+      "title": "Alpha Omega",
+      "introduction": "案例簡介案例簡介案例簡介案例簡介案例簡介案例簡介1",
+      "logo_img": "https://test41.chinaskynet.net/assets/case/logo_alpha.png",
+      "bg_img": "https://test41.chinaskynet.net/assets/case/case_pic2.png",
+      "right_img": "https://test41.chinaskynet.net/assets/case/case_pic1.png",
+      "state": 0,
+      "link": "http://www.alpha-omegacapital.com/",
+      "content": ""
+    },
+    {
+      "id": 2,
+      "type": 2,
+      "title": "補習社",
+      "introduction": "案例簡介案例簡介案例簡介案例簡介案例簡介案例簡介2",
+      "logo_img": "https://test41.chinaskynet.net/assets/case/logo_baoxian.png",
+      "bg_img": "https://test41.chinaskynet.net/assets/case/case_pic2.png",
+      "right_img": "https://test41.chinaskynet.net/assets/case/case_pic3.png",
+      "state": 1,
+      "link": "",
+      "content": "一個24小時線上學習平台，24X7即時真人學習輔導，主要功能幫助學生即時核對功課，同時含有老師、學生、家長三個不同角色版本，更有線上練習，一鍵到家等服務，做學生的貼心助手。"
+    }
+  ]
+}
+

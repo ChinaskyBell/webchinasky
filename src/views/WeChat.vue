@@ -4,7 +4,7 @@
     <section class="">
       <img src="../assets/img/wechat_banner.png" class="bannerImg">
       <div class="bannerTit wow fadeInDown" data-wow-delay="0.5s">
-        <strong>微信開發</strong>
+        <strong>{{$t("message.WeiXinKF")}}</strong>
       </div>
     </section>
     <!--開發服務-->
@@ -12,7 +12,7 @@
       <div class="swiperBoxDiv">
         <div class="swiperBox1">
           <div class="textCenter">
-            <h1 class="h1Title">微信開發</h1>
+            <h1 class="h1Title">{{$t("message.WeiXinKF")}}</h1>
           </div>
           <div class="Width1400">
             <div class="swiper gallery_thumbs">
@@ -23,13 +23,6 @@
                     <span>{{item.title}}</span>
                   </div>
                 </div>
-<!--                <div class="swiper-slide wow fadeInUp" data-wow-delay="0.5s">-->
-<!--                  <div class="gallery_topBox">-->
-<!--                    <i class="iconfont icon-kaifa"></i>-->
-<!--                    <span>微信公眾號定制開發</span>-->
-<!--                  </div>-->
-<!--                </div>-->
-
               </div>
               <div class="swiper-button-prev gallery_topPrev">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="46" viewBox="0 0 24 46">
@@ -54,9 +47,8 @@
                 <div class="thumbsText">
                   <div>
                     <div class="run_txt run_txtTit">
-                      <p class="title">微信公眾號定制開發</p>
-                      <p>為企業定制功能更齊全、更强大的公眾號服務平臺，</p>
-                      <p>連接微信9億用戶，實現精准行銷，打開微信市場。</p>
+                      <p class="title">{{$t("message.wechatSwiperTit1")}}</p>
+                      <pre>{{developText}}</pre>
                     </div>
                   </div>
                 </div>
@@ -73,9 +65,8 @@
                 <div class="thumbsText">
                   <div>
                     <div class="run_txt run_txtTit">
-                      <p class="title">小程序定制開發</p>
-                      <p>無需安裝，用完即走。更方便的連結線上與線下場景，</p>
-                      <p>打開微信流量大門，為企業贏得千億市場。</p>
+                      <p class="title">{{$t("message.wechatSwiperTit2")}}</p>
+                      <pre>{{developText}}</pre>
                     </div>
                   </div>
                 </div>
@@ -92,9 +83,8 @@
                 <div class="thumbsText">
                   <div>
                     <div class="run_txt run_txtTit">
-                      <p class="title">企業微信定制開發</p>
-                      <p>滿足您個性化的辦公系統需求，</p>
-                      <p>建立高效、簡單、順暢的對內對外的合作聯系，提高工作效率。</p>
+                      <p class="title">{{$t("message.wechatSwiperTit3")}}</p>
+                      <pre>{{developText}}</pre>
                     </div>
                   </div>
                 </div>
@@ -126,10 +116,20 @@ export default {
   data () {
     return {
       swiperTit:[
-        {'title': '微信公眾號定制開發','time': 0.5,'icon':'icon-gongzhonghao'},
-        {'title': '小程序定制開發','time': 1,'icon':'icon-xiaochengxu'},
-        {'title': '企業微信定制開發','time': 1.5,'icon':'icon-qiyeweixin'}
-      ]
+        {'title': this.$t("message.wechatSwiperTit1"),'time': 0.5,'icon':'icon-gongzhonghao'},
+        {'title': this.$t("message.wechatSwiperTit2"),'time': 1,'icon':'icon-xiaochengxu'},
+        {'title': this.$t("message.wechatSwiperTit3"),'time': 1.5,'icon':'icon-qiyeweixin'}
+      ],
+      // 打字机
+      developContent: [
+        this.$t("message.wechatSwiperText1"),
+        this.$t("message.wechatSwiperText2"),
+        this.$t("message.wechatSwiperText3")
+      ],
+      developText: "",
+      isDevelopText: 0,
+      timer: null,
+      developTextIndex: 0
     }
   },
   comments:{
@@ -144,6 +144,7 @@ export default {
       this.galleryThumbsLunbo();
       this.galleryTopLunbo();
     });
+    this.typewriter(this.developTextIndex)
   },
   methods: {
     // 缩略图轮播
@@ -160,6 +161,19 @@ export default {
         thumbs: {
           swiper: this.galleryThumbs,
           slideThumbActiveClass: 'swiper-slide-thumb-active',
+        },
+        on: {
+          slideChange: function(){
+            if (this.activeIndex === that.developTextIndex){
+              console.log("同一个")
+            }else {
+              clearInterval(that.timer)
+              that.developTextIndex = this.activeIndex
+              that.developText = ""
+              that.isDevelopText = 0
+              that.typewriter(this.activeIndex)
+            }
+          }
         }
       })
     },
@@ -188,6 +202,20 @@ export default {
         }
       })
     },
+     //打字机
+    typewriter (x){
+      const that =this
+      if (this.isDevelopText === 0) {
+        this.isDevelopText = 1
+        let index = 0
+        that.timer = setInterval(function () {
+          that.developText = that.developContent[x].substring(0, index++);
+          if (that.developContent[x].length + 1 === index) {
+            clearInterval(that.timer)
+          }
+        }, 15);
+      }
+    }
   }
 }
 </script>

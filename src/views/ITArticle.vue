@@ -37,18 +37,17 @@ export default {
     getArticle() {
       let language = this.$store.state.languageName
       this.$http.get('static/json/'+language+'/itArticle.json').then((response) => {
-      if (response.status === 200) {
-        let data = response.data.data,
-            index = this.$route.query.id - 1
-        this.title = data[index].title
-        this.contents = data[index].content
-      }else {
-        console.log(response)
-      }
-    }, (err) => {
-      console.log(err)
-    })
-
+        if (response.status === 200) {
+          let data = response.data.data,
+              index = this.$route.query.id - 1
+          this.title = data[index].title
+          this.contents = data[index].content
+        }else {
+          console.log(response)
+        }
+      }, (err) => {
+        console.log(err)
+      })
     }
   }
 }

@@ -2,15 +2,15 @@
   <section class="pad_100">
     <div class="Width1400">
       <div class="textCenter">
-        <h1 class="h1Title col_254051">案例</h1>
+        <h1 class="h1Title col_254051">{{$t("message.caseTit")}}</h1>
       </div>
       <div class="classificationDiv">
         <ul>
-          <li :class="isActive === 0 ?'active':''" @click="cluckCase(0)">全部</li>
-          <li :class="isActive === 1 ?'active':''" @click="cluckCase(1)">網站</li>
+          <li :class="isActive === 0 ?'active':''" @click="cluckCase(0)">{{$t("message.caseType1")}}</li>
+          <li :class="isActive === 1 ?'active':''" @click="cluckCase(1)">{{$t("message.caseType2")}}</li>
           <li :class="isActive === 2 ?'active':''" @click="cluckCase(2)">APP</li>
-          <li :class="isActive === 3 ?'active':''" @click="cluckCase(3)">微信</li>
-          <li :class="isActive === 4 ?'active':''" @click="cluckCase(4)">商城</li>
+          <li :class="isActive === 3 ?'active':''" @click="cluckCase(3)">{{$t("message.caseType4")}}</li>
+          <li :class="isActive === 4 ?'active':''" @click="cluckCase(4)">{{$t("message.caseType5")}}</li>
         </ul>
       </div>
       <transition name="caseDiv"

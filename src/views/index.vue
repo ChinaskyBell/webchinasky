@@ -68,9 +68,7 @@
                 <div class="thumbsText">
                   <div>
                     <div class="run_txt">
-                      <p>{{$t("message.IndexKFText1_1")}}</p>
-                      <p>{{$t("message.IndexKFText1_2")}}</p>
-                      <p>{{$t("message.IndexKFText1_3")}}</p>
+                      <pre>{{developText}}</pre>
                     </div>
                     <router-link to="/Website">
                       <div class="run_btn">
@@ -94,9 +92,7 @@
                 <div class="thumbsText">
                   <div>
                     <div class="run_txt">
-                      <p>{{$t("message.IndexKFText2_1")}}</p>
-                      <p>{{$t("message.IndexKFText2_2")}}</p>
-                      <p>{{$t("message.IndexKFText2_3")}}</p>
+                      <pre>{{developText}}</pre>
                     </div>
                     <router-link to="/Move">
                       <div class="run_btn">
@@ -120,10 +116,7 @@
                 <div class="thumbsText">
                   <div>
                     <div class="run_txt">
-                      <p>{{$t("message.IndexKFText3_1")}}</p>
-                      <p>{{$t("message.IndexKFText3_2")}}</p>
-                      <p>{{$t("message.IndexKFText3_3")}}</p>
-                      <p>{{$t("message.IndexKFText3_4")}}</p>
+                      <pre>{{developText}}</pre>
                     </div>
                     <router-link to="/WeChat">
                       <div class="run_btn">
@@ -147,9 +140,7 @@
                 <div class="thumbsText">
                   <div>
                     <div class="run_txt">
-                      <p>{{$t("message.IndexKFText4_1")}}</p>
-                      <p>{{$t("message.IndexKFText4_2")}}</p>
-                      <p>{{$t("message.IndexKFText4_3")}}</p>
+                      <pre>{{developText}}</pre>
                     </div>
                     <router-link to="/Software">
                       <div class="run_btn">
@@ -446,6 +437,16 @@ export default {
   },
   data () {
     return {
+      developContent: [
+        this.$t("message.IndexKFText1"),
+        this.$t("message.IndexKFText2"),
+        this.$t("message.IndexKFText3"),
+        this.$t("message.IndexKFText4")
+      ],
+      developText: "",
+      isDevelopText: 0,
+      timer: null,
+      developTextIndex: 0
     }
   },
   created:function(){
@@ -453,10 +454,10 @@ export default {
       this.galleryThumbsLunbo();
       this.galleryTopLunbo();
     });
+    this.typewriter(this.developTextIndex)
   },
   mounted() {
     // 水波涟漪
-    /* */
     this.$nextTick(() => {
       $('#jqueryImg').ripples({
         resolution: 512,
@@ -476,6 +477,7 @@ export default {
   methods: {
     // 缩略图轮播
     galleryTopLunbo() {
+      const that =this
       this.galleryTop = new Swiper('.gallery_top', {
         spaceBetween: 0,
         allowTouchMove:false,
@@ -487,7 +489,21 @@ export default {
         thumbs: {
           swiper: this.galleryThumbs,
           slideThumbActiveClass: 'swiper-slide-thumb-active',
-        }
+        },
+        on:{
+          slideChange: function(){
+            // console.log(this.activeIndex)
+            if (this.activeIndex === that.developTextIndex){
+              console.log("同一个")
+            }else {
+              clearInterval(that.timer)
+              that.developTextIndex = this.activeIndex
+              that.developText = ""
+              that.isDevelopText = 0
+              that.typewriter(this.activeIndex)
+            }
+          },
+        },
       })
     },
     galleryThumbsLunbo() {
@@ -518,12 +534,25 @@ export default {
         }
       })
     },
+    //打字机
+    typewriter (x){
+      const that =this
+      if (this.isDevelopText === 0) {
+        this.isDevelopText = 1
+        let index = 0
+        that.timer = setInterval(function () {
+          that.developText = that.developContent[x].substring(0, index++);
+          if (that.developContent[x].length + 1 === index) {
+            clearInterval(that.timer)
+          }
+        }, 15);
+      }
+    },
     // 索取報價
     handleScroll (id) {
       let element = document.getElementById(id);
 	    element.scrollIntoView({
-         behavior: "smooth",  // 平滑过渡
-         block:    "end"
+         behavior: "smooth"
       });
     }
 

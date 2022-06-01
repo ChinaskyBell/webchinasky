@@ -4,7 +4,7 @@
     <section class="">
       <img src="../assets/img/app_banner.png" class="bannerImg">
       <div class="bannerTit wow fadeInDown" data-wow-delay="0.5s">
-        <strong>移動應用程序開發</strong>
+        <strong>{{$t("message.moveTit1")}}</strong>
       </div>
     </section>
     <!--開發服務-->
@@ -12,7 +12,7 @@
       <div class="swiperBoxDiv">
         <div class="swiperBox1">
           <div class="textCenter">
-            <h1 class="h1Title">APP開發</h1>
+            <h1 class="h1Title">{{ $t("message.AppKF") }}</h1>
           </div>
           <div class="Width1400">
             <div class="swiper gallery_thumbs">
@@ -47,11 +47,8 @@
                 <div class="thumbsText">
                   <div>
                     <div class="run_txt run_txtTit">
-                      <p class="title">原生APP</p>
-                      <p>原生語言程式是為了特定的操作系統而編碼，</p>
-                      <p>每一種都需要獨立開發,如iPhone，iPad，安卓等</p>
-                      <p>都需要使用各自的軟件開發包、開發工具及控件。</p>
-                      <p>因此它的性能是最優越的。</p>
+                      <p class="title">{{ $t("message.moveSwiperTit1") }}</p>
+                      <pre>{{developText}}</pre>
                     </div>
                   </div>
                 </div>
@@ -68,12 +65,8 @@
                 <div class="thumbsText">
                   <div>
                     <div class="run_txt run_txtTit">
-                      <p class="title">混合APP</p>
-                      <p>混合語言程式的部份代碼會以Web技術編寫，如HTML5, CSS和JavaScript.</p>
-                      <p>這些程式都是被包裹在原生容器(Native Container)和</p>
-                      <p>透過手機上的瀏覽器引擎來呈現HTML和執行JavaScript.</p>
-                      <p>Hybrid APP的優點是一個編碼程式能夠跨越不同的作業平台，</p>
-                      <p>不需要為每個操作系統編寫特定的編碼。</p>
+                      <p class="title">{{ $t("message.moveSwiperTit2") }}</p>
+                      <pre>{{developText}}</pre>
                     </div>
                   </div>
                 </div>
@@ -91,9 +84,7 @@
                   <div>
                     <div class="run_txt run_txtTit">
                       <p class="title">Web APP</p>
-                      <p>Web APP可以當作電腦上的網頁，更多是頁面展示類的APP。</p>
-                      <p>通過移動設備上的瀏覽器訪問，軟件更新只需要更新服務器就夠了。</p>
-                      <p>用戶層面不需要做任何操作，不需要安裝客戶端。</p>
+                      <pre>{{developText}}</pre>
                     </div>
                   </div>
                 </div>
@@ -125,10 +116,20 @@ export default {
   data () {
     return {
       swiperTit:[
-        {'title': '原生APP','time': 0.5,'icon':'icon-app'},
-        {'title': '混合APP','time': 1,'icon':'icon-APP'},
+        {'title': this.$t("message.moveSwiperTit1"),'time': 0.5,'icon':'icon-app'},
+        {'title': this.$t("message.moveSwiperTit2"),'time': 1,'icon':'icon-APP'},
         {'title': 'Web APP','time': 1.5,'icon':'icon-APPkaifa'}
-      ]
+      ],
+      // 打字机
+      developContent: [
+        this.$t("message.moveSwiperText1"),
+        this.$t("message.moveSwiperText2"),
+        this.$t("message.moveSwiperText3")
+      ],
+      developText: "",
+      isDevelopText: 0,
+      timer: null,
+      developTextIndex: 0
     }
   },
   comments:{
@@ -143,6 +144,7 @@ export default {
       this.galleryThumbsLunbo();
       this.galleryTopLunbo();
     });
+    this.typewriter(this.developTextIndex)
   },
   methods: {
     // 缩略图轮播
@@ -159,6 +161,19 @@ export default {
         thumbs: {
           swiper: this.galleryThumbs,
           slideThumbActiveClass: 'swiper-slide-thumb-active',
+        },
+        on: {
+          slideChange: function(){
+            if (this.activeIndex === that.developTextIndex){
+              console.log("同一个")
+            }else {
+              clearInterval(that.timer)
+              that.developTextIndex = this.activeIndex
+              that.developText = ""
+              that.isDevelopText = 0
+              that.typewriter(this.activeIndex)
+            }
+          }
         }
       })
     },
@@ -187,6 +202,20 @@ export default {
         }
       })
     },
+    //打字机
+    typewriter (x){
+      const that =this
+      if (this.isDevelopText === 0) {
+        this.isDevelopText = 1
+        let index = 0
+        that.timer = setInterval(function () {
+          that.developText = that.developContent[x].substring(0, index++);
+          if (that.developContent[x].length + 1 === index) {
+            clearInterval(that.timer)
+          }
+        }, 15);
+      }
+    }
   }
 }
 </script>

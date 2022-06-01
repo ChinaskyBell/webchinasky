@@ -4,7 +4,7 @@
     <section class="">
       <img src="../assets/img/web_banner.png" class="bannerImg">
       <div class="bannerTit wow fadeInDown" data-wow-delay="0.5s">
-        <strong>響應式，我們是專業的</strong>
+        <strong>{{$t("message.websiteTit1")}}</strong>
       </div>
     </section>
     <!--開發服務-->
@@ -12,7 +12,7 @@
       <div class="swiperBoxDiv">
         <div class="swiperBox1">
           <div class="textCenter">
-            <h1 class="h1Title">網站開發</h1>
+            <h1 class="h1Title">{{$t("message.WangZhanKF")}}</h1>
           </div>
           <div class="Width1400">
             <div class="swiper gallery_thumbs">
@@ -47,9 +47,8 @@
                 <div class="thumbsText">
                   <div>
                     <div class="run_txt run_txtTit">
-                      <p class="title">傳統網站vs響應式網站</p>
-                      <p>為企業定制功能更齊全、更强大的公眾號服務平臺，</p>
-                      <p>連接微信9億用戶，實現精准行銷，打開微信市場。</p>
+                      <p class="title">{{ $t("message.websiteSwiperTit1") }}</p>
+                      <pre>{{developText}}</pre>
                     </div>
                   </div>
                 </div>
@@ -66,9 +65,8 @@
                 <div class="thumbsText">
                   <div>
                     <div class="run_txt run_txtTit">
-                      <p class="title">響應式網頁設計對SEO的好處</p>
-                      <p>無需安裝，用完即走。更方便的連結線上與線下場景，</p>
-                      <p>打開微信流量大門，為企業贏得千億市場。</p>
+                      <p class="title">{{ $t("message.websiteSwiperTit1") }}</p>
+                      <pre>{{developText}}</pre>
                     </div>
                   </div>
                 </div>
@@ -86,8 +84,7 @@
                   <div>
                     <div class="run_txt run_txtTit">
                       <p class="title">Https</p>
-                      <p>滿足您個性化的辦公系統需求，</p>
-                      <p>建立高效、簡單、順暢的對內對外的合作聯系，提高工作效率。</p>
+                      <pre>{{developText}}</pre>
                     </div>
                   </div>
                 </div>
@@ -104,7 +101,7 @@
     <section class="pad_50 webProcessBg">
       <div class="Width1400">
         <div class="textCenter">
-          <h1 class="h1Title col_FFF">開發流程</h1>
+          <h1 class="h1Title col_FFF">{{ $t("message.KaiFaLC") }}</h1>
         </div>
         <div class="webProcessDiv">
           <ul>
@@ -136,16 +133,26 @@ export default {
   data () {
     return {
       swiperTit:[
-        {'title': '傳統網站vs響應式網站','time': 0.5,'icon':'icon-xiangyi'},
-        {'title': '響應式網頁設計對SEO的好處','time': 1,'icon':'icon-SEO'},
+        {'title': this.$t("message.websiteSwiperTit1"),'time': 0.5,'icon':'icon-xiangyi'},
+        {'title': this.$t("message.websiteSwiperTit2"),'time': 1,'icon':'icon-SEO'},
         {'title': 'Https','time': 1.5,'icon':'icon-https'}
       ],
       processStr:[
-        {'title': '01想法','time': 0.5,'content':'我們傾聽您的所有願望和建議。'},
-        {'title': '02討論','time': 1,'content':'改正錯誤，給你建議和提示，和你討論。'},
-        {'title': '03設計','time': 1.5,'content':'想想你網站的設計理念。'},
-        {'title': '04開發','time': 2,'content':'啟動網站的開發和推廣過程。'}
-      ]
+        {'title': this.$t("message.websiteKFLCtit1"),'time': 0.5,'content':this.$t("message.websiteKFLCtext1")},
+        {'title': this.$t("message.websiteKFLCtit2"),'time': 1,'content':this.$t("message.websiteKFLCtext2")},
+        {'title': this.$t("message.websiteKFLCtit3"),'time': 1.5,'content':this.$t("message.websiteKFLCtext3")},
+        {'title': this.$t("message.websiteKFLCtit4"),'time': 2,'content':this.$t("message.websiteKFLCtext4")}
+      ],
+      // 打字机
+      developContent: [
+        this.$t("message.websiteSwiperText1"),
+        this.$t("message.websiteSwiperText2"),
+        this.$t("message.websiteSwiperText3")
+      ],
+      developText: "",
+      isDevelopText: 0,
+      timer: null,
+      developTextIndex: 0
     }
   },
   comments:{
@@ -160,6 +167,7 @@ export default {
       this.galleryThumbsLunbo();
       this.galleryTopLunbo();
     });
+    this.typewriter(this.developTextIndex)
   },
   methods: {
     // 缩略图轮播
@@ -176,6 +184,19 @@ export default {
         thumbs: {
           swiper: this.galleryThumbs,
           slideThumbActiveClass: 'swiper-slide-thumb-active',
+        },
+        on: {
+          slideChange: function(){
+            if (this.activeIndex === that.developTextIndex){
+              console.log("同一个")
+            }else {
+              clearInterval(that.timer)
+              that.developTextIndex = this.activeIndex
+              that.developText = ""
+              that.isDevelopText = 0
+              that.typewriter(this.activeIndex)
+            }
+          }
         }
       })
     },
@@ -204,6 +225,20 @@ export default {
         }
       })
     },
+    //打字机
+    typewriter (x){
+      const that =this
+      if (this.isDevelopText === 0) {
+        this.isDevelopText = 1
+        let index = 0
+        that.timer = setInterval(function () {
+          that.developText = that.developContent[x].substring(0, index++);
+          if (that.developContent[x].length + 1 === index) {
+            clearInterval(that.timer)
+          }
+        }, 15);
+      }
+    }
   }
 }
 </script>
