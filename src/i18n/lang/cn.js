@@ -270,7 +270,9 @@ module.exports = {
     caseType1: '全部',
     caseType2: '网站',
     caseType4: '微信',
-    caseType5: '商城'
+    caseType5: '商城',
+    // caseList
+    caselistTit: '案例展示'
 
   }
 }

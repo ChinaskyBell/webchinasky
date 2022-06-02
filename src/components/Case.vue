@@ -17,93 +17,38 @@
       enter-active-class="animated fadeInRight"
       leave-active-class="animated fadeOutRight"
       >
-        <div class="projectBox" v-if="isCaseDiv">
-          <div class="projectBoxItem">
-            <div class="projectImgPc">
-              <img src="../assets/img/case_pic2.png">
-            </div>
-            <div class="projectImgWeb">
-              <img src="../assets/img/case_pic1.png">
-            </div>
-            <div class="projectBoxText">
-              <div>
-                <div class="rpTop">
-                  <img src="../assets/img/logo_alpha.png">
-                  <p class="rpTitle">Alpha Omega</p>
-                </div>
-                <div class="rpText">
-                  <p>案例簡介案例簡介案例簡介案例簡介案例簡介案例簡介2</p>
-                  <a href="http://www.alpha-omegacapital.com/" target="_blank"><span>查看</span><i class="iconfont icon-Right-"></i></a>
+         <div class="projectBox" v-if="isCaseDiv">
+            <div class="projectBoxItem" v-for="item in caseList">
+              <a :href="item.link || '#'">
+              <div class="projectImgPc">
+                  <img :src="item.host_image">
+              </div>
+              <div class="projectImgWeb">
+                <img :src="item.vice_image">
+              </div>
+              <div class="projectBoxText">
+                <div>
+                  <div class="rpTop">
+                    <img :src="item.logo_image">
+                    <p class="rpTitle">{{ item.name }}</p>
+                  </div>
+                  <div class="rpText">
+                    <p>{{ item.description }}</p>
+<!--                    查看-->
+                    <a :href="item.link" target="_blank" v-if="item.type === 1"><span>{{$t("message.ChaKan")}}</span><i class="iconfont icon-Right-"></i></a>
+                    <a href="javascript:;" @click="showModal(item.id)" v-if="item.type === 2"><span>{{$t("message.ChaKan")}}</span><i class="iconfont icon-Right-"></i></a>
+
+                  </div>
                 </div>
               </div>
+              </a>
             </div>
           </div>
-          <div class="projectBoxItem">
-            <div class="projectImgPc">
-              <img src="../assets/img/case_pic4@1x.png">
-            </div>
-            <div class="projectImgWeb">
-              <img src="../assets/img/case_pic3.png">
-            </div>
-            <div class="projectBoxText">
-              <div>
-                <div class="rpTop">
-                  <img src="../assets/img/logo_baoxian.png">
-                  <p class="rpTitle">德誠保險顧問</p>
-                </div>
-                <div class="rpText">
-                  <p>案例簡介案例簡介案例簡介案例簡介案例簡介案例簡介2</p>
-                  <a href="javascript:;" @click="showModal(1)"><span>查看</span><i class="iconfont icon-Right-"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="projectBoxItem">
-            <div class="projectImgPc">
-              <img src="../assets/img/case_pic3@1x.png">
-            </div>
-            <div class="projectImgWeb">
-              <img src="../assets/img/case_web1.png">
-            </div>
-            <div class="projectBoxText">
-              <div>
-                <div class="rpTop">
-                  <img src="../assets/img/logo_atli.png">
-                  <p class="rpTitle">aTli</p>
-                </div>
-                <div class="rpText">
-                  <p>案例簡介案例簡介案例簡介案例簡介案例簡介案例簡介2</p>
-                  <a href="javascript:;" @click="showModal(1)"><span>查看</span><i class="iconfont icon-Right-"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="projectBoxItem">
-            <div class="projectImgPc">
-              <img src="../assets/img/case_pic1@1x.png">
-            </div>
-            <div class="projectImgWeb">
-              <img src="../assets/img/case_web1.png">
-            </div>
-            <div class="projectBoxText">
-              <div>
-                <div class="rpTop">
-                  <img src="../assets/img/logo_minibox.png">
-                  <p class="rpTitle">miniBox</p>
-                </div>
-                <div class="rpText">
-                  <p>案例簡介案例簡介案例簡介案例簡介案例簡介案例簡介2</p>
-                  <a href="javascript:;" @click="showModal(1)"><span>查看</span><i class="iconfont icon-Right-"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </transition>
-      <div class="textCenter">
+      <div class="textCenter" v-show="isMoreBtn">
         <div class="processBtn">
-          <router-link to="#">
-            <span>加載更多</span><i class="iconfont icon-shuangjiantouyou"></i>
+          <router-link :to="{path:'/CaseList',query:{id:isActive}}">
+            <span>{{$t("message.ChaKanGD")}}</span><i class="iconfont icon-shuangjiantouyou"></i>
           </router-link>
         </div>
       </div>
@@ -135,20 +80,47 @@
 </template>
 
 <script>
+import {
+  casesService
+} from "../common/api"
 export default {
   name: 'Case',
   data() {
     return {
       isActive: 0,
       isCaseDiv: true,
-      isCaseModal: false
+      isCaseModal: false,
+      caseList: [],
+      isMoreBtn: false
     }
   },
+  created:function () {
+    this.getCaseList()
+  },
   methods: {
+    // 获取案例数据
+    getCaseList() {
+      let that =this
+      casesService({
+        "caseId": that.isActive
+      }).then(res => {
+        let data = res.data.cases
+        that.caseList = data.data
+        console.log(data)
+        if (data.next_page_url != null){
+          that.isMoreBtn = true
+        }else {
+          that.isMoreBtn = false
+        }
+      })
+    },
+    // 案例分类
     cluckCase(Type) {
       const that = this
       that.isActive = Type
       that.isCaseDiv = false
+      that.caseList = []
+      that.getCaseList()
       setTimeout(function (){
         that.isCaseDiv = true
       },600)

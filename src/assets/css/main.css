@@ -853,6 +853,7 @@ input::placeholder,textarea::placeholder{
 .projectBoxText > div .rpTop {
   transition: transform .4s ease-in-out;
   transform: translate3d(0, -100%, 0);
+  filter: drop-shadow(2px 4px 6px #205085);
 }
 
 .projectBoxText .rpText {

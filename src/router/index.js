@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import Index from '../views/index'
-import Test from '../views/Test'
+import CaseList from '../views/CaseList'
 import Maintain from '../views/Maintain'
 import Software from '../views/Software'
 import ContactUs from '../views/ContactUs'
@@ -65,9 +65,9 @@ export default new Router({
       component: Website
     },
     {
-      path: '/Test',
-      name: 'Test',
-      component: Test
+      path: '/CaseList',
+      name: 'CaseList',
+      component: CaseList
     },
     {
       path: '/ITArticle',

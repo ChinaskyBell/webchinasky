@@ -1,13 +1,13 @@
 <template>
   <div>
     <section class="">
-      <img src="../assets/img/network_banner.png" class="bannerImg">
+      <img src="../assets/img/hero-header-bg.jpg" class="bannerImg">
+      <div class="bannerTit wow fadeInDown" data-wow-delay="0.5s">
+        <strong>{{$t("message.caselistTit")}}</strong>
+      </div>
     </section>
     <section class="pad_100">
       <div class="Width1400">
-        <div class="textCenter">
-          <h1 class="h1Title col_254051">{{$t("message.caseTit")}}</h1>
-        </div>
         <div class="classificationDiv">
           <ul>
             <li :class="isActive === 0 ?'active':''" @click="cluckCase(0)">{{$t("message.caseType1")}}</li>
@@ -22,38 +22,34 @@
         leave-active-class="animated fadeOutRight"
         >
           <div class="projectBox" v-if="isCaseDiv">
-
-            <div class="projectBoxItem" v-for="item in caseList" v-if="item.type === isActive || isActive === 0">
+            <div class="projectBoxItem" v-for="item in caseList">
+              <a :href="item.link || '#'">
               <div class="projectImgPc">
-                <img :src="item.bg_img">
+                  <img :src="item.host_image">
               </div>
               <div class="projectImgWeb">
-                <img :src="item.right_img">
+                <img :src="item.vice_image">
               </div>
               <div class="projectBoxText">
                 <div>
                   <div class="rpTop">
-                    <img :src="item.logo_img">
-                    <p class="rpTitle">{{ item.title }}</p>
+                    <img :src="item.logo_image">
+                    <p class="rpTitle">{{ item.name }}</p>
                   </div>
                   <div class="rpText">
-                    <p>{{ item.introduction }}</p>
-
-                    <a :href="item.link" target="_blank" v-if="item.state === 0"><span>查看</span><i class="iconfont icon-Right-"></i></a>
-                    <a href="javascript:;" @click="showModal(item.id)" v-if="item.state === 1"><span>{{$t("message.ChaKan")}}</span><i class="iconfont icon-Right-"></i></a>
-
+                    <p>{{ item.description }}</p>
+                    <a :href="item.link" target="_blank" v-if="item.type === 1"><span>{{$t("message.ChaKan")}}</span><i class="iconfont icon-Right-"></i></a>
+                    <a href="javascript:;" @click="showModal(item.id)" v-if="item.type === 2"><span>{{$t("message.ChaKan")}}</span><i class="iconfont icon-Right-"></i></a>
                   </div>
                 </div>
               </div>
+              </a>
             </div>
-
           </div>
         </transition>
-        <div class="textCenter">
-          <div class="processBtn">
-            <router-link to="#">
+        <div class="textCenter" v-show="isMoreBtn">
+          <div class="processBtn" @click="getMore">
               <span>加載更多</span><i class="iconfont icon-shuangjiantouyou"></i>
-            </router-link>
           </div>
         </div>
       </div>
@@ -85,22 +81,44 @@
 </template>
 
 <script>
+import {
+  casesService
+} from "../common/api"
 export default {
-  name: 'Case',
+  name: 'CaseList',
   data() {
     return {
       isActive: 0,
       isCaseDiv: true,
       isCaseModal: false,
-      caseList: []
+      caseList: [],
+      Page: 1,
+      isMoreBtn: false
     }
   },
   created:function () {
+    this.isActive = Number(this.$route.query.id)
     this.getCaseList()
   },
   methods: {
     // 获取案例数据
     getCaseList() {
+      let that =this
+      casesService({
+        "caseId": that.isActive,
+        "page": that.Page
+      }).then(res => {
+        let data = res.data.cases
+        that.caseList.push(...data.data)
+        console.log(data)
+        if (data.next_page_url != null){
+          that.isMoreBtn = true
+        }else {
+          that.isMoreBtn = false
+        }
+
+      })
+      /*
       let language = this.$store.state.languageName,
           that =this
       this.$http.get('static/json/'+language+'/case.json').then((response) => {
@@ -114,12 +132,16 @@ export default {
       }, (err) => {
         console.log(err)
       })
+      */
     },
     // 案例分类
     cluckCase(Type) {
       const that = this
       that.isActive = Type
       that.isCaseDiv = false
+      that.Page = 1
+      that.caseList = []
+      that.getCaseList()
       setTimeout(function (){
         that.isCaseDiv = true
       },600)
@@ -129,6 +151,11 @@ export default {
     },
     showModal(Id) {
       this.isCaseModal = true
+    },
+    // 加载更多
+    getMore (){
+      this.Page++
+      this.getCaseList()
     }
   }
 }

@@ -269,6 +269,8 @@ module.exports = {
     caseType1: 'All',
     caseType2: 'Website',
     caseType4: 'WeChat',
-    caseType5: 'Mall'
+    caseType5: 'Mall',
+    // caseList
+    caselistTit: 'Case Show'
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="ui-content">
     <section class="indexBannerDiv" id="jqueryImg">
       <div class="Width1000">
         <div class="indexBannerText">
@@ -8,7 +8,9 @@
             <p>{{$t("message.IndexBannerText1")}}</p>
             <p>{{$t("message.IndexBannerText2")}}</p>
           </div>
-          <button class="wow fadeInDown" data-wow-delay="1.5s">{{$t("message.GenDuo")}}</button>
+          <router-link to="/Maintain">
+            <button class="wow fadeInDown" data-wow-delay="1.5s">{{$t("message.GenDuo")}}</button>
+          </router-link>
         </div>
       </div>
     </section>
@@ -379,8 +381,8 @@
           <h1 class="h1Title col_FFF">{{$t("message.LiJiDY")}}</h1>
         </div>
         <div class="subscriptionDiv">
-          <input type="text" :placeholder='$t("message.QSRDYEmail")'>
-          <p class="buttonIcon borderFFF">
+          <input type="text" :placeholder='$t("message.QSRDYEmail")' v-model="subscriptionInput">
+          <p class="buttonIcon borderFFF" @click="getSubscription">
             <span>{{$t("message.DinYue")}}</span><i class="iconfont icon-Right-"></i>
           </p>
         </div>
@@ -420,6 +422,10 @@
 
 
 <script>
+import {
+  subscriptionService
+} from "../common/api"
+
 import $ from 'jquery'
 window.jQuery = $
 require('../assets/js/jquery.ripples.js')
@@ -437,6 +443,8 @@ export default {
   },
   data () {
     return {
+      subscriptionInput: "",
+      // 打字机
       developContent: [
         this.$t("message.IndexKFText1"),
         this.$t("message.IndexKFText2"),
@@ -554,6 +562,31 @@ export default {
 	    element.scrollIntoView({
          behavior: "smooth"
       });
+    },
+    // 订阅
+    getSubscription () {
+      let that = this,
+          verifyEmail =/^\w[-\w.+]*@([A-Za-z0-9][-A-Za-z0-9]+\.)+[A-Za-z]{2,14}/;
+      if (that.subscriptionInput === '') {
+        this.$tips({
+					msg: "请输入电邮"
+        });
+        return
+      }else if (!verifyEmail.test(that.subscriptionInput)){
+        this.$tips({
+					msg: "请输入正确格式电邮"
+        });
+        return
+      }
+      subscriptionService({
+        "email": that.subscriptionInput
+      }).then(res => {
+        that.$tips({
+					msg: "订阅成功"
+        });
+        that.subscriptionInput = ""
+        // console.log(res)
+      })
     }
 
   }
@@ -564,11 +597,11 @@ export default {
 @import "../assets/css/index.css";
 .indexBannerDiv{
   background-image: url("../assets/img/indexBanner.png");
-  min-height: 700px;
+  min-height: 800px;
 }
 @media screen and (max-width:1300px){
   .indexBannerDiv{
-    min-height: 500px;
+    min-height: 600px;
   }
 }
 @media screen and (max-width:767px){

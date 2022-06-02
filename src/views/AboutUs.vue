@@ -147,7 +147,7 @@ export default {
             if (that.about.content.length+1 === index){
               clearInterval(that.about.timer)
             }
-          },4);
+          },2);
         }
       }
       // 我們的使命

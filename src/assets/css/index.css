@@ -7,7 +7,7 @@
   box-sizing: border-box;
 }
 .indexBannerText{
-  padding-top: 100px;
+  padding-top: 150px;
 }
 .indexBannerText>h1{
   font-size: 60px;
@@ -19,7 +19,7 @@
 .indexBannerText .text>p{
   padding: 10px 0;
 }
-.indexBannerText>button{
+.indexBannerText button{
   border-radius: 50px;
   border: 1px solid rgba(114, 200, 255, 1);
   color: #FFFFFF;
@@ -27,7 +27,7 @@
   position: relative;
   background: rgba(114, 200, 255, 1);
 }
-.indexBannerText>button:hover{
+.indexBannerText button:hover{
   font-size: 20px;
 }
 @media screen and (max-width:1300px){
@@ -54,7 +54,7 @@
   .indexBannerDiv{
     padding-top: 100px;
   }
-  .indexBannerText>button{
+  .indexBannerText button{
     padding: 10px 40px;
   }
 }
