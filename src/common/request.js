@@ -5,9 +5,10 @@ import tips from './tips'
 axios.defaults.timeout = 60 * 1000 * 10
 axios.defaults.cache = false
 
+console.log(store.state.languageId)
 axios.interceptors.request.use(
   config => {
-    config.headers['locale-key'] = '2'
+    config.headers['locale-key'] = store.state.languageId
     config.headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8'
     config.headers['Content-Type'] = 'application/json; charset=UTF-8'
     return config

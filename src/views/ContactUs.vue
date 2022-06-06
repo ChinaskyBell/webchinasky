@@ -1,5 +1,5 @@
 <template>
-  <div class="mianDiv">
+  <div class="mianDiv ui-content">
 <!-- 顶部标题 -->
     <section class="">
       <img src="../assets/img/contactUs_banner.png" class="bannerImg">
@@ -57,20 +57,23 @@
           <div>
             <div class="contactInput">
               <div class="inputDiv">
-                <input type="text" :placeholder='$t("message.QSRLianLuoRen")'>
+                <input type="text" :placeholder='$t("message.QSRLianLuoRen")' v-model="aboutName" @blur="blurName">
+                <p>{{name}}</p>
               </div>
               <div class="inputDiv">
-                <input type="text" :placeholder='$t("message.QSRDianYou")'>
+                <input type="text" :placeholder='$t("message.QSRDianYou")' v-model="aboutEmail" @blur="blurEmail">
+                <p>{{email}}</p>
               </div>
               <div class="inputDiv">
-                <input type="text" :placeholder='$t("message.QSRDianHua")'>
+                <input type="text" :placeholder='$t("message.QSRDianHua")' v-model="aboutPhone" oninput="value=value.replace(/[^\d]/g, '')" @blur="blurPhone">
+                <p>{{tel}}</p>
               </div>
               <div class="inputDiv">
-                <textarea :placeholder='$t("message.LiuYan")'></textarea>
+                <textarea :placeholder='$t("message.LiuYan")' ref="textarea" :style="{'height': textAreaH}" v-model="aboutMessage"></textarea>
               </div>
             </div>
             <div class="">
-              <div class="buttonIcon border_205085">
+              <div class="buttonIcon border_205085" @click="aboutSubmit">
                 <span>{{$t("message.TiJiao")}}</span><i class="iconfont icon-Right-"></i>
               </div>
             </div>
@@ -90,21 +93,106 @@
 </template>
 
 <script>
+import {
+  contentService
+} from "../common/api"
+import calcTextareaHeight from '../assets/js/calcTextareaHeight'
 export default {
   name: 'ContactUs',
   data () {
     return {
       dateYear: '',
       emailCn: 'info@chinaskynet.net.cn',
-      emailHk: 'info@chinaskynet.net'
+      emailHk: 'info@chinaskynet.net',
+
+      // 联络我们
+      textAreaH: '50px',
+      aboutName: '',
+      aboutEmail: '',
+      aboutPhone: '',
+      aboutMessage: '',
+      //提示语
+      name: '',
+      email: '',
+      tel: ''
     }
   },
   created () {
   },
+  watch: {
+    aboutMessage() {
+      this.getHeight();
+    }
+  },
   methods: {
+    getHeight() {
+      this.textAreaH = calcTextareaHeight(this.$refs.textarea, 3, 8).height;
+    },
     toLink (Url) {
       window.location.href = Url
+    },
+    aboutSubmit () {
+      let that = this
+      if (that.aboutName === ""){
+        this.$tips({
+					msg:  that.$t("message.QSRLianLuoRen")
+        });
+        return
+      }
+
+      if (this.aboutEmail === ""){
+        this.$tips({
+					msg: that.$t("message.QSRDianYou")
+        });
+        return
+      }
+
+      if (this.aboutPhone === ""){
+        this.$tips({
+					msg: that.$t("message.QSRDianHua")
+        });
+        return
+      }
+
+      contentService({
+        "name": that.aboutName,
+        "email": that.aboutEmail,
+        "tel": that.aboutPhone,
+        "message": that.aboutMessage
+      }).then(res => {
+        that.$tips({
+					msg: that.$t("message.TiJiaoCG")
+        });
+        // window.location.reload()
+        that.aboutName = that.aboutEmail = that.aboutPhone = that.aboutMessage = ""
+      })
+
+    },
+    blurName (){
+      if (this.aboutName === ""){
+        this.name = this.$t("message.QSRLianLuoRen")
+      }else {
+        this.name = ""
+      }
+    },
+    blurPhone() {
+      if (this.aboutPhone === ""){
+        this.tel = this.$t("message.QSRDianHua")
+      }else {
+        this.tel = ""
+      }
+    },
+    blurEmail (){
+      let verifyEmail =/^\w[-\w.+]*@([A-Za-z0-9][-A-Za-z0-9]+\.)+[A-Za-z]{2,14}/;
+      if (this.aboutEmail === ""){
+        this.email = this.$t("message.QSRDianYou")
+      }else if (!verifyEmail.test(this.aboutEmail)){
+        this.email = this.$t("message.QSRZQGSDianYou")
+      }else {
+        this.email = ""
+      }
     }
+
   }
 }
 </script>

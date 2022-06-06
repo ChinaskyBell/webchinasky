@@ -2,34 +2,16 @@
   <div>
 <!-- 顶部标题 -->
    <section class="aboutBannet">
-     <img src="../assets/img/aboutUsBanner.png" class="bannerImg">
-     <div class="bannerTit wow fadeIn" data-wow-delay="0.5s">
-       <strong>{{$t("message.GuanYuWM")}}</strong>
-       <p>{{$t("message.GuanYuWMTitText1")}}</p>
-       <div class="playBtn" @click="playVideo">
-         <i class="iconfont icon-24gl-playCircle"></i>
-         Play Video
-       </div>
-     </div>
-<!--     弹窗-->
-       <div class="modalBigDiv">
-        <transition name="caseModal"
-        enter-active-class="animated fadeInDown"
-        leave-active-class="animated fadeOutDown"
-        >
-          <div class="modalBgDiv" v-if="isAboutModal">
-            <div class="modalTextDiv">
-              <div class="modalAbout">
-                <p class="modalClose" @click="modalClose"><i class="iconfont icon-cha"></i></p>
-                <div class="indexVideoMuted">
-                  <video autoplay="autoplay" loop="true" controls>
-                    <source src="https://test41.chinaskynet.net/assets/WeChat.mp4" type="video/mp4">
-                  </video>
-                </div>
-              </div>
-            </div>
-          </div>
-        </transition>
+     <div class="fixedBgImg funfactImg"></div>
+      <div class="indexVideo">
+        <video id="bgVideo" autoplay="autoplay" loop="true" muted="true">
+          <source src="https://test41.chinaskynet.net/assets/WeChat.mp4" type="video/mp4">
+        </video>
+        <!--  声音按钮 -->
+        <div class="indexVideoMuted" :class="{'active':isActive == 1}" @click="mutedBtn">
+          <i class="iconfont icon-shengyin"></i>
+          <i class="iconfont icon-cha"></i>
+        </div>
       </div>
    </section>
 <!--    关于我们-->
@@ -143,7 +125,7 @@ export default {
         content: this.$t("message.WoMenDSMText"),
         isShowWord: 0
       },
-      isAboutModal: false
+      isActive: 0
     }
   },
   mounted() {
@@ -184,12 +166,17 @@ export default {
         }
       }
     },
-    // playVideo
-    playVideo () {
-      this.isAboutModal = true
-    },
-    modalClose() {
-      this.isAboutModal = false
+    // 视频声音
+    mutedBtn () {
+      const that = this
+      let bgm = document.getElementById('bgVideo')
+      if (bgm.muted) {
+        bgm.muted = false
+        that.isActive = 1
+      } else {
+        bgm.muted = true
+        that.isActive = 0
+      }
     }
   }
 

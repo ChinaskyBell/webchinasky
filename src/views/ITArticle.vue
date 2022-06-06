@@ -10,11 +10,19 @@
 
     <section class="pad_50">
       <div class="Width1000">
-        <div class="">
-          <img src="../assets/img/ITArticle1.jpg">
-<!--          富文本内容-->
-          <div class="articleText" v-html="contents">
+        <div class="itArtcleText">
+          <img :src="image">
+          <div>{{titText}}</div>
+          <div class="button">
+            <router-link to="/ContactUs" target="_blank">{{ buttonText1 }}</router-link>
           </div>
+<!--          富文本内容-->
+          <div class="articleText" v-html="contents"></div>
+
+          <div class="button">
+            <router-link to="/ContactUs" target="_blank">{{$t("message.LianXiWM")}}</router-link>
+          </div>
+
         </div>
       </div>
     </section>
@@ -26,7 +34,10 @@ export default {
   data () {
     return {
       title: "",
-      contents: ""
+      contents: "",
+      image:"",
+      titText:"",
+      buttonText1:""
     }
   },
   created:function () {
@@ -36,12 +47,16 @@ export default {
   methods: {
     getArticle() {
       let language = this.$store.state.languageName
-      this.$http.get('static/json/'+language+'/itArticle.json').then((response) => {
+      this.$http.get('static/json/itArticle-'+language+'.json').then((response) => {
         if (response.status === 200) {
-          let data = response.data.data,
-              index = this.$route.query.id - 1
-          this.title = data[index].title
-          this.contents = data[index].content
+          let index = Number(this.$route.query.id) - 1,
+            data = response.data.data[index]
+
+          this.title = data.title
+          this.contents = data.content
+          this.image = data.image
+          this.titText = data.titText
+          this.buttonText1 = data.buttonText1
         }else {
           console.log(response)
         }

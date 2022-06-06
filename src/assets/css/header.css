@@ -259,8 +259,7 @@
   transition: font-size .6s, transform .6s;
 }
 .menu_main_menu>li:hover p{
-  /*font-size: 25px;  */
-  font-size: 45px;
+  font-size: 40px;
 }
 .menu_main_menu>li:hover a,.menu_main_menu>li:hover{
   color: #72C8FF;
@@ -270,6 +269,7 @@
   display: table;
   width: 100%;
   padding-top: 15px;
+  font-size: 28px;
 }
 .menu_main_item>li{
   display: table-cell;
@@ -293,6 +293,7 @@
 .menu_main_menu>li p>label{
   display: none;
 }
+
 @media screen and (max-width:1200px){
   .headerNavTop>.div2 ul li{
     margin-left: 15px;

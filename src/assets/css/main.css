@@ -660,6 +660,17 @@ input::placeholder,textarea::placeholder{
 }
 .inputDiv{
   margin-bottom: 25px;
+  position: relative;
+}
+.inputDiv>p{
+  position: absolute;
+  right: 0;
+  bottom: 5px;
+  font-size: 14px;
+  color: #e90000;
+}
+.contentBtnDiv .inputDiv>p{
+  right: 15px;
 }
 .inputDiv>input,.inputDiv textarea{
 	width: 100%;
@@ -671,14 +682,10 @@ input::placeholder,textarea::placeholder{
 	min-height: 40px;
   font-size: 14px;
   box-sizing: border-box;
+  resize: none;
 }
 .inputDiv>input:focus,.inputDiv>textarea:focus{
 	border-bottom-color: #205085;
-}
-.inputDiv textarea{
-	height:50px;
-	width: 100%;
-	resize: none;
 }
 .contentBtnDiv{
   padding: 40px 0;
@@ -1127,19 +1134,44 @@ input::placeholder,textarea::placeholder{
   }
 }
 /*文章內容*/
+.itArtcleText{
+  font-size: 15px;
+  color: #83929C;
+  line-height: 2;
+}
+.itArtcleText>img{
+  margin-bottom: 50px;
+}
+.itArtcleText .button{
+  text-align: center;
+  margin: 50px 0;
+}
+.itArtcleText .button>a{
+  border: solid 2px #ff3326;
+  border-radius: 3px;
+  color: #ff3326;
+  font-size: 18px;
+  line-height: 50px;
+  padding: 0 45px;
+  text-align: center;
+  display: inline-block;
+}
+.itArtcleText .button>a:hover{
+  background: #ff3326;
+  color: #FFFFFF;
+}
 .articleText{
-  padding: 50px 0 100px;
+  padding-bottom: 50px;
 }
 .articleText>p{
   color: #254051;
   font-size: 18px;
   margin-bottom: 10px;
 }
-.articleText{
-  font-size: 15px;
-  color: #83929C;
-  line-height: 2;
+.articleText a{
+  color: #ff3b1d;
 }
+
 @media screen and (max-width:767px){
   .articleText{
     padding: 25px 0 50px;

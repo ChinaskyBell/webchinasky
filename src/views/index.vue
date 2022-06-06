@@ -283,93 +283,65 @@
 
     </section>
 <!--開發案例-->
-    <section class="">
+    <section class="padBottom_100">
       <div class="Width1400">
         <div class="textCenter">
           <h1 class="h1Title col_254051">{{$t("message.KaiFaAL")}}</h1>
         </div>
         <div class="projectBox">
-          <div class="projectBoxItem">
+          <div class="projectBoxItem" v-for="item in caseList">
             <div class="projectImgPc">
-                <img src="../assets/img/case_pic2.png">
+              <img :src="item.host_image">
             </div>
             <div class="projectImgWeb">
-              <img src="../assets/img/case_pic1.png">
+              <img :src="item.vice_image">
             </div>
             <div class="projectBoxText">
               <div>
                 <div class="rpTop">
-                  <img src="../assets/img/logo_alpha.png">
-                  <p class="rpTitle">Alpha Omega</p>
+                  <img :src="item.logo_image">
+                  <p class="rpTitle">{{ item.name }}</p>
                 </div>
                 <div class="rpText">
-                  <p>案例簡介案例簡介案例簡介案例簡介案例簡介案例簡介2</p>
-                  <a href="#" target="_blank"><span>{{$t("message.ChaKan")}}</span><i class="iconfont icon-Right-"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="projectBoxItem">
-            <div class="projectImgPc">
-                <img src="../assets/img/case_pic4@1x.png">
-            </div>
-            <div class="projectImgWeb">
-              <img src="../assets/img/case_pic3.png">
-            </div>
-            <div class="projectBoxText">
-              <div>
-                <div class="rpTop">
-                  <img src="../assets/img/logo_baoxian.png">
-                  <p class="rpTitle">德誠保險顧問</p>
-                </div>
-                <div class="rpText">
-                  <p>案例簡介案例簡介案例簡介案例簡介案例簡介案例簡介2</p>
-                  <a href="#" target="_blank"><span>{{$t("message.ChaKan")}}</span><i class="iconfont icon-Right-"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-           <div class="projectBoxItem">
-            <div class="projectImgPc">
-                <img src="../assets/img/case_pic3@1x.png">
-            </div>
-            <div class="projectImgWeb">
-              <img src="../assets/img/case_web1.png">
-            </div>
-            <div class="projectBoxText">
-              <div>
-                <div class="rpTop">
-                  <img src="../assets/img/logo_atli.png">
-                  <p class="rpTitle">aTli</p>
-                </div>
-                <div class="rpText">
-                  <p>案例簡介案例簡介案例簡介案例簡介案例簡介案例簡介2</p>
-                  <a href="#" target="_blank"><span>{{$t("message.ChaKan")}}</span><i class="iconfont icon-Right-"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="projectBoxItem">
-            <div class="projectImgPc">
-                <img src="../assets/img/case_pic1@1x.png">
-            </div>
-            <div class="projectImgWeb">
-              <img src="../assets/img/case_web1.png">
-            </div>
-            <div class="projectBoxText">
-              <div>
-                <div class="rpTop">
-                  <img src="../assets/img/logo_minibox.png">
-                  <p class="rpTitle">miniBox</p>
-                </div>
-                <div class="rpText">
-                  <p>案例簡介案例簡介案例簡介案例簡介案例簡介案例簡介2</p>
-                  <a href="#" target="_blank"><span>{{$t("message.ChaKan")}}</span><i class="iconfont icon-Right-"></i></a>
+                  <p>{{ item.description }}</p>
+                  <!--                    查看-->
+                  <a :href="item.link" target="_blank" v-if="item.type === 1"><span>{{ $t("message.ChaKan") }}</span><i
+                    class="iconfont icon-Right-"></i></a>
+                  <a href="javascript:;" @click="showModal(item.id)"
+                     v-if="item.type === 2"><span>{{ $t("message.ChaKan") }}</span><i class="iconfont icon-Right-"></i></a>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <div class="textCenter">
+          <div class="processBtn">
+            <router-link :to="{path:'/CaseList',query:{id:0}}">
+              <span>{{$t("message.ChaKanGD")}}</span><i class="iconfont icon-shuangjiantouyou"></i>
+            </router-link>
+          </div>
+        </div>
+      </div>
+<!--      弹窗-->
+      <div class="modalBigDiv">
+        <transition name="caseModal"
+        enter-active-class="animated fadeInDown"
+        leave-active-class="animated fadeOutDown"
+        >
+          <div class="modalBgDiv" v-if="isCaseModal">
+            <div class="modalTextDiv">
+              <div class="modalCase">
+                <p class="modalClose" @click="modalClose"><i class="iconfont icon-cha"></i></p>
+                <div class="modalCaseText">
+                  <strong>補習社</strong>
+                  <div>
+                    一個24小時線上學習平台，24X7即時真人學習輔導，主要功能幫助學生即時核對功課，同時含有老師、學生、家長三個不同角色版本，更有線上練習，一鍵到家等服務，做學生的貼心助手。
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </transition>
       </div>
     </section>
 <!--索取报价-->
@@ -397,21 +369,24 @@
         <div class="contentBtnDiv">
           <div class="row rowCol3 rowCol1_xs">
             <div class="inputDiv">
-              <input type="text" :placeholder='$t("message.QSRLianLuoRen")'>
-            </div>
-            <div class="inputDiv">
-              <input type="text" :placeholder='$t("message.QSRDianYou")'>
-            </div>
-            <div class="inputDiv">
-              <input type="text" :placeholder='$t("message.QSRDianHua")'>
-            </div>
+                <input type="text" :placeholder='$t("message.QSRLianLuoRen")' v-model="aboutName" @blur="blurName">
+                <p>{{name}}</p>
+              </div>
+              <div class="inputDiv">
+                <input type="text" :placeholder='$t("message.QSRDianYou")' v-model="aboutEmail" @blur="blurEmail">
+                <p>{{email}}</p>
+              </div>
+              <div class="inputDiv">
+                <input type="text" :placeholder='$t("message.QSRDianHua")' v-model="aboutPhone" oninput="value=value.replace(/[^\d]/g, '')" @blur="blurPhone">
+                <p>{{tel}}</p>
+              </div>
           </div>
           <div class="inputDiv connectTextarea">
-            <textarea :placeholder='$t("message.LiuYan")'></textarea>
+            <textarea :placeholder='$t("message.LiuYan")' ref="textarea" :style="{'height': textAreaH}" v-model="aboutMessage"></textarea>
           </div>
         </div>
         <div class="textCenter">
-          <div class="buttonIcon border_205085">
+          <div class="buttonIcon border_205085" @click="aboutSubmit">
             <span>{{$t("message.TiJiao")}}</span><i class="iconfont icon-Right-"></i>
           </div>
         </div>
@@ -423,7 +398,9 @@
 
 <script>
 import {
-  subscriptionService
+  subscriptionService,
+  contentService,
+  randomCasesService
 } from "../common/api"
 
 import $ from 'jquery'
@@ -431,7 +408,7 @@ window.jQuery = $
 require('../assets/js/jquery.ripples.js')
 import Swiper from 'swiper'
 import {Pagination} from 'swiper'
-
+import calcTextareaHeight from '../assets/js/calcTextareaHeight'
 import Offer from "../components/Offer"
 export default {
   name: 'index',
@@ -454,7 +431,20 @@ export default {
       developText: "",
       isDevelopText: 0,
       timer: null,
-      developTextIndex: 0
+      developTextIndex: 0,
+      // 联络我们
+      textAreaH: '50px',
+      aboutName: '',
+      aboutEmail: '',
+      aboutPhone: '',
+      aboutMessage: '',
+      //提示语
+      name: '',
+      email: '',
+      tel: '',
+      // 随机案例
+      caseList: [],
+      isCaseModal: false
     }
   },
   created:function(){
@@ -463,6 +453,13 @@ export default {
       this.galleryTopLunbo();
     });
     this.typewriter(this.developTextIndex)
+    // 案例
+    this.getCaseList()
+  },
+  watch: {
+    aboutMessage() {
+      this.getHeight();
+    }
   },
   mounted() {
     // 水波涟漪
@@ -569,12 +566,12 @@ export default {
           verifyEmail =/^\w[-\w.+]*@([A-Za-z0-9][-A-Za-z0-9]+\.)+[A-Za-z]{2,14}/;
       if (that.subscriptionInput === '') {
         this.$tips({
-					msg: "请输入电邮"
+					msg: that.$t("message.QSRDianYou")
         });
         return
       }else if (!verifyEmail.test(that.subscriptionInput)){
         this.$tips({
-					msg: "请输入正确格式电邮"
+					msg: this.$t("message.QSRZQGSDianYou")
         });
         return
       }
@@ -582,13 +579,89 @@ export default {
         "email": that.subscriptionInput
       }).then(res => {
         that.$tips({
-					msg: "订阅成功"
+					msg: this.$t("message.DinYueCG")
         });
         that.subscriptionInput = ""
         // console.log(res)
       })
-    }
+    },
+    getHeight() {
+      this.textAreaH = calcTextareaHeight(this.$refs.textarea, 3, 8).height;
+    },
+    aboutSubmit () {
+      let that = this
+      if (that.aboutName === ""){
+        this.$tips({
+					msg:  that.$t("message.QSRLianLuoRen")
+        });
+        return
+      }
 
+      if (this.aboutEmail === ""){
+        this.$tips({
+					msg: that.$t("message.QSRDianYou")
+        });
+        return
+      }
+
+      if (this.aboutPhone === ""){
+        this.$tips({
+					msg: that.$t("message.QSRDianHua")
+        });
+        return
+      }
+
+      contentService({
+        "name": that.aboutName,
+        "email": that.aboutEmail,
+        "tel": that.aboutPhone,
+        "message": that.aboutMessage
+      }).then(res => {
+        that.$tips({
+					msg: that.$t("message.TiJiaoCG")
+        });
+        // window.location.reload()
+        that.aboutName = that.aboutEmail = that.aboutPhone = that.aboutMessage = ""
+      })
+
+    },
+    blurName (){
+      if (this.aboutName === ""){
+        this.name = this.$t("message.QSRLianLuoRen")
+      }else {
+        this.name = ""
+      }
+    },
+    blurPhone() {
+      if (this.aboutPhone === ""){
+        this.tel = this.$t("message.QSRDianHua")
+      }else {
+        this.tel = ""
+      }
+    },
+    blurEmail (){
+      let verifyEmail =/^\w[-\w.+]*@([A-Za-z0-9][-A-Za-z0-9]+\.)+[A-Za-z]{2,14}/;
+      if (this.aboutEmail === ""){
+        this.email = this.$t("message.QSRDianYou")
+      }else if (!verifyEmail.test(this.aboutEmail)){
+        this.email = this.$t("message.QSRZQGSDianYou")
+      }else {
+        this.email = ""
+      }
+    },
+    // 随机案例
+    getCaseList() {
+      randomCasesService({
+      }).then(res => {
+        this.caseList = res.data
+      })
+    },
+    modalClose() {
+      this.isCaseModal = false
+    },
+    showModal(Id) {
+      this.isCaseModal = true
+    }
   }
 }
 </script>

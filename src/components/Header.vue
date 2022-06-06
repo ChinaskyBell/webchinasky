@@ -4,9 +4,9 @@
     <div class="Width1400 headerTopDiv">
       <div class="languageDiv" :class="{'languageShow':isMenu}">
         <ul>
-          <li :class="{'active': lang === 'tw'}" @click="getLang('tw')">繁</li>
-          <li :class="{'active': lang === 'cn'}" @click="getLang('cn')">简</li>
-          <li :class="{'active': lang === 'en'}" @click="getLang('en')">EN</li>
+          <li :class="{'active': lang === 'tw'}" @click="getLang('tw',2)">繁</li>
+          <li :class="{'active': lang === 'cn'}" @click="getLang('cn',1)">简</li>
+          <li :class="{'active': lang === 'en'}" @click="getLang('en',3)">EN</li>
         </ul>
       </div>
       <div class="headerNav">
@@ -161,8 +161,9 @@ export default {
       }
     },
     // 切换语言
-    getLang (Type) {
+    getLang (Type,Id) {
       this.$store.commit('set_languageName', Type)
+      this.$store.commit('set_languageId',  Id)
       this.$i18n.locale = this.lang = Type
       window.location.reload()
     }

@@ -8,7 +8,7 @@ module.exports = {
     WangLuoWH: '网络维护',
     ZiLiaoBFHeBZ: '资料备份和保护',
     ZhuoMianWH: '桌面维护',
-    DianNaoJSZC: '电脑技术支持',
+    DianNaoJSZC: '电脑技术支援',
     ITWeiHu: 'IT维护',
     WangLuoGL: '网路管理',
     FuWuQiGL: '伺服器管理',
@@ -272,7 +272,12 @@ module.exports = {
     caseType4: '微信',
     caseType5: '商城',
     // caseList
-    caselistTit: '案例展示'
+    caselistTit: '案例展示',
+    // Js提示
+    GuanYuWMTitText1: '关于 CHINA SKY 的一点小事',
+    QSRZQGSDianYou: '请输入正确格式电邮',
+    DinYueCG: '订阅成功',
+    TiJiaoCG:'提交成功'
 
   }
 }

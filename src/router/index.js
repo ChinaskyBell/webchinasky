@@ -14,6 +14,8 @@ import Website from '../views/Website'
 import ITArticle from '../views/ITArticle'
 import Process from '../views/Process'
 
+import ITArticle2 from '../views/ITArticle2'
+
 Vue.use(Router)
 export default new Router({
   // mode: 'history',
@@ -78,6 +80,11 @@ export default new Router({
       path: '/Process',
       name: 'Process',
       component: Process
+    },
+    {
+      path: '/ITArticle2',
+      name: 'ITArticle2',
+      component: ITArticle2
     }
   ],
   // 跳转后页面置顶

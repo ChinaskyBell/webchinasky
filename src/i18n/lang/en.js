@@ -18,7 +18,7 @@ module.exports = {
     WeiXinKF: 'WeChat development',
     WangShangSC: 'Online Mall',
     LianXiWM: 'Contact Us',
-    MuLu: 'List',
+    MuLu: 'Menu',
     // index
     IndexBannerText1: 'Create the most optimized network working environment for enterprises',
     IndexBannerText2: 'A sound technical team undertakes network maintenance services to the outside world',
@@ -271,6 +271,12 @@ module.exports = {
     caseType4: 'WeChat',
     caseType5: 'Mall',
     // caseList
-    caselistTit: 'Case Show'
+    caselistTit: 'Case Show',
+
+    // Js prompt
+    GuanYuWMTitText1: 'A little thing about CHINA SKY',
+    QSRZQGSDianYou: 'Please enter the correct email format',
+    DinYueCG: 'Subscription successful',
+    TiJiaoCG: 'Submitted successfully'
   }
 }

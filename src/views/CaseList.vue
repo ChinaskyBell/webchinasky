@@ -23,7 +23,7 @@
         >
           <div class="projectBox" v-if="isCaseDiv">
             <div class="projectBoxItem" v-for="item in caseList">
-              <a :href="item.link || '#'">
+              <a :href="item.link || '#'" target="_blank">
               <div class="projectImgPc">
                   <img :src="item.host_image">
               </div>
