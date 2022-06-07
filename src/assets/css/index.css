@@ -26,6 +26,7 @@
   padding: 15px 50px;
   position: relative;
   background: rgba(114, 200, 255, 1);
+  text-transform: uppercase;
 }
 .indexBannerText button:hover{
   font-size: 20px;
@@ -89,11 +90,13 @@
   font-size: 24px;
   margin: 20px 0 0;
   font-weight: bolder;
+  text-transform: uppercase;
 }
 .processStep>a{
   font-size: 14px;
   transition: none;
   color: #254051;
+  text-transform: uppercase;
 }
 .processStep>a:hover{
   text-decoration: underline;
@@ -213,7 +216,7 @@
   padding: 40px 0;
 }
 .serviceSingle img{
-  width: 55px;
+  height: 55px;
 }
 .serviceSingle h3{
   font-size: 22px;
@@ -224,6 +227,7 @@
   line-height: 1.7;
   margin-bottom: 20px;
   height: 70px;
+  overflow: hidden;
 }
 .serviceSingle a{
   color: #FFFFFF;

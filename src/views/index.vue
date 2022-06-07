@@ -289,7 +289,13 @@
           <h1 class="h1Title col_254051">{{$t("message.KaiFaAL")}}</h1>
         </div>
         <div class="projectBox">
-          <div class="projectBoxItem" v-for="item in caseList">
+          <div class="projectBoxItem" v-for="item in caseList"  @click="item.type === 2 ? showModal(item.id) : toLink(item.link)">
+
+            <div class="projectBoxModal" v-if="item.type === 2">
+              <input :ref="'modalTit'+item.id" :value="item.name">
+              <textarea :ref="'modalText'+item.id" >{{item.content}}</textarea>
+            </div>
+
             <div class="projectImgPc">
               <img :src="item.host_image">
             </div>
@@ -333,10 +339,8 @@
               <div class="modalCase">
                 <p class="modalClose" @click="modalClose"><i class="iconfont icon-cha"></i></p>
                 <div class="modalCaseText">
-                  <strong>補習社</strong>
-                  <div>
-                    一個24小時線上學習平台，24X7即時真人學習輔導，主要功能幫助學生即時核對功課，同時含有老師、學生、家長三個不同角色版本，更有線上練習，一鍵到家等服務，做學生的貼心助手。
-                  </div>
+                  <strong>{{ modalTitle }}</strong>
+                  <div v-html="modalContent"></div>
                 </div>
               </div>
             </div>
@@ -444,7 +448,9 @@ export default {
       tel: '',
       // 随机案例
       caseList: [],
-      isCaseModal: false
+      isCaseModal: false,
+      modalTitle: "",
+      modalContent: ""
     }
   },
   created:function(){
@@ -661,6 +667,13 @@ export default {
     },
     showModal(Id) {
       this.isCaseModal = true
+      this.modalTitle = this.$refs[`modalTit${Id}`][0].value
+      this.modalContent = this.$refs[`modalText${Id}`][0].value
+    },
+    toLink (Url){
+      if (Url != null){
+        window.open(Url,'_blank');
+      }
     }
   }
 }

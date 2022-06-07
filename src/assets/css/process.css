@@ -78,6 +78,7 @@
   display: inline-block;
   vertical-align: middle;
   font-weight: bolder;
+  text-transform: uppercase;
 }
 .processBigDiv .processDivItem .processText .text{
   line-height: 1.8;

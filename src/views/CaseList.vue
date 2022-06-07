@@ -14,7 +14,7 @@
             <li :class="isActive === 1 ?'active':''" @click="cluckCase(1)">{{$t("message.caseType2")}}</li>
             <li :class="isActive === 2 ?'active':''" @click="cluckCase(2)">APP</li>
             <li :class="isActive === 3 ?'active':''" @click="cluckCase(3)">{{$t("message.caseType4")}}</li>
-            <li :class="isActive === 4 ?'active':''" @click="cluckCase(4)">{{$t("message.caseType5")}}</li>
+<!--            <li :class="isActive === 4 ?'active':''" @click="cluckCase(4)">{{$t("message.caseType5")}}</li>-->
           </ul>
         </div>
         <transition name="caseDiv"
@@ -22,8 +22,13 @@
         leave-active-class="animated fadeOutRight"
         >
           <div class="projectBox" v-if="isCaseDiv">
-            <div class="projectBoxItem" v-for="item in caseList">
-              <a :href="item.link || '#'" target="_blank">
+            <div class="projectBoxItem" v-for="item in caseList" @click="item.type === 2 ? showModal(item.id) : toLink(item.link)">
+
+              <div class="projectBoxModal" v-if="item.type === 2">
+                <input :ref="'modalTit'+item.id" :value="item.name">
+                <textarea :ref="'modalText'+item.id" >{{item.content}}</textarea>
+              </div>
+
               <div class="projectImgPc">
                   <img :src="item.host_image">
               </div>
@@ -43,13 +48,12 @@
                   </div>
                 </div>
               </div>
-              </a>
             </div>
           </div>
         </transition>
         <div class="textCenter" v-show="isMoreBtn">
           <div class="processBtn" @click="getMore">
-              <span>加載更多</span><i class="iconfont icon-shuangjiantouyou"></i>
+              <span>{{$t("message.JiaZaiGD")}}</span><i class="iconfont icon-shuangjiantouyou"></i>
           </div>
         </div>
       </div>
@@ -65,9 +69,9 @@
               <div class="modalCase">
                 <p class="modalClose" @click="modalClose"><i class="iconfont icon-cha"></i></p>
                 <div class="modalCaseText">
-                  <strong>補習社</strong>
-                  <div>
-                    一個24小時線上學習平台，24X7即時真人學習輔導，主要功能幫助學生即時核對功課，同時含有老師、學生、家長三個不同角色版本，更有線上練習，一鍵到家等服務，做學生的貼心助手。
+                  <strong>{{ modalTitle }}</strong>
+                  <div v-html="modalContent">
+
                   </div>
                 </div>
               </div>
@@ -93,7 +97,9 @@ export default {
       isCaseModal: false,
       caseList: [],
       Page: 1,
-      isMoreBtn: false
+      isMoreBtn: false,
+      modalTitle: "",
+      modalContent: ""
     }
   },
   created:function () {
@@ -116,23 +122,7 @@ export default {
         }else {
           that.isMoreBtn = false
         }
-
       })
-      /*
-      let language = this.$store.state.languageName,
-          that =this
-      this.$http.get('static/json/'+language+'/case.json').then((response) => {
-        if (response.status === 200) {
-          let data = response.data.data
-          that.caseList = data
-          console.log(data)
-        }else {
-          console.log(response)
-        }
-      }, (err) => {
-        console.log(err)
-      })
-      */
     },
     // 案例分类
     cluckCase(Type) {
@@ -151,6 +141,13 @@ export default {
     },
     showModal(Id) {
       this.isCaseModal = true
+      this.modalTitle = this.$refs[`modalTit${Id}`][0].value
+      this.modalContent = this.$refs[`modalText${Id}`][0].value
+    },
+    toLink (Url){
+      if (Url != null){
+        window.open(Url,'_blank');
+      }
     },
     // 加载更多
     getMore (){

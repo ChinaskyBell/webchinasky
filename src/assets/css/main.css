@@ -124,8 +124,11 @@ button{
   left: 50%;
   width: 65%;
   height: auto;
+  max-height: 95%;
+  overflow: auto;
   z-index: 13;
   transform: translate(-50%,-50%);
+
 }
 .modalClose{
   position: absolute;
@@ -246,6 +249,7 @@ button{
   font-size: 48px;
   padding-bottom: 30px;
   position: relative;
+  text-transform: uppercase;
 }
 .h1TitAfter:after{
   content: "";
@@ -633,6 +637,7 @@ button{
   transform: translate(0,-50%);
   padding: 0 20px;
   box-sizing: border-box;
+  text-transform: uppercase;
 }
 @media screen and (max-width:1200px){
   .bannerTit{
@@ -703,6 +708,7 @@ input::placeholder,textarea::placeholder{
   display: inline-block;
   text-align: center;
   cursor: pointer;
+  text-transform: uppercase;
 }
 .buttonIcon span,.buttonIcon i{
   display: inline-block;
@@ -806,6 +812,7 @@ input::placeholder,textarea::placeholder{
   color: #fff;
   z-index: 4;
   overflow: hidden;
+  cursor: pointer;
 }
 .projectImgPc,.projectImgWeb{
   position: absolute;
@@ -855,6 +862,8 @@ input::placeholder,textarea::placeholder{
   transition: all .4s ease-in-out;
   transform: translate3d(0, 80%, 0);
   transform-origin: 0 50%;
+  min-width: 50%;
+  max-width: 55%;
 }
 
 .projectBoxText > div .rpTop {
@@ -865,9 +874,17 @@ input::placeholder,textarea::placeholder{
 
 .projectBoxText .rpText {
   padding: 20px 0;
-  max-width: 70%;
   font-size: 15px;
   line-height: 1.6;
+}
+.projectBoxModal{
+  opacity: 0;
+}
+.projectBoxText .rpText>p{
+  overflow:hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -o-text-overflow:ellipsis;
 }
 @media screen and (min-width:1201px){
   .projectBoxItem:hover .projectImgPc{
@@ -963,14 +980,13 @@ input::placeholder,textarea::placeholder{
 .processBtn span{
   padding: 10px 20px;
   font-size: 24px;
+  text-transform: uppercase;
+  border-right: 2px solid #254051;
 }
 .processBtn i{
   width: 53px;
   height: 53px;
   line-height: 53px;
-}
-.processBtn span{
-  border-right: 2px solid #254051;
 }
 .processBtn:hover{
   background: #254051;
@@ -1140,11 +1156,15 @@ input::placeholder,textarea::placeholder{
   line-height: 2;
 }
 .itArtcleText>img{
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 .itArtcleText .button{
   text-align: center;
   margin: 50px 0;
+}
+.itArtcleText .titText{
+  font-size: 18px;
+  text-align: center;
 }
 .itArtcleText .button>a{
   border: solid 2px #ff3326;
@@ -1174,14 +1194,28 @@ input::placeholder,textarea::placeholder{
 
 @media screen and (max-width:767px){
   .articleText{
-    padding: 25px 0 50px;
+    padding-bottom: 30px;
   }
   .articleText>p{
     font-size: 16px;
     margin-bottom: 5px;
   }
-  .articleText{
+  .itArtcleText{
     font-size: 12px;
     line-height: 1.8;
+  }
+  .itArtcleText>img{
+    margin-bottom: 15px;
+  }
+  .itArtcleText .titText{
+    font-size: 16px;
+  }
+  .itArtcleText .button>a{
+    font-size: 16px;
+    padding: 0 30px;
+    line-height: 40px;
+  }
+  .itArtcleText .button{
+    margin: 30px 0;
   }
 }

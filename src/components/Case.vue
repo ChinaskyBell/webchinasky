@@ -10,7 +10,7 @@
           <li :class="isActive === 1 ?'active':''" @click="cluckCase(1)">{{$t("message.caseType2")}}</li>
           <li :class="isActive === 2 ?'active':''" @click="cluckCase(2)">APP</li>
           <li :class="isActive === 3 ?'active':''" @click="cluckCase(3)">{{$t("message.caseType4")}}</li>
-          <li :class="isActive === 4 ?'active':''" @click="cluckCase(4)">{{$t("message.caseType5")}}</li>
+<!--          <li :class="isActive === 4 ?'active':''" @click="cluckCase(4)">{{$t("message.caseType5")}}</li>-->
         </ul>
       </div>
       <transition name="caseDiv"
@@ -18,8 +18,13 @@
       leave-active-class="animated fadeOutRight"
       >
          <div class="projectBox" v-if="isCaseDiv">
-            <div class="projectBoxItem" v-for="item in caseList">
-              <a :href="item.link || '#'" target="_blank">
+            <div class="projectBoxItem" v-for="item in caseList"  @click="item.type === 2 ? showModal(item.id) : toLink(item.link)">
+
+              <div class="projectBoxModal" v-if="item.type === 2">
+                <input :ref="'modalTit'+item.id" :value="item.name">
+                <textarea :ref="'modalText'+item.id" >{{item.content}}</textarea>
+              </div>
+
               <div class="projectImgPc">
                   <img :src="item.host_image">
               </div>
@@ -34,14 +39,13 @@
                   </div>
                   <div class="rpText">
                     <p>{{ item.description }}</p>
-<!--                    查看-->
+<!--                    查看   type 0 无操作，1 链接，2 content-->
                     <a :href="item.link" target="_blank" v-if="item.type === 1"><span>{{$t("message.ChaKan")}}</span><i class="iconfont icon-Right-"></i></a>
                     <a href="javascript:;" @click="showModal(item.id)" v-if="item.type === 2"><span>{{$t("message.ChaKan")}}</span><i class="iconfont icon-Right-"></i></a>
 
                   </div>
                 </div>
               </div>
-              </a>
             </div>
           </div>
       </transition>
@@ -54,7 +58,6 @@
       </div>
     </div>
 <!--彈窗-->
-
     <div class="modalBigDiv">
       <transition name="caseModal"
       enter-active-class="animated fadeInDown"
@@ -65,10 +68,8 @@
             <div class="modalCase">
               <p class="modalClose" @click="modalClose"><i class="iconfont icon-cha"></i></p>
               <div class="modalCaseText">
-                <strong>補習社</strong>
-                <div>
-                  一個24小時線上學習平台，24X7即時真人學習輔導，主要功能幫助學生即時核對功課，同時含有老師、學生、家長三個不同角色版本，更有線上練習，一鍵到家等服務，做學生的貼心助手。
-                </div>
+                <strong>{{ modalTitle }}</strong>
+                <div v-html="modalContent"></div>
               </div>
             </div>
           </div>
@@ -91,7 +92,10 @@ export default {
       isCaseDiv: true,
       isCaseModal: false,
       caseList: [],
-      isMoreBtn: false
+      isMoreBtn: false,
+      modalTitle: "",
+      modalContent: ""
+
     }
   },
   created:function () {
@@ -130,6 +134,13 @@ export default {
     },
     showModal(Id) {
       this.isCaseModal = true
+      this.modalTitle = this.$refs[`modalTit${Id}`][0].value
+      this.modalContent = this.$refs[`modalText${Id}`][0].value
+    },
+    toLink (Url){
+      if (Url != null){
+        window.open(Url,'_blank');
+      }
     }
   }
 }

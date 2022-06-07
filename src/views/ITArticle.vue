@@ -12,7 +12,7 @@
       <div class="Width1000">
         <div class="itArtcleText">
           <img :src="image">
-          <div>{{titText}}</div>
+          <div class="titText">{{titText}}</div>
           <div class="button">
             <router-link to="/ContactUs" target="_blank">{{ buttonText1 }}</router-link>
           </div>

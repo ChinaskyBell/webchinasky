@@ -2,7 +2,7 @@ module.exports = {
   message: {
     // header
     GuanYuWM: 'About Us',
-    SuoQuBJ: 'Quote',
+    SuoQuBJ: 'Request a Quote',
     Home: 'Home',
     WangLuoWH: 'Network Maintenance',
     ZiLiaoBFHeBZ: 'Data backup and protection',
@@ -18,14 +18,14 @@ module.exports = {
     WeiXinKF: 'WeChat development',
     WangShangSC: 'Online Mall',
     LianXiWM: 'Contact Us',
-    MuLu: 'Menu',
+    MuLu: 'MENU',
     // index
     IndexBannerText1: 'Create the most optimized network working environment for enterprises',
     IndexBannerText2: 'A sound technical team undertakes network maintenance services to the outside world',
     GenDuo: 'More',
     KaiFaFW: 'Development Services',
     WangZhanSJHeKF: 'Website Design & Development',
-    CKWZFWXQ: 'View details',
+    CKWZFWXQ: 'View Details',
     IndexKFText1: 'Our services include design, development and promotion\nResponsive, we are professional\nBeautiful and clean designs for all screen sizes',
     IndexKFText2: 'Mobile application development\nUse appropriate technology to make mobile applications required by customers\nNative APP, Hybrid APP, Web APP',
     IndexKFText3: 'Customized official account service platform with more complete and powerful functions for enterprises\nWeChat official account customized development\nMini program customized development\nEnterprise WeChat customized development',
@@ -272,11 +272,18 @@ module.exports = {
     caseType5: 'Mall',
     // caseList
     caselistTit: 'Case Show',
-
+    // process
+    processText1: 'First, you need to sign up for our service. Please keep in touch so we can discuss packages in detail, provide quotes and answer any questions you may have. When registering, you are required to pay 50% of the prepayment, and the remaining amount will be made up when the website is online. We accept debit cards, credit cards or bank transfers. Hosting charges start when you sign up. ',
+    processText2: 'After registration, we will ask you to complete a short design questionnaire. This allows us to understand your needs and we can then research the services of other similar companies. At the same time, we also pay attention to current design trends, whether our knowledge can achieve good results from a marketing perspective and from other strong external industry websites. This stage is all about mastering your needs while enhancing our design and marketing experience to complement your project. ',
+    processText3: 'Your web designer will create a design for you to review, then discuss the design with you until you\'re happy to sign it. We\'ll go back and forth with revisions before you sign off, and importantly, we don\'t start building the site until you\'re ready. Please note that once the design has been approved, the project will enter the build phase and additional costs may be incurred if the design needs to be changed. ',
+    processText4: 'After the design plan is agreed, the website will be built. This includes taking an agreed-upon design and coding it to work across all different devices and screen sizes. Every website we create is responsive (aka mobile friendly). At this stage, you\'re also required to provide the text content of each page, and for e-commerce sites, we\'ll show you how to add categories and products to your site. ',
+    processText5: 'When the website is ready, it will go live. If you have your own function variable names, then we will recommend the best function variable name configuration for your project with different options. Whether using a new feature variable name or an existing feature variable name, we\'ll tell Google to re-index your site to point to your audience. ',
+    processText6: 'After the website went live, our work continued. For many clients, this is the beginning of our service! We\'ll continue to provide support based on your needs, and if you need any updates that you can\'t or don\'t want to do through the CMS, we\'ll do it for you, and this support will be billed by the hour. We also provide SEO (Search Engine Optimization) services to improve your ranking in Google\'s agreed phrases. As your business grows or changes, we\'ll be there for you when you need it. ',
     // Js prompt
     GuanYuWMTitText1: 'A little thing about CHINA SKY',
     QSRZQGSDianYou: 'Please enter the correct email format',
     DinYueCG: 'Subscription successful',
-    TiJiaoCG: 'Submitted successfully'
+    TiJiaoCG: 'Submitted successfully',
+    JiaZaiGD: 'Load More'
   }
 }
