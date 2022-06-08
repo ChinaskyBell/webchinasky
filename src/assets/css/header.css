@@ -302,8 +302,11 @@
   .menu_main_menu>li{
     font-size: 32px;
   }
-  .menu_main_menu .span1,.menu_main_menu>li:hover .span1{
+  .menu_main_menu .span1,.menu_main_menu>li:hover .span1,.menu_main_item{
     font-size: 24px;
+  }
+  .menu_main_item>li{
+    padding: 0 15px;
   }
 }
 @media screen and (max-width:1023px){
@@ -312,6 +315,12 @@
   }
   .menu_main_item>li{
     padding: 0 10px;
+  }
+}
+@media screen and (max-width:1000px){
+  .menu_main_item{
+    font-size: 18px;
+    line-height: 1;
   }
 }
 @media screen and (max-width:767px){

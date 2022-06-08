@@ -105,7 +105,7 @@
         </div>
         <div class="webProcessDiv">
           <ul>
-            <li  v-for="item in processStr">
+            <li v-for="(item,index) in processStr" :class="flag === index ? 'active' : ''"  @mouseenter = "mouseWeb(index)">
               <p class="p1">{{ item.title }}</p>
               <p class="p2">{{ item.content }}</p>
             </li>
@@ -152,7 +152,8 @@ export default {
       developText: "",
       isDevelopText: 0,
       timer: null,
-      developTextIndex: 0
+      developTextIndex: 0,
+      flag: 0
     }
   },
   comments:{
@@ -238,6 +239,9 @@ export default {
           }
         }, 15);
       }
+    },
+    mouseWeb (Index){
+      this.flag = Index;
     }
   }
 }
@@ -264,12 +268,12 @@ export default {
     margin-bottom: 5px;
   }
   @media screen and (min-width:1024px){
-    .webProcessDiv>ul>li:hover{
+    .webProcessDiv>ul>.active{
       transition: all 0.5s;
-      font-size: 42px;
+      font-size: 38px;
       color: #72C8FF;
     }
-    .webProcessDiv>ul>li:hover .p1{
+    .webProcessDiv>ul>.active .p1{
       font-weight: bolder;
     }
     .webProcessDiv>ul>li:before,.webProcessDiv>ul>li:after{
@@ -292,14 +296,17 @@ export default {
       bottom: 0;
       background: #72C8FF;
     }
-    .webProcessDiv>ul>li:hover:before{
+    .webProcessDiv>ul>.active:before{
       opacity: 1;
     }
-    .webProcessDiv>ul>li:hover:after{
+    .webProcessDiv>ul>.active:after{
       top: 30px;
     }
   }
   @media screen and (max-width:767px){
+    .webProcessDiv{
+      font-size: 16px;
+    }
     .webProcessDiv>ul>li{
       padding-bottom: 15px;
     }

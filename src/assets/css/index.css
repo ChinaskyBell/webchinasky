@@ -226,8 +226,6 @@
   font-size: 14px;
   line-height: 1.7;
   margin-bottom: 20px;
-  height: 70px;
-  overflow: hidden;
 }
 .serviceSingle a{
   color: #FFFFFF;
@@ -236,11 +234,14 @@
   letter-spacing: 1px;
   font-weight: 700;
 }
+.serviceDiv>.row>div{
+  margin-bottom: 30px;
+}
 .serviceSingle{
   text-align: center;
   position: relative;
   padding: 30px 70px;
-  margin-bottom: 30px;
+  height: 100%;
   transition: all .5s ease;
   border-radius: 4px;
   z-index: 1;

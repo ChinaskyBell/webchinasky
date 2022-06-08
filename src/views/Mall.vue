@@ -171,7 +171,7 @@
     </section>
 <!--購買限時優惠-->
     <section class="mallBigDiv mallBgImg">
-      <div class="Width1200">
+      <div class="Width1400">
         <div class="textCenter">
           <h1 class="h1Title col_FFF">{{$t("message.mallBuyTit")}}</h1>
           <span class="discountSpan">2022.05.01-2022.06.30</span>
@@ -184,7 +184,9 @@
                 <span>HKD</span>
                 <strong>{{ item.price }}</strong>
               </div>
-              <button>{{$t("message.mallBuyBtn")}}</button>
+              <router-link to="/ContactUs" target="_blank">
+                <button>{{$t("message.mallBuyBtn")}}</button>
+              </router-link>
             </li>
           </ul>
         </div>
@@ -219,7 +221,7 @@
     </section>
 <!--租用限時優惠-->
     <section class="mallBigDiv BgFAFAFA">
-      <div class="Width1200">
+      <div class="Width1400">
         <div class="textCenter">
           <h1 class="h1Title">{{$t("message.mallRentTit")}}</h1>
           <span class="discountSpan">2022.05.01-2022.06.30</span>
@@ -232,7 +234,9 @@
                 <span>HKD</span>
                 <strong>{{ item.price }}<label>/{{item.cycle}}</label></strong>
               </div>
-              <button>{{$t("message.mallRentBtn")}}</button>
+              <router-link to="/ContactUs" target="_blank">
+                <button>{{$t("message.mallRentBtn")}}</button>
+              </router-link>
             </li>
           </ul>
         </div>

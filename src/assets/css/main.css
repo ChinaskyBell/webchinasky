@@ -142,6 +142,11 @@ button{
 .modalClose>i{
   font-size: 20px;
 }
+@media screen and (max-width:1023px){
+  .modalTextDiv{
+    width: 85%;
+  }
+}
 @media screen and (max-width:767px){
   .modalTextDiv{
     width: 95%;
@@ -853,7 +858,7 @@ input::placeholder,textarea::placeholder{
   align-items: flex-end;
   transform-origin: 0 50%;
   color: #FFFFFF;
-  background: rgba(137, 137, 137, 0.1);
+  background: rgba(137, 137, 137, 0.3);
 }
 
 .projectBoxText > div {
@@ -869,7 +874,7 @@ input::placeholder,textarea::placeholder{
 .projectBoxText > div .rpTop {
   transition: transform .4s ease-in-out;
   transform: translate3d(0, -100%, 0);
-  filter: drop-shadow(2px 4px 6px #205085);
+  /*filter: drop-shadow(2px 4px 6px #205085);*/
 }
 
 .projectBoxText .rpText {
@@ -879,6 +884,7 @@ input::placeholder,textarea::placeholder{
 }
 .projectBoxModal{
   opacity: 0;
+  position: absolute;
 }
 .projectBoxText .rpText>p{
   overflow:hidden;
@@ -912,10 +918,11 @@ input::placeholder,textarea::placeholder{
   padding-top: 15px;
 }
 .projectBoxText a{
-  color: #72C8FF;
+  color: #205085;
   pointer-events: auto;
   display: inline-block;
   margin-top: 15px;
+  font-weight: bolder;
 }
 .projectBoxText a i{
   display: inline-block;
@@ -955,6 +962,12 @@ input::placeholder,textarea::placeholder{
   }
   .projectBoxText a{
     margin-top: 10px;
+  }
+  .projectBoxText > div .rpTop>img{
+    max-height: 40px;
+  }
+  .projectBoxText>div{
+    max-width: 100%;
   }
 }
 @media screen and (max-width:767px){

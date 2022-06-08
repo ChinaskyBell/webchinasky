@@ -6,8 +6,9 @@ const store = new Vuex.Store({
   // 全局参数
   state: {
     token: '',
-    languageName: '' || localStorage.getItem('locale'),
-    languageId: localStorage.getItem('localeId')
+    languageName: localStorage.getItem('locale') || 'tw',
+    languageId: localStorage.getItem('localeId') || 2
+
   },
   // set方法，保存数据
   mutations: {
