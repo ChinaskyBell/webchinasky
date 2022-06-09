@@ -373,15 +373,15 @@
         <div class="contentBtnDiv">
           <div class="row rowCol3 rowCol1_xs">
             <div class="inputDiv">
-                <input type="text" :placeholder='$t("message.QSRLianLuoRen")' v-model="aboutName" @blur="blurName">
+                <input type="text" :placeholder='$t("message.LianLuoRen")' v-model="aboutName" @blur="blurName">
                 <p>{{name}}</p>
               </div>
               <div class="inputDiv">
-                <input type="text" :placeholder='$t("message.QSRDianYou")' v-model="aboutEmail" @blur="blurEmail">
+                <input type="text" :placeholder='$t("message.DianYou")' v-model="aboutEmail" @blur="blurEmail">
                 <p>{{email}}</p>
               </div>
               <div class="inputDiv">
-                <input type="text" :placeholder='$t("message.QSRDianHua")' v-model="aboutPhone" oninput="value=value.replace(/[^\d]/g, '')" @blur="blurPhone">
+                <input type="text" :placeholder='$t("message.DianHua")' v-model="aboutPhone" oninput="value=value.replace(/[^\d]/g, '')" @blur="blurPhone">
                 <p>{{tel}}</p>
               </div>
           </div>

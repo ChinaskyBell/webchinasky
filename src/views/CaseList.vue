@@ -11,10 +11,11 @@
         <div class="classificationDiv">
           <ul>
             <li :class="isActive === 0 ?'active':''" @click="cluckCase(0)">{{$t("message.caseType1")}}</li>
-            <li :class="isActive === 1 ?'active':''" @click="cluckCase(1)">{{$t("message.caseType2")}}</li>
-            <li :class="isActive === 2 ?'active':''" @click="cluckCase(2)">APP</li>
-            <li :class="isActive === 3 ?'active':''" @click="cluckCase(3)">{{$t("message.caseType4")}}</li>
+<!--            <li :class="isActive === 1 ?'active':''" @click="cluckCase(1)">{{$t("message.caseType2")}}</li>-->
+<!--            <li :class="isActive === 2 ?'active':''" @click="cluckCase(2)">APP</li>-->
+<!--            <li :class="isActive === 3 ?'active':''" @click="cluckCase(3)">{{$t("message.caseType4")}}</li>-->
 <!--            <li :class="isActive === 4 ?'active':''" @click="cluckCase(4)">{{$t("message.caseType5")}}</li>-->
+            <li v-for="item in typeList" :class="isActive === item.id ?'active':''" @click="cluckCase(item.id)">{{item.name}}</li>
           </ul>
         </div>
         <transition name="caseDiv"
@@ -70,9 +71,7 @@
                 <p class="modalClose" @click="modalClose"><i class="iconfont icon-cha"></i></p>
                 <div class="modalCaseText">
                   <strong>{{ modalTitle }}</strong>
-                  <div v-html="modalContent">
-
-                  </div>
+                  <div v-html="modalContent"></div>
                 </div>
               </div>
             </div>
@@ -96,6 +95,7 @@ export default {
       isCaseDiv: true,
       isCaseModal: false,
       caseList: [],
+      typeList:[],
       Page: 1,
       isMoreBtn: false,
       modalTitle: "",
@@ -116,7 +116,8 @@ export default {
       }).then(res => {
         let data = res.data.cases
         that.caseList.push(...data.data)
-        console.log(data)
+        that.typeList = res.data.categories
+        // console.log(data)
         if (data.next_page_url != null){
           that.isMoreBtn = true
         }else {
