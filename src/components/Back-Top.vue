@@ -49,7 +49,7 @@ export default {
 /*返回顶部*/
 .returnTop{
   position: fixed;
-  bottom: 5%;
+  bottom: 90px;
   right: 20px;
   background: #205085;
   width: 40px;

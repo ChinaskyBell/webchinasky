@@ -165,13 +165,15 @@ export default {
       this.$store.commit('set_languageName', Type)
       this.$store.commit('set_languageId',  Id)
       this.$i18n.locale = this.lang = Type
-      window.location.reload()
+      // window.location.reload()
+      this.$router.go(0)
     }
   },
   watch:{
     $route:{
       handler(){
-        location.reload()
+        // location.reload()
+        this.$router.go(0)
       }
     }
   }

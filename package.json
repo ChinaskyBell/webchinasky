@@ -15,6 +15,7 @@
     "swiper": "^7.4.1",
     "vue": "^2.5.2",
     "vue-i18n": "^8.27.1",
+    "vue-monoplasty-slide-verify": "^1.1.4",
     "vue-router": "^3.0.1",
     "vuex": "^3.6.2",
     "wowjs": "^1.1.3"

@@ -15,8 +15,9 @@ import ITArticle from '../views/ITArticle'
 import Process from '../views/Process'
 
 Vue.use(Router)
-export default new Router({
+const router = new Router({
   // mode: 'history',
+  // base: '/web/',
   linkActiveClass: 'active',
   routes: [
     {
@@ -89,3 +90,5 @@ export default new Router({
     }
   }
 })
+
+export default router

@@ -7,11 +7,13 @@ import axios from 'axios'
 import i18n from './i18n'
 import store from './common/store'
 import tips from './common/tips'
-
+// 輪播圖
 import 'swiper/swiper-bundle.css'
 import Swiper,{Navigation,Autoplay,Thumbs} from 'swiper'
 Swiper.use([Navigation,Autoplay,Thumbs])
-
+// 驗證碼
+import SlideVerify from 'vue-monoplasty-slide-verify'
+Vue.use(SlideVerify)
 import '@/assets/css/icon/iconfont.css'
 import '@/assets/css/animate.css'
 import '@/assets/css/main.css'

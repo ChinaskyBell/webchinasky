@@ -47,12 +47,17 @@
           </div>
       </transition>
       <div class="textCenter" v-show="isMoreBtn">
-        <div class="processBtn">
-          <router-link :to="{path:'/CaseList',query:{id:isActive}}">
-            <span>{{$t("message.ChaKanGD")}}</span><i class="iconfont icon-shuangjiantouyou"></i>
-          </router-link>
+        <div class="processBtn" @click="getMore">
+          <span>{{ $t("message.JiaZaiGD") }}</span><i class="iconfont icon-shuangjiantouyou"></i>
         </div>
       </div>
+<!--      <div class="textCenter" v-show="isMoreBtn">-->
+<!--        <div class="processBtn">-->
+<!--          <router-link :to="{path:'/CaseList',query:{id:isActive}}">-->
+<!--            <span>{{$t("message.ChaKanGD")}}</span><i class="iconfont icon-shuangjiantouyou"></i>-->
+<!--          </router-link>-->
+<!--        </div>-->
+<!--      </div>-->
     </div>
 <!--彈窗-->
     <div class="modalBigDiv">
@@ -83,6 +88,7 @@ import {
 } from "../common/api"
 export default {
   name: 'Case',
+  props:["Active"],
   data() {
     return {
       isActive: 0,
@@ -92,11 +98,14 @@ export default {
       typeList:[],
       isMoreBtn: false,
       modalTitle: "",
-      modalContent: ""
-
+      modalContent: "",
+      Page: 1
     }
   },
   created:function () {
+    if (this.Active){
+      this.isActive = Number(this.Active)
+    }
     this.getCaseList()
   },
   methods: {
@@ -104,10 +113,11 @@ export default {
     getCaseList() {
       let that =this
       casesService({
-        "caseId": that.isActive
+        "caseId": that.isActive,
+        "page": that.Page
       }).then(res => {
         let data = res.data.cases
-        that.caseList = data.data
+        that.caseList.push(...data.data)
         that.typeList = res.data.categories
         // console.log(data)
         if (data.next_page_url != null){
@@ -123,6 +133,7 @@ export default {
       that.isActive = Type
       that.isCaseDiv = false
       that.caseList = []
+      that.Page = 1
       that.getCaseList()
       setTimeout(function (){
         that.isCaseDiv = true
@@ -140,6 +151,11 @@ export default {
       if (Url != null){
         window.open(Url,'_blank');
       }
+    },
+    // 加载更多
+    getMore (){
+      this.Page++
+      this.getCaseList()
     }
   }
 }

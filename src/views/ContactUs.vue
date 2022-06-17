@@ -38,7 +38,7 @@
                 {{$t("message.DianHua")}}: <span @click="toLink('tel' +':(0755)25100512')">+86-755-25100512</span>
               </li>
               <li>
-                E-mail: <span @click="toLink('mailto:'+emailCn)">{{ emailCn }}</span>
+                E-mail: <span @click="toLink('mailto:'+emailHk)">{{ emailHk }}</span>
               </li>
             </ul>
             <div>
@@ -80,6 +80,30 @@
           </div>
         </div>
       </div>
+      <!--彈窗-->
+      <div class="modalBigDiv">
+        <transition name="codeModal"
+        enter-active-class="animated fadeInDown"
+        leave-active-class="animated fadeOutDown"
+        >
+          <div class="modalBgDiv" v-if="isCodeModal">
+            <div class="modalCenterDiv">
+              <div class="modalContact">
+                <p class="modalClose" @click="modalClose"><i class="iconfont icon-cha"></i></p>
+                <div>
+                  <slide-verify :l="42"
+                    :r="10"
+                    :w="310"
+                    :h="155"
+                    :slider-text='$t("message.codeText")'
+                    @success="onSuccess"
+                  ></slide-verify>
+                </div>
+              </div>
+            </div>
+          </div>
+        </transition>
+      </div>
     </section>
 <!--    地图-->
     <section>
@@ -114,7 +138,9 @@ export default {
       //提示语
       name: '',
       email: '',
-      tel: ''
+      tel: '',
+      // 驗證
+      isCodeModal:false
     }
   },
   created () {
@@ -125,6 +151,26 @@ export default {
     }
   },
   methods: {
+    onSuccess() {
+      let that = this
+      contentService({
+        "name": that.aboutName,
+        "email": that.aboutEmail,
+        "tel": that.aboutPhone,
+        "message": that.aboutMessage
+      }).then(res => {
+        that.isCodeModal = false
+        that.aboutName = that.aboutEmail = that.aboutPhone = that.aboutMessage = ""
+        that.$tips({
+					msg: that.$t("message.TiJiaoCG")
+        });
+        // window.location.reload()
+
+      })
+    },
+    modalClose() {
+      this.isCodeModal = false
+    },
     getHeight() {
       this.textAreaH = calcTextareaHeight(this.$refs.textarea, 3, 8).height;
     },
@@ -153,20 +199,7 @@ export default {
         });
         return
       }
-
-      contentService({
-        "name": that.aboutName,
-        "email": that.aboutEmail,
-        "tel": that.aboutPhone,
-        "message": that.aboutMessage
-      }).then(res => {
-        that.$tips({
-					msg: that.$t("message.TiJiaoCG")
-        });
-        // window.location.reload()
-        that.aboutName = that.aboutEmail = that.aboutPhone = that.aboutMessage = ""
-      })
-
+      that.isCodeModal = true
     },
     blurName (){
       if (this.aboutName === ""){
@@ -192,7 +225,6 @@ export default {
         this.email = ""
       }
     }
-
   }
 }
 </script>

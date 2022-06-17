@@ -4,10 +4,66 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="static/favicon.ico" type="image/x-icon" />
-    <title>ChinaSky</title>
+    <title>China Sky</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NWGG5XWY4Z"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-NWGG5XWY4Z');
+    </script>
+
+    <!-- Facebook Pixel Code -->
+    <script>
+      !function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod ?
+            n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = '2.0';
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s)
+      }(window, document, 'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '527650705768819');
+      fbq('track', 'PageView');
+    </script>
+    <noscript>
+      <img height="1" width="1" src="https://www.facebook.com/tr?id=527650705768819&ev=PageView&noscript=1"/>
+    </noscript>
+    <!-- End Facebook Pixel Code -->
   </head>
+
   <body ontouchstart>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+
+  <!-- Start of LiveChat (www.livechatinc.com) code -->
+  <script type="text/javascript">
+      window.__lc = window.__lc || {};
+      window.__lc.license = 8938924;
+      (function () {
+        let lc = document.createElement('script');
+        lc.type = 'text/javascript';
+        lc.async = true;
+        lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
+        let s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(lc, s);
+      })();
+  </script>
+  <!-- End of LiveChat code -->
   </body>
+
+
 </html>

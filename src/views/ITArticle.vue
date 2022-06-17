@@ -47,7 +47,7 @@ export default {
   methods: {
     getArticle() {
       let language = this.$store.state.languageName
-      this.$http.get('static/json/itArticle-'+language+'.json').then((response) => {
+      this.$http.get('/static/json/itArticle-'+language+'.json').then((response) => {
         if (response.status === 200) {
           let index = Number(this.$route.query.id) - 1,
             data = response.data.data[index]

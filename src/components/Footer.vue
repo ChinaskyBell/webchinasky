@@ -24,7 +24,7 @@
         <div class="footerConnect">
           <div>{{$t("message.GongSiSZ")}}</div>
           <div>{{$t("message.DiZhiSZ")}}</div>
-          <div>E-mail: <span @click="toLink(2,'mailto:'+emailCn)">{{emailCn}}</span></div>
+          <div>E-mail: <span @click="toLink(2,'mailto:'+emailHk)">{{emailHk}}</span></div>
           <div class="phone"><span @click="toLink(2,'tel' + ':(0755)25100512')">(0755) 2510-0512</span></div>
         </div>
       </div>

@@ -322,7 +322,7 @@
         </div>
         <div class="textCenter">
           <div class="processBtn">
-            <router-link :to="{path:'/CaseList',query:{id:0}}">
+            <router-link to="/CaseList">
               <span>{{$t("message.ChaKanGD")}}</span><i class="iconfont icon-shuangjiantouyou"></i>
             </router-link>
           </div>
@@ -395,6 +395,31 @@
           </div>
         </div>
       </div>
+
+      <!--彈窗-->
+      <div class="modalBigDiv">
+        <transition name="codeModal"
+        enter-active-class="animated fadeInDown"
+        leave-active-class="animated fadeOutDown"
+        >
+          <div class="modalBgDiv" v-if="isCodeModal">
+            <div class="modalCenterDiv">
+              <div class="modalContact">
+                <p class="modalClose" @click="modalClose2()"><i class="iconfont icon-cha"></i></p>
+                <div>
+                  <slide-verify :l="42"
+                    :r="10"
+                    :w="310"
+                    :h="155"
+                    :slider-text='$t("message.codeText")'
+                    @success="onSuccess"
+                  ></slide-verify>
+                </div>
+              </div>
+            </div>
+          </div>
+        </transition>
+      </div>
     </section>
   </div>
 </template>
@@ -450,7 +475,9 @@ export default {
       caseList: [],
       isCaseModal: false,
       modalTitle: "",
-      modalContent: ""
+      modalContent: "",
+      // 驗證
+      isCodeModal:false
     }
   },
   created:function(){
@@ -617,19 +644,22 @@ export default {
         return
       }
 
+      that.isCodeModal = true
+    },
+    onSuccess() {
+      let that = this
       contentService({
         "name": that.aboutName,
         "email": that.aboutEmail,
         "tel": that.aboutPhone,
         "message": that.aboutMessage
       }).then(res => {
+        that.isCodeModal = false
+        that.aboutName = that.aboutEmail = that.aboutPhone = that.aboutMessage = ""
         that.$tips({
 					msg: that.$t("message.TiJiaoCG")
         });
-        // window.location.reload()
-        that.aboutName = that.aboutEmail = that.aboutPhone = that.aboutMessage = ""
       })
-
     },
     blurName (){
       if (this.aboutName === ""){
@@ -654,6 +684,9 @@ export default {
       }else {
         this.email = ""
       }
+    },
+    modalClose2() {
+      this.isCodeModal = false
     },
     // 随机案例
     getCaseList() {
@@ -682,8 +715,8 @@ export default {
 <style scoped>
 @import "../assets/css/index.css";
 .indexBannerDiv{
-  background-image: url("../assets/img/indexBanner.png");
-  min-height: 800px;
+  background-image: url("../assets/img/indexBanner.jpg");
+  min-height: 660px;
 }
 @media screen and (max-width:1300px){
   .indexBannerDiv{

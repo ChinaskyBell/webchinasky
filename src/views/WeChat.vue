@@ -98,7 +98,7 @@
       </div>
     </section>
 <!--案例-->
-    <Case></Case>
+    <Case Active="3"></Case>
 <!--索取报价-->
     <Offer></Offer>
   </div>

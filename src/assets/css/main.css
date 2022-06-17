@@ -19,6 +19,7 @@ pre{
   color: #232425;
   transition: all 0.5s ease;
   -webkit-appearance: none;
+  box-shadow:0px 0px 0px rgba(0,0,0,0) inset;
 }
 html,
 body,
@@ -118,17 +119,18 @@ button{
   z-index: 11;
   transition: all 0.3s;
 }
-.modalTextDiv{
+.modalTextDiv,.modalCenterDiv{
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 65%;
-  height: auto;
-  max-height: 95%;
   overflow: auto;
   z-index: 13;
   transform: translate(-50%,-50%);
-
+}
+.modalTextDiv{
+  width: 65%;
+  height: auto;
+  max-height: 95%;
 }
 .modalClose{
   position: absolute;
@@ -255,6 +257,7 @@ button{
   padding-bottom: 30px;
   position: relative;
   text-transform: uppercase;
+  white-space: pre-line;
 }
 .h1TitAfter:after{
   content: "";
@@ -445,6 +448,7 @@ button{
   min-height: 50px;
   -webkit-transition: all .3s;
   transition: all .3s;
+  text-align: justify;
 }
 .thumbsText .run_btn:hover{
   color: #feaf3c;
@@ -638,11 +642,10 @@ button{
   position: absolute;
   left: 0;
   right: 0;
-  top: 50%;
-  transform: translate(0,-50%);
   padding: 0 20px;
   box-sizing: border-box;
   text-transform: uppercase;
+  bottom: 10%;
 }
 @media screen and (max-width:1200px){
   .bannerTit{
@@ -654,13 +657,13 @@ button{
     font-size: 44px;
     top: initial;
     transform: initial;
-    bottom: 15%;
+    bottom: 5%;
   }
 }
 @media screen and (max-width:767px){
   .bannerTit{
     font-size: 20px;
-    bottom: 15%;
+    bottom: 10px;
   }
 }
 
@@ -730,6 +733,11 @@ input::placeholder,textarea::placeholder{
   border: 1px solid #205085;
   color: #205085;
 }
+.modalContact{
+  padding: 60px 30px 30px;
+  background: #FFFFFF;
+  border-radius: 5px;
+}
 @media screen and (max-width:767px){
   .contentBtnDiv{
     padding: 15px 10px;
@@ -742,6 +750,10 @@ input::placeholder,textarea::placeholder{
   }
   .buttonIcon{
     font-size: 16px;
+  }
+  .modalContact{
+    padding: 40px 15px 15px;
+    border-radius: 5px;
   }
 }
 /*footer*/
@@ -918,7 +930,7 @@ input::placeholder,textarea::placeholder{
   padding-top: 15px;
 }
 .projectBoxText a{
-  color: #205085;
+  color: #72c8ff;
   pointer-events: auto;
   display: inline-block;
   margin-top: 15px;
@@ -1044,6 +1056,17 @@ input::placeholder,textarea::placeholder{
   color: #232425;
   margin-top: 15px;
   line-height: 1.8;
+  text-align: justify;
+}
+.modalCaseText > div ul li{
+  padding-left: 20px;
+  position: relative;
+}
+.modalCaseText > div ul li:after{
+  position: absolute;
+  content: "-";
+  left: 0;
+  top: -1px;
 }
 @media screen and (max-width: 1023px) {
   .modalCase {
@@ -1176,7 +1199,7 @@ input::placeholder,textarea::placeholder{
   margin: 50px 0;
 }
 .itArtcleText .titText{
-  font-size: 18px;
+  font-size: 17px;
   text-align: center;
 }
 .itArtcleText .button>a{
