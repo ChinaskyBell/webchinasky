@@ -292,7 +292,22 @@ module.exports = {
     QSRZQGSDianYou: '请输入正确格式电邮',
     DinYueCG: '订阅成功',
     TiJiaoCG:'提交成功',
-    JiaZaiGD: '加载更多'
+    JiaZaiGD: '加载更多',
+    Error: '失败',
+    DinYueSuccess1: '谢谢您的订阅！',
+    DinYueSuccess2: '期待精彩内容！',
+    YiDinYue: '此电子邮件已订阅',
+    // 頭部
+    HomeSpan: '卓越的 IT 服务和丰富的开发经验',
+    GuanYuWMSpan: '证明我们在不同领域的行业优势',
+    LianXiWMSpan: '欢迎与我们联络',
+    // ITArticle
+    itArticleBtn1: '索取报价',
+    itArticleBtn2: '索取报价',
+    itArticleBtn3: '联络我们技术支援',
+    itArticleBtn4: '索取IT维护服务报价',
+    itArticleBtn5: '索取网路管理报价',
+    itArticleBtn6: '联络技术支援'
 
   }
 }

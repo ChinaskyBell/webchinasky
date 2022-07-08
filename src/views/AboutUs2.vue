@@ -129,7 +129,7 @@ export default {
     }
   },
   mounted() {
-    window.addEventListener('scroll',this.handleScroll,true)
+    window.addEventListener('scroll',this.handleScroll,{passive: true})
   },
   methods: {
     handleScroll(e){

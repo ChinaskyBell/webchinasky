@@ -8,12 +8,22 @@ function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
-
-
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
     app: './src/main.js'
+  },
+  // cdn引入
+  externals: {
+    'vue': 'Vue',
+    'vue-router': 'VueRouter',
+    'vuex': 'Vuex',
+    'axios':'axios',
+    'vue-i18n': 'VueI18n',
+    'vue-lazyload': 'VueLazyload',
+    'swiper': 'Swiper',
+    'wowjs': 'WOW'
+    // 'jquery':'jQuery'
   },
   output: {
     path: config.build.assetsRoot,

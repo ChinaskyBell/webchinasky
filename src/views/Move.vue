@@ -2,9 +2,11 @@
   <div>
     <!--内页banner-->
     <section class="">
-      <img src="../assets/img/app_banner.png" class="bannerImg">
-      <div class="bannerTit wow fadeInDown" data-wow-delay="0.5s">
-        <strong>{{$t("message.moveTit1")}}</strong>
+      <img src="../assets/img/app_banner.jpg" class="bannerImg">
+      <div class="bannerTit">
+        <div class="wow fadeInDown" data-wow-delay="0.5s">
+          <strong>{{$t("message.moveTit1")}}</strong>
+        </div>
       </div>
     </section>
     <!--開發服務-->
@@ -42,7 +44,7 @@
             <div class="swiper-slide">
               <div class="gallery_thumbsBox">
                 <div class="thumbsImg">
-                  <img src="../assets/img/app_pic1.png">
+                  <img src="../assets/img/app_pic.jpg">
                 </div>
                 <div class="thumbsText">
                   <div>
@@ -60,7 +62,7 @@
             <div class="swiper-slide">
               <div class="gallery_thumbsBox">
                 <div class="thumbsImg">
-                  <img src="../assets/img/app_pic2.png">
+                  <img src="../assets/img/app_pic.jpg">
                 </div>
                 <div class="thumbsText">
                   <div>
@@ -78,7 +80,7 @@
             <div class="swiper-slide">
               <div class="gallery_thumbsBox">
                 <div class="thumbsImg">
-                  <img src="../assets/img/app_pic3.png">
+                  <img src="../assets/img/app_pic.jpg">
                 </div>
                 <div class="thumbsText">
                   <div>

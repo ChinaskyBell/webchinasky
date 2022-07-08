@@ -2,7 +2,7 @@
   <div>
     <!--内页banner-->
     <section class="">
-      <img src="../assets/img/shop_banner.png" class="bannerImg">
+      <img src="../assets/img/shop_banner.jpg" class="bannerImg">
     </section>
     <!--網上商城-->
     <section id="swiperBoxDiv">
@@ -39,7 +39,7 @@
             <div class="swiper-slide">
               <div class="gallery_thumbsBox">
                 <div class="thumbsImg">
-                  <img src="../assets/img/shop_pic1.png">
+                  <img src="../assets/img/shop_pic1.jpg">
                 </div>
                 <div class="thumbsText">
                   <div>
@@ -57,7 +57,7 @@
             <div class="swiper-slide">
               <div class="gallery_thumbsBox">
                 <div class="thumbsImg">
-                  <img src="../assets/img/shop_pic2.png">
+                  <img src="../assets/img/shop_pic2.jpg">
                 </div>
                 <div class="thumbsText">
                   <div>
@@ -75,7 +75,7 @@
             <div class="swiper-slide">
               <div class="gallery_thumbsBox">
                 <div class="thumbsImg">
-                  <img src="../assets/img/shop_pic3.png">
+                  <img src="../assets/img/shop_pic3.jpg">
                 </div>
                 <div class="thumbsText">
                   <div>
@@ -93,7 +93,7 @@
             <div class="swiper-slide">
               <div class="gallery_thumbsBox">
                 <div class="thumbsImg">
-                  <img src="../assets/img/shop_pic4.png">
+                  <img src="../assets/img/shop_pic4.jpg">
                 </div>
                 <div class="thumbsText">
                   <div>
@@ -111,7 +111,7 @@
             <div class="swiper-slide">
               <div class="gallery_thumbsBox">
                 <div class="thumbsImg">
-                  <img src="../assets/img/shop_pic5.png">
+                  <img src="../assets/img/shop_pic5.jpg">
                 </div>
                 <div class="thumbsText">
                   <div>
@@ -129,7 +129,7 @@
             <div class="swiper-slide">
               <div class="gallery_thumbsBox">
                 <div class="thumbsImg">
-                  <img src="../assets/img/shop_pic6.png">
+                  <img src="../assets/img/shop_pic6.jpg">
                 </div>
                 <div class="thumbsText">
                   <div>
@@ -288,14 +288,14 @@ export default {
         {'title': this.$t("message.mallSwiperTit6"),'time': 0,'icon':'icon-pingjia'}
       ],
       coreArr:[
-        {"title":this.$t("message.mallCoreTit1"),"content":this.$t("message.mallCoreText1"),"img":"https://test41.chinaskynet.net/assets/image/mall1.png","time":0.15},
-        {"title":this.$t("message.mallCoreTit2"),"content":this.$t("message.mallCoreText2"),"img":"https://test41.chinaskynet.net/assets/image/mall2.png","time":0.3},
-        {"title":this.$t("message.mallCoreTit3"),"content":this.$t("message.mallCoreText3"),"img":"https://test41.chinaskynet.net/assets/image/mall3.png","time":0.45},
-        {"title":this.$t("message.mallCoreTit4"),"content":this.$t("message.mallCoreText4"),"img":"https://test41.chinaskynet.net/assets/image/mall4.png","time":0.6},
-        {"title":this.$t("message.mallCoreTit5"),"content":this.$t("message.mallCoreText5"),"img":"https://test41.chinaskynet.net/assets/image/mall5.png","time":0.75},
-        {"title":this.$t("message.mallCoreTit6"),"content":this.$t("message.mallCoreText6"),"img":"https://test41.chinaskynet.net/assets/image/mall6.png","time":0.9},
-        {"title":this.$t("message.mallCoreTit7"),"content":this.$t("message.mallCoreText7"),"img":"https://test41.chinaskynet.net/assets/image/mall7.png","time":1.05},
-        {"title":this.$t("message.mallCoreTit8"),"content":this.$t("message.mallCoreText8"),"img":"https://test41.chinaskynet.net/assets/image/mall8.png","time":1.2},
+        {"title":this.$t("message.mallCoreTit1"),"content":this.$t("message.mallCoreText1"),"img":this.$store.state.UrlApi + "image/mall1.png","time":0.15},
+        {"title":this.$t("message.mallCoreTit2"),"content":this.$t("message.mallCoreText2"),"img":this.$store.state.UrlApi + "image/mall2.png","time":0.3},
+        {"title":this.$t("message.mallCoreTit3"),"content":this.$t("message.mallCoreText3"),"img":this.$store.state.UrlApi + "image/mall3.png","time":0.45},
+        {"title":this.$t("message.mallCoreTit4"),"content":this.$t("message.mallCoreText4"),"img":this.$store.state.UrlApi + "image/mall4.png","time":0.6},
+        {"title":this.$t("message.mallCoreTit5"),"content":this.$t("message.mallCoreText5"),"img":this.$store.state.UrlApi + "image/mall5.png","time":0.75},
+        {"title":this.$t("message.mallCoreTit6"),"content":this.$t("message.mallCoreText6"),"img":this.$store.state.UrlApi + "image/mall6.png","time":0.9},
+        {"title":this.$t("message.mallCoreTit7"),"content":this.$t("message.mallCoreText7"),"img":this.$store.state.UrlApi + "image/mall7.png","time":1.05},
+        {"title":this.$t("message.mallCoreTit8"),"content":this.$t("message.mallCoreText8"),"img":this.$store.state.UrlApi + "image/mall8.png","time":1.2},
         {"title":"","content":"","img":"","time":0}
       ],
       buyArr:[
@@ -410,5 +410,5 @@ export default {
 </script>
 
 <style scoped>
-@import "../assets/css/mall.css";
+/*@import "../assets/css/mall.css";*/
 </style>

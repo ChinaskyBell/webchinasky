@@ -293,7 +293,22 @@ module.exports = {
     QSRZQGSDianYou: '請輸入正確格式電郵',
     DinYueCG: '訂閱成功',
     TiJiaoCG: '提交成功',
-    JiaZaiGD: '加載更多'
+    JiaZaiGD: '加載更多',
+    Error: '失敗',
+    DinYueSuccess1: '謝謝您的訂閱！ ',
+    DinYueSuccess2: '期待精彩內容！ ',
+    YiDinYue: '此電子郵件已訂閱',
+    // 頭部
+    HomeSpan: '卓越的 IT 服務和豐富的開發經驗',
+    GuanYuWMSpan: '證明我們在不同領域的行業優勢',
+    LianXiWMSpan: '歡迎與我們聯絡',
+    // ITArticle
+    itArticleBtn1: '索取報價',
+    itArticleBtn2: '索取報價',
+    itArticleBtn3: '聯絡我們技術支援',
+    itArticleBtn4: '索取IT維護服務報價',
+    itArticleBtn5: '索取網路管理報價',
+    itArticleBtn6: '聯絡技術支援'
 
   }
 }

@@ -2,9 +2,11 @@
   <div>
     <!--内页banner-->
     <section class="">
-      <img src="../assets/img/web_banner.png" class="bannerImg">
-      <div class="bannerTit wow fadeInDown" data-wow-delay="0.5s">
-        <strong>{{$t("message.websiteTit1")}}</strong>
+      <img src="../assets/img/app_banner.jpg" class="bannerImg">
+      <div class="bannerTit">
+        <div class="wow fadeInDown" data-wow-delay="0.5s">
+          <strong>{{$t("message.websiteTit1")}}</strong>
+        </div>
       </div>
     </section>
     <!--開發服務-->
@@ -42,7 +44,7 @@
             <div class="swiper-slide">
               <div class="gallery_thumbsBox">
                 <div class="thumbsImg">
-                  <img src="../assets/img/web_pic1.png">
+                  <img src="../assets/img/app_pic.jpg">
                 </div>
                 <div class="thumbsText">
                   <div>
@@ -60,7 +62,7 @@
             <div class="swiper-slide">
               <div class="gallery_thumbsBox">
                 <div class="thumbsImg">
-                  <img src="../assets/img/web_pic2.png">
+                  <img src="../assets/img/app_pic.jpg">
                 </div>
                 <div class="thumbsText">
                   <div>
@@ -78,7 +80,7 @@
             <div class="swiper-slide">
               <div class="gallery_thumbsBox">
                 <div class="thumbsImg">
-                  <img src="../assets/img/web_pic3.png">
+                  <img src="../assets/img/app_pic.jpg">
                 </div>
                 <div class="thumbsText">
                   <div>
@@ -249,66 +251,7 @@ export default {
 
 <style scoped>
   .webProcessBg{
-    background: url("../assets/img/web_bg.png") no-repeat;
+    background: url("../assets/img/web_bg.jpg") no-repeat;
     background-size: cover;
-  }
-  .webProcessDiv{
-    text-align: center;
-    color: #FFFFFF;
-  }
-  .webProcessDiv>ul>li{
-    padding-bottom: 40px;
-    position: relative;
-    transition: all 0.2s;
-  }
-  .webProcessDiv>ul>li:last-child{
-    padding-bottom: 0;
-  }
-  .webProcessDiv>ul>li .p1{
-    margin-bottom: 5px;
-  }
-  @media screen and (min-width:1024px){
-    .webProcessDiv>ul>.active{
-      transition: all 0.5s;
-      font-size: 38px;
-      color: #72C8FF;
-    }
-    .webProcessDiv>ul>.active .p1{
-      font-weight: bolder;
-    }
-    .webProcessDiv>ul>li:before,.webProcessDiv>ul>li:after{
-      position: absolute;
-      content: "";
-      top: 0;
-      transition: all 0.3s;
-    }
-    .webProcessDiv>ul>li:before{
-      height: 20px;
-      width: 20px;
-      border: 1px solid #72C8FF;
-      left: -10px;
-      border-radius: 50%;
-      opacity: 0;
-    }
-    .webProcessDiv>ul>li:after{
-      width: 1px;
-      left: 0;
-      bottom: 0;
-      background: #72C8FF;
-    }
-    .webProcessDiv>ul>.active:before{
-      opacity: 1;
-    }
-    .webProcessDiv>ul>.active:after{
-      top: 30px;
-    }
-  }
-  @media screen and (max-width:767px){
-    .webProcessDiv{
-      font-size: 16px;
-    }
-    .webProcessDiv>ul>li{
-      padding-bottom: 15px;
-    }
   }
 </style>

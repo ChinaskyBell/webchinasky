@@ -6,6 +6,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'Back-Top',
   data () {
@@ -18,7 +19,7 @@ export default {
   },
   methods: {
     listenerFunction (e) {
-      document.addEventListener('scroll', this.handleScroll, true)
+      document.addEventListener('scroll', this.handleScroll, {passive: true})
     },
     beforeDestroy () {
       document.removeEventListener('scroll', this.listenerFunction)

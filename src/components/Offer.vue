@@ -1,28 +1,40 @@
 <template>
     <section class="">
-      <div class="caseBg">
-        <div class="Width1400">
-          <div class="projectBtnBox">
-            <p>{{$t("message.SuoQuBJText")}}</p>
-            <router-link to="/ContactUs" tag="button" class="btn">{{$t("message.SuoQuBJ")}}</router-link>
-          </div>
+      <img class="offerBg" v-lazy="home_bg4" alt="Request a Quote">
+      <div class="Width1400">
+        <div class="projectBtnBox">
+          <p>{{ $t("message.SuoQuBJText") }}</p>
+          <router-link to="/ContactUs" tag="button" class="btn">{{ $t("message.SuoQuBJ") }}</router-link>
         </div>
       </div>
     </section>
 </template>
 
 <script>
+import WOW from 'wowjs'
 export default {
-name: "Offer"
+  name: "Offer",
+  data() {
+    return {
+      home_bg4: require('../assets/img/home_bg4@1x.jpg')
+    }
+  },
+  mounted (){
+    this.$nextTick(() => {
+      new WOW({live: false}).init()
+    })
+  }
 }
 </script>
 
 <style scoped>
-.caseBg {
-  position: relative;
-  background-color: #131f31;
-  background-size: cover;
-  background-image: url("../assets/img/home_bg4@1x.png");
+.offerBg{
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
 }
 .projectBtnBox{
   color: #FFFFFF;

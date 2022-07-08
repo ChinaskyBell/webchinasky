@@ -4,17 +4,15 @@
     <div class="Width1400 headerTopDiv">
       <div class="languageDiv" :class="{'languageShow':isMenu}">
         <ul>
-          <li :class="{'active': lang === 'tw'}" @click="getLang('tw',2)">繁</li>
-          <li :class="{'active': lang === 'cn'}" @click="getLang('cn',1)">简</li>
-          <li :class="{'active': lang === 'en'}" @click="getLang('en',3)">EN</li>
+          <li :class="{'active': lang === 'tw'}" @click="getLang('tw',2,0)">繁</li>
+          <li :class="{'active': lang === 'cn'}" @click="getLang('cn',1,2)">简</li>
+          <li :class="{'active': lang === 'en'}" @click="getLang('en',3,3)">EN</li>
         </ul>
       </div>
       <div class="headerNav">
         <div class="headerNavTop">
-          <div class="div1">
-            <router-link to="/">
-              <img src="../assets/img/logo.png">
-            </router-link>
+          <div class="div1" @click="routerLink('/')">
+            <img src="../assets/img/logo.png" alt="Logo">
           </div>
           <div class="div2">
             <ul>
@@ -23,7 +21,7 @@
               </li>
               <li class="phone">
                 <i class="iconfont icon-phoneLoudspeaker" @click="toLink(2,'tel:(852)24902300')"></i>
-                <span>（852）2490-2300</span>
+                <span>（852）24902300</span>
               </li>
               <li class="quote">
                 <router-link to="/ContactUs" tag="button">{{$t("message.SuoQuBJ")}}</router-link>
@@ -50,27 +48,25 @@
         <router-link to="/ContactUs" tag="button">{{$t("message.SuoQuBJ")}}</router-link>
       </div>
       <div class="menusBg">
-        <video autoplay="" loop="" muted="" preload="none" class="videoBg" data-ll-status="loaded"
-               src="https://test41.chinaskynet.net/assets/looped.mp4">
-          <source src="https://test41.chinaskynet.net/assets/looped.mp4" type="video/mp4">
+        <video v-if="isAppHide" autoplay="" loop="" muted="" preload="none" class="videoBg" data-ll-status="loaded"
+               :src="this.$store.state.UrlApi + 'looped.mp4'">
+          <source :src="this.$store.state.UrlApi + 'looped.mp4'" type="video/mp4">
         </video>
         <ul class="menu_main_menu">
-          <li>
-            <router-link to="/">
+          <li class="pointer" @click="routerLink('/')">
               <p>{{$t("message.Home")}}</p>
-<!--              <span class="span1">擁有15年為不同行業客戶提供不同的IT服務的經驗</span>-->
-            </router-link>
+              <span class="span1">{{$t("message.HomeSpan")}}</span>
           </li>
           <li>
-            <p><router-link to="/Maintain">{{$t("message.WangLuoWH")}}</router-link> <label class="open" @click="phoneMenu(1)">{{isAppMenu === 1  ? '-' : '+'}}</label></p>
+            <p><span class="pointer" @click="routerLink('/Maintain')">{{$t("message.WangLuoWH")}}</span> <label class="open" @click="phoneMenu(1)">{{isAppMenu === 1  ? '-' : '+'}}</label></p>
             <div :class='["span1","menuUl","menuUlHeight1",isAppMenu === 1 ? "openItem" : "downItem"]'>
               <ul class="menu_main_item">
-                <li><router-link :to="{path:'/ITArticle',query:{id:1}}">{{$t("message.ZiLiaoBFHeBZ")}}</router-link></li>
-                <li><router-link :to="{path:'/ITArticle',query:{id:2}}">{{$t("message.ZhuoMianWH")}}</router-link></li>
-                <li><router-link :to="{path:'/ITArticle',query:{id:3}}">{{$t("message.DianNaoJSZC")}}</router-link></li>
-                <li><router-link :to="{path:'/ITArticle',query:{id:4}}">{{$t("message.ITWeiHu")}}</router-link></li>
-                <li><router-link :to="{path:'/ITArticle',query:{id:5}}">{{$t("message.WangLuoGL")}}</router-link></li>
-                <li><router-link :to="{path:'/ITArticle',query:{id:6}}">{{$t("message.FuWuQiGL")}}</router-link></li>
+                <li><label @click="routerLink('/ITArticle',1)">{{$t("message.ZiLiaoBFHeBZ")}}</label></li>
+                <li><label @click="routerLink('/ITArticle',2)">{{$t("message.ZhuoMianWH")}}</label></li>
+                <li><label @click="routerLink('/ITArticle',3)">{{$t("message.DianNaoJSZC")}}</label></li>
+                <li><label @click="routerLink('/ITArticle',4)">{{$t("message.ITWeiHu")}}</label></li>
+                <li><label @click="routerLink('/ITArticle',5)">{{$t("message.WangLuoGL")}}</label></li>
+                <li><label @click="routerLink('/ITArticle',6)">{{$t("message.FuWuQiGL")}}</label></li>
               </ul>
             </div>
           </li>
@@ -78,34 +74,35 @@
             <p @click="phoneMenu(2)">{{$t("message.ChanPinKF")}} <label class="open">{{isAppMenu === 2  ? '-' : '+'}}</label></p>
             <div :class='["span1","menuUl","menuUlHeight2",isAppMenu === 2 ? "openItem" : "downItem"]'>
               <ul class="menu_main_item">
-                <li><router-link to="/Software">{{$t("message.RuanJianKF")}}</router-link></li>
-                <li><router-link to="/Website">{{$t("message.WangZhanKF")}}</router-link></li>
-                <li><router-link to="/Move">{{$t("message.AppKF")}}</router-link></li>
-                <li><router-link to="/WeChat">{{$t("message.WeiXinKF")}}</router-link></li>
-                <li><router-link to="/Mall">{{$t("message.WangShangSC")}}</router-link></li>
+                <li><label @click="routerLink('/Software')">{{$t("message.RuanJianKF")}}</label></li>
+                <li><label @click="routerLink('/Website')">{{$t("message.WangZhanKF")}}</label></li>
+                <li><label @click="routerLink('/App')">{{$t("message.AppKF")}}</label></li>
+                <li><label @click="routerLink('/WeChat')">{{$t("message.WeiXinKF")}}</label></li>
+                <li><label @click="routerLink('/Mall')">{{$t("message.WangShangSC")}}</label></li>
               </ul>
             </div>
           </li>
           <li>
-            <router-link to="/AboutUs">
+            <label class="pointer" @click="routerLink('/AboutUs')">
               <p>{{$t("message.GuanYuWM")}}</p>
-            </router-link>
+              <span class="span1">{{$t("message.GuanYuWMSpan")}}</span>
+            </label>
           </li>
           <li>
-            <router-link to="/ContactUs">
+            <label class="pointer" @click="routerLink('/ContactUs')">
               <p>{{$t("message.LianXiWM")}}</p>
-            </router-link>
+              <span class="span1">{{$t("message.LianXiWMSpan")}}</span>
+            </label>
           </li>
         </ul>
       </div>
-
     </div>
-
   </header>
 </template>
 <script>
 export default {
   name: 'Header',
+  props:['isAppHide'],
   data () {
     return {
       isHeader: false,
@@ -120,7 +117,7 @@ export default {
   },
   methods: {
     listenerFunction (e) {
-      document.addEventListener('scroll', this.handleScroll, true)
+      document.addEventListener('scroll', this.handleScroll, {passive: true})
     },
     beforeDestroy () {
       document.removeEventListener('scroll', this.listenerFunction)
@@ -161,24 +158,36 @@ export default {
       }
     },
     // 切换语言
-    getLang (Type,Id) {
+    getLang (Type,Id,Lid) {
       this.$store.commit('set_languageName', Type)
       this.$store.commit('set_languageId',  Id)
+      this.$store.commit('set_leveChatId',  Lid)
       this.$i18n.locale = this.lang = Type
-      // window.location.reload()
-      this.$router.go(0)
-    }
-  },
-  watch:{
-    $route:{
-      handler(){
-        // location.reload()
-        this.$router.go(0)
+      window.location.reload()
+      // this.$router.go(0)
+    },
+    routerLink (Link,Id) {
+      // console.log(this.$route)
+      if (Id) {
+        console.log(Number(this.$route.query.id) , Id)
+        if (Number(this.$route.query.id) === Id) {
+          window.location.reload()
+        }else {
+          this.$router.push({path:Link,query:{id:Id}})
+        }
+      }else {
+        if (this.$route.path === Link){
+          window.location.reload()
+        }else {
+          this.$router.push(Link)
+        }
       }
+      this.isAppActive = 0
+      this.isMenu = false
     }
   }
 }
 </script>
 <style>
-@import "../assets/css/header.css";
+/*@import "../assets/css/header.css";*/
 </style>

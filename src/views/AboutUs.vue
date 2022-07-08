@@ -2,13 +2,15 @@
   <div>
 <!-- 顶部标题 -->
    <section class="aboutBannet">
-     <img src="../assets/img/aboutUsBanner.png" class="bannerImg">
-     <div class="bannerTit wow fadeIn" data-wow-delay="0.5s">
-       <strong>{{$t("message.GuanYuWM")}}</strong>
-       <p>{{$t("message.GuanYuWMTitText1")}}</p>
-       <div class="playBtn" @click="playVideo">
-         <i class="iconfont icon-24gl-playCircle"></i>
-         Play Video
+     <img src="../assets/img/aboutUsBanner.jpg" class="bannerImg">
+     <div class="bannerTit" >
+       <div class="wow fadeIn" data-wow-delay="0.5s">
+         <strong>{{$t("message.GuanYuWM")}}</strong>
+         <p>{{$t("message.GuanYuWMTitText1")}}</p>
+         <div class="playBtn" @click="playVideo">
+           <i class="iconfont icon-24gl-playCircle"></i>
+           Play Video
+         </div>
        </div>
      </div>
 <!--     弹窗-->
@@ -23,7 +25,7 @@
                 <p class="modalClose" @click="modalClose"><i class="iconfont icon-cha"></i></p>
                 <div class="indexVideoMuted">
                   <video autoplay="autoplay" loop="true" controls>
-                    <source src="https://test41.chinaskynet.net/assets/WeChat.mp4" type="video/mp4">
+                    <source :src="this.$store.state.UrlApi + 'WeChat_'+this.$store.state.languageName+'.mp4'" type="video/mp4">
                   </video>
                 </div>
               </div>
@@ -37,7 +39,7 @@
       <div class="Width1400">
         <div class="aboutUsDiv disTable">
           <div class="aboutLeftDiv">
-            <img src="../assets/img/aboutUs2.png">
+            <img src="../assets/img/aboutUs2.jpg">
           </div>
           <div class="aboutRightDiv">
             <div class="">
@@ -123,11 +125,11 @@
 </template>
 
 <script>
-import Offer from "../components/Offer"
+const offer = () => import("../components/Offer")
 export default {
   name: 'AboutUs',
   components:{
-    Offer
+    "Offer": offer
   },
   data() {
     return {
@@ -146,39 +148,43 @@ export default {
       isAboutModal: false
     }
   },
+  created() {
+
+    let vm =this
+    let index = 0
+    vm.about.timer = setInterval(function () {
+      vm.about.showWord = vm.about.content.substring(0, index++);
+      if (vm.about.content.length + 1 === index) {
+        clearInterval(vm.about.timer)
+      }
+    }, 2);
+  },
   mounted() {
-    window.addEventListener('scroll',this.handleScroll,true)
+    document.addEventListener('scroll',this.handleScroll2,{passive: true})
   },
   methods: {
-    handleScroll(e){
-      const that =this
+    handleScroll2(e){
+      let vm =this
       // let scrollTop = e.target.documentElement.scrollTop || e.target.body.scrollTop;
       // 关于我们
-      let aboutSection = this.$refs.aboutSection.getBoundingClientRect().top
-      if ( aboutSection > 0 && 400 > aboutSection){
-        if (this.about.isShowWord === 0){
-          // console.log("可調用1")
-          this.about.isShowWord = 1
-          let index=0
-          that.about.timer=setInterval(function(){
-            that.about.showWord = that.about.content.substring(0,index++);
-            if (that.about.content.length+1 === index){
-              clearInterval(that.about.timer)
-            }
-          },2);
-        }
-      }
+      // let aboutSection = vm.$refs.aboutSection.getBoundingClientRect().top
+      // if ( aboutSection > 0 && 400 > aboutSection){
+      //   if (this.about.isShowWord === 0){
+      //     // console.log("可調用1")
+      //     this.about.isShowWord = 1
+      //   }
+      // }
       // 我們的使命
-      let missionSection = this.$refs.missionSection.getBoundingClientRect().top
+      let missionSection = vm.$refs.missionSection.getBoundingClientRect().top
       if ( missionSection > 0 && 400 > missionSection){
        if (this.mission.isShowWord === 0){
           // console.log("可調用1")
           this.mission.isShowWord = 1
           let index=0
-          that.mission.timer=setInterval(function(){
-            that.mission.showWord = that.mission.content.substring(0,index++);
-            if (that.mission.content.length+1 === index){
-              clearInterval(that.mission.timer)
+          vm.mission.timer=setInterval(function(){
+            vm.mission.showWord = vm.mission.content.substring(0,index++);
+            if (vm.mission.content.length+1 === index){
+              clearInterval(vm.mission.timer)
             }
           },10);
         }
@@ -191,11 +197,14 @@ export default {
     modalClose() {
       this.isAboutModal = false
     }
+  },
+  beforeDestroy() {
+    // 銷毀監聽
+    document.removeEventListener("scroll", this.handleScroll2);
   }
-
 }
 </script>
 
 <style scoped>
-@import '../assets/css/aboutUs.css';
+/*@import '../assets/css/aboutUs.css';*/
 </style>

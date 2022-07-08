@@ -2,9 +2,11 @@
   <div class="mianDiv ui-content">
 <!-- 顶部标题 -->
     <section class="">
-      <img src="../assets/img/contactUs_banner.png" class="bannerImg">
-      <div class="bannerTit wow fadeInDown" data-wow-delay="0.5s">
-        <strong>{{$t("message.LianXiWM")}}</strong>
+      <img src="../assets/img/contactUs_banner.jpg" class="bannerImg">
+      <div class="bannerTit">
+        <div class="wow fadeInDown" data-wow-delay="0.5s">
+          <strong>{{$t("message.LianXiWM")}}</strong>
+        </div>
       </div>
     </section>
 <!--    联络我们-->
@@ -21,10 +23,10 @@
                 <strong>{{$t("message.DiZhiHK")}}</strong>
               </li>
               <li>
-                {{$t("message.DianHua")}}: <span @click="toLink('tel:(852)24902300')">(852) 2490-2300</span>
+                {{$t("message.DianHua")}}: <span @click="toLink('tel:(852)24902300')">(852) 24902300</span>
               </li>
               <li>
-                E-mail: <span @click="toLink('mailto:'+emailHk)">{{ emailHk }}</span>
+                {{$t("message.DianYou")}}: <span @click="toLink('mailto:'+emailHk)">{{ emailHk }}</span>
               </li>
             </ul>
             <ul class="contactConnect">
@@ -35,10 +37,10 @@
                 <strong>{{$t("message.DiZhiSZ")}}</strong>
               </li>
               <li>
-                {{$t("message.DianHua")}}: <span @click="toLink('tel' +':(0755)25100512')">+86-755-25100512</span>
+                {{$t("message.DianHua")}}: <span @click="toLink('tel' +':(0755)25100512')">(0755) 25100512</span>
               </li>
               <li>
-                E-mail: <span @click="toLink('mailto:'+emailHk)">{{ emailHk }}</span>
+                {{$t("message.DianYou")}}: <span @click="toLink('mailto:'+emailHk)">{{ emailHk }}</span>
               </li>
             </ul>
             <div>
@@ -159,11 +161,17 @@ export default {
         "tel": that.aboutPhone,
         "message": that.aboutMessage
       }).then(res => {
-        that.isCodeModal = false
-        that.aboutName = that.aboutEmail = that.aboutPhone = that.aboutMessage = ""
-        that.$tips({
-					msg: that.$t("message.TiJiaoCG")
-        });
+         that.isCodeModal = false
+         if (res.code === 200){
+          that.aboutName = that.aboutEmail = that.aboutPhone = that.aboutMessage = ""
+          that.$tips({
+            msg: that.$t("message.TiJiaoCG")
+          })
+        }else {
+          that.$tips({
+            msg: that.$t("message.Error")
+          })
+        }
         // window.location.reload()
 
       })
@@ -230,86 +238,4 @@ export default {
 </script>
 
 <style scoped>
-.contactDiv>div{
-  display: table-cell;
-  vertical-align: middle;
-  table-layout: fixed;
-}
-.contactDiv>div:first-child{
-  width: 40%;
-  color: #254051;
-  font-size: 14px;
-}
-.contactDiv>div:last-child{
-  width: 60%;
-}
-.contactDiv>div .contactConnect:first-child{
-  margin-bottom: 40px;
-}
-.contactConnect li>strong{
-  color: #205085;
-  display: block;
-}
-.contactConnect>li:first-child{
-  padding-top: 0;
-}
-.contactConnect>li{
-  padding-top: 15px;
-}
-.contactInput>.inputDiv:first-child{
-  margin-top: 0;
-}
-.contactInput>.inputDiv{
-  margin-top: 50px;
-}
-.googleMap{
-  height: 450px;
-  width: 100%;
-  background: aliceblue;
-}
-
-@media screen and (max-width:1024px){
-	.contactDiv>div{
-    display: block;
-    width: 100%;
-  }
-  .contactDiv>div:first-child{
-    margin-bottom: 50px;
-  }
-  .contactDiv>div .contactConnect{
-    display: inline-block;
-    width: 48%;
-  }
-  .contactDiv>div .contactConnect:first-child{
-    margin-bottom: 0;
-  }
-  .contactDiv>div:first-child,.contactDiv>div:last-child{
-    width: 100%;
-  }
-}
-@media screen and (max-width:767px){
-  .contactDiv>div:first-child{
-    margin-bottom: 20px;
-  }
-  .contactInput>.inputDiv{
-    margin-top: 20px;
-  }
-  .footerConnect>div{
-    font-size: 13px;
-  }
-  .footerConnect .phone {
-    font-size: 20px;
-  }
-
-  .contactDiv>div .contactConnect{
-    display: block;
-    width: 100%;
-  }
-  .contactDiv>div .contactConnect:first-child{
-    margin-bottom: 15px;
-  }
-  .contactConnect>li{
-    padding-top: 8px;
-  }
-}
 </style>

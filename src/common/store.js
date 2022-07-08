@@ -5,9 +5,10 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   // 全局参数
   state: {
-    token: '',
     languageName: localStorage.getItem('locale') || 'tw',
-    languageId: localStorage.getItem('localeId') || 2
+    languageId: localStorage.getItem('localeId') || 2,
+    LiveChatId: localStorage.getItem('LiveChatId'),
+    UrlApi: 'https://www.chinaskynet.net/assets/'
 
   },
   // set方法，保存数据
@@ -17,10 +18,14 @@ const store = new Vuex.Store({
       localStorage.setItem('locale', languageName)
     },
     set_languageId (state,  languageId) {
-      console.log(state, languageId)
+      // console.log(state, languageId)
       state.languageId = languageId
       localStorage.setItem('localeId', languageId)
-    }
+    },
+    set_leveChatId (state, LiveChatId) {
+      state.LiveChatId = LiveChatId
+      localStorage.setItem('LiveChatId', LiveChatId)
+    },
   },
   // 暂时用不上
   actions: {

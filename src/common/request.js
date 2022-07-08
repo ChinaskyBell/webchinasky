@@ -5,6 +5,7 @@ import tips from './tips'
 axios.defaults.timeout = 60 * 1000 * 10
 axios.defaults.cache = false
 
+// alert(store.state.languageId)
 // console.log(store.state.languageId)
 axios.interceptors.request.use(
   config => {

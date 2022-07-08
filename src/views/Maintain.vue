@@ -2,9 +2,11 @@
   <div>
 <!--内页banner-->
     <section class="">
-      <img src="../assets/img/network_banner.png" class="bannerImg">
-      <div class="bannerTit wow fadeInDown" data-wow-delay="0.5s">
-        <strong>{{$t("message.WangLuoWH")}}</strong>
+      <img src="../assets/img/network_banner.jpg" class="bannerImg">
+      <div class="bannerTit">
+        <div class="wow fadeInDown" data-wow-delay="0.5s">
+          <strong>{{$t("message.WangLuoWH")}}</strong>
+        </div>
       </div>
     </section>
 <!--數據備份及保護服務-->
@@ -38,8 +40,8 @@
             </div>
           </div>
           <div class="MRightDiv">
-            <img src="../assets/img/network_image1.png">
-            <img src="../assets/img/network_image2.png">
+            <img src="../assets/img/network_image1.jpg">
+            <img src="../assets/img/network_image2.jpg">
           </div>
         </div>
       </div>
@@ -96,12 +98,12 @@ export default {
   data () {
     return {
       coreArr:[
-        {"title": this.$t("message.maintainDiv2Text1"),"img":"https://test41.chinaskynet.net/assets/image/Maintain1.png","time":0.15},
-        {"title": this.$t("message.maintainDiv2Text2"),"img":"https://test41.chinaskynet.net/assets/image/Maintain2.png","time":0.3},
-        {"title": this.$t("message.maintainDiv2Text3"),"img":"https://test41.chinaskynet.net/assets/image/Maintain3.png","time":0.45},
-        {"title": this.$t("message.maintainDiv2Text4"),"img":"https://test41.chinaskynet.net/assets/image/Maintain4.png","time":0.6},
-        {"title": this.$t("message.maintainDiv2Text5"),"img":"https://test41.chinaskynet.net/assets/image/Maintain5.png","time":0.75},
-        {"title": this.$t("message.maintainDiv2Text6"),"img":"https://test41.chinaskynet.net/assets/image/Maintain6.png","time":0.9}
+        {"title": this.$t("message.maintainDiv2Text1"),"img": this.$store.state.UrlApi + "image/Maintain1.png","time":0.15},
+        {"title": this.$t("message.maintainDiv2Text2"),"img": this.$store.state.UrlApi + "image/Maintain2.png","time":0.3},
+        {"title": this.$t("message.maintainDiv2Text3"),"img": this.$store.state.UrlApi + "image/Maintain3.png","time":0.45},
+        {"title": this.$t("message.maintainDiv2Text4"),"img": this.$store.state.UrlApi + "image/Maintain4.png","time":0.6},
+        {"title": this.$t("message.maintainDiv2Text5"),"img": this.$store.state.UrlApi + "image/Maintain5.png","time":0.75},
+        {"title": this.$t("message.maintainDiv2Text6"),"img": this.$store.state.UrlApi + "image/Maintain6.png","time":0.9}
       ]
     }
   },
@@ -112,5 +114,5 @@ export default {
 </script>
 
 <style scoped>
-@import "../assets/css/Maintain.css";
+/*@import "../assets/css/maintain.css";*/
 </style>

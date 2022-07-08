@@ -1,19 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Index from '../views/index'
-import CaseList from '../views/CaseList'
-import Maintain from '../views/Maintain'
-import Software from '../views/Software'
-import ContactUs from '../views/ContactUs'
-import AboutUs from '../views/AboutUs'
-import Move from '../views/Move'
-import WeChat from '../views/WeChat'
-import Mall from '../views/Mall'
-import Website from '../views/Website'
-import ITArticle from '../views/ITArticle'
-import Process from '../views/Process'
-
 Vue.use(Router)
 const router = new Router({
   // mode: 'history',
@@ -23,62 +10,73 @@ const router = new Router({
     {
       path: '/',
       name: 'Index',
-      component: Index
+      component: () => import("../views/index")
+      // component: resolve => require(['../views/index'], resolve)
+
     },
     {
       path: '/Maintain',
       name: 'Maintain',
-      component: Maintain
+      component: () => import("../views/Maintain")
     },
     {
       path: '/Software',
       name: 'Software',
-      component: Software
+      component: () => import("../views/Software")
     },
     {
       path: '/ContactUs',
       name: 'ContactUs',
-      component: ContactUs
+      component: () => import("../views/ContactUs")
     },
     {
       path: '/AboutUs',
       name: 'AboutUs',
-      component: AboutUs
+      component: () => import("../views/AboutUs")
     },
     {
-      path: '/Move',
-      name: 'Move',
-      component: Move
+      path: '/App',
+      name: 'App',
+      component: () => import("../views/Move")
     },
     {
       path: '/WeChat',
       name: 'WeChat',
-      component: WeChat
+      component: () => import("../views/WeChat")
     },
     {
       path: '/Mall',
       name: 'Mall',
-      component: Mall
+      component: () => import("../views/Mall")
     },
     {
       path: '/Website',
       name: 'Website',
-      component: Website
+      component: () => import("../views/Website")
     },
     {
       path: '/CaseList',
       name: 'CaseList',
-      component: CaseList
+      component: () => import("../views/CaseList")
     },
     {
       path: '/ITArticle',
       name: 'ITArticle',
-      component: ITArticle
+      component: () => import("../views/ITArticle")
     },
     {
       path: '/Process',
       name: 'Process',
-      component: Process
+      component: () => import("../views/Process")
+    },
+    {
+      path: '/Process/:pId',
+      name: 'Process',
+      component: () => import("../views/Process")
+    },
+    {
+      path: '*',
+      redirect: '/'
     }
   ],
   // 跳转后页面置顶
@@ -90,5 +88,5 @@ const router = new Router({
     }
   }
 })
-
 export default router
+

@@ -3,9 +3,11 @@
 <!--内页banner-->
     <section class="processBanner">
       <img src="../assets/img/process.jpg" class="bannerImg">
-      <div class="bannerTit wow fadeInDown" data-wow-delay="0.5s">
-        <strong>{{this.$t("message.KaiFaLC")}}</strong>
-        <p>{{this.$t("message.KaiFaLCText1")}}</p>
+      <div class="bannerTit">
+        <div class="wow fadeInDown" data-wow-delay="0.5s">
+          <strong>{{this.$t("message.KaiFaLC")}}</strong>
+          <p>{{this.$t("message.KaiFaLCText1")}}</p>
+        </div>
       </div>
     </section>
 
@@ -14,7 +16,10 @@
         <!--        item1-->
         <div class="clearfix processDivItem" id="process1">
           <div class="processImg">
-            <img src="https://test41.chinaskynet.net/assets/image/process1.jpg">
+            <div v-lazy-container="{ selector: 'img' }">
+              <img data-src="https://www.chinaskynet.net/assets/image/process1.jpg">
+            </div>
+<!--            <img src="https://www.chinaskynet.net/assets/image/process1.jpg">-->
             <i class="iconfont icon-jiantou"></i>
           </div>
           <div class="processText">
@@ -47,7 +52,6 @@
             </div>
           </div>
         </div>
-
       </div>
     </section>
     <!--索取报价-->
@@ -62,20 +66,21 @@ export default {
   data () {
     return {
       processArr:[
-        {"title":this.$t("message.DiaoYan"),"content":this.$t("message.processText2"),"img":"https://test41.chinaskynet.net/assets/image/process2.jpg","icon":"icon-tuanduichengyuan"},
-        {"title":this.$t("message.SheJi"),"content":this.$t("message.processText3"),"img":"https://test41.chinaskynet.net/assets/image/process3.jpg","icon":"icon-xiangmutixi"},
-        {"title":this.$t("message.Dajian"),"content":this.$t("message.processText4"),"img":"https://test41.chinaskynet.net/assets/image/process4.jpg","icon":"icon-xiangmuzhouqi"},
-        {"title":this.$t("message.QiDong"),"content":this.$t("message.processText5"),"img":"https://test41.chinaskynet.net/assets/image/process5.jpg","icon":"icon-shichangtuiguang"},
-        {"title":this.$t("message.ZhiChi"),"content":this.$t("message.processText6"),"img":"https://test41.chinaskynet.net/assets/image/process6.jpg","icon":"icon-shujufenxi"},
+        {"title":this.$t("message.DiaoYan"),"content":this.$t("message.processText2"),"img":this.$store.state.UrlApi + "image/process2.jpg","icon":"icon-tuanduichengyuan"},
+        {"title":this.$t("message.SheJi"),"content":this.$t("message.processText3"),"img":this.$store.state.UrlApi + "image/process3.jpg","icon":"icon-xiangmutixi"},
+        {"title":this.$t("message.Dajian"),"content":this.$t("message.processText4"),"img":this.$store.state.UrlApi + "image/process4.jpg","icon":"icon-xiangmuzhouqi"},
+        {"title":this.$t("message.QiDong"),"content":this.$t("message.processText5"),"img":this.$store.state.UrlApi + "image/process5.jpg","icon":"icon-shichangtuiguang"},
+        {"title":this.$t("message.ZhiChi"),"content":this.$t("message.processText6"),"img":this.$store.state.UrlApi + "image/process6.jpg","icon":"icon-shujufenxi"},
       ]
     }
   },
   components:{
     Offer
   },
-  created() {
+  activated() {
+    // console.log(this.$route.params.pId)
     let that = this
-    if (this.$route.query.id){
+    if (this.$route.params.pId){
       setTimeout(function (){
         that.clickNum()
       },1000)
@@ -83,8 +88,8 @@ export default {
   },
   methods: {
     clickNum (){
-      let id = '#'+this.$route.query.id
-      // console.log(id)
+      // let id = '#'+this.$route.query.id
+      let id = '#process' + this.$route.params.pId
       document.querySelector(id).scrollIntoView({
          behavior: "smooth"
       });
@@ -94,5 +99,5 @@ export default {
 </script>
 
 <style scoped>
-@import "../assets/css/process.css";
+/*@import "../assets/css/process.css";*/
 </style>

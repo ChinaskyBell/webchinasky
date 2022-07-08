@@ -2,9 +2,11 @@
   <div>
     <!--内页banner-->
     <section class="">
-      <img src="../assets/img/software_banner.png" class="bannerImg">
-      <div class="bannerTit wow fadeInDown" data-wow-delay="0.5s">
-        <strong>{{$t("message.softwareTit1")}}<br>{{$t("message.softwareTit2")}}</strong>
+      <img src="../assets/img/software_banner.jpg" class="bannerImg">
+      <div class="bannerTit">
+        <div class="wow fadeInDown" data-wow-delay="0.5s">
+          <strong>{{$t("message.softwareTit1")}}<br>{{$t("message.softwareTit2")}}</strong>
+        </div>
       </div>
     </section>
     <!--開發服務-->
@@ -60,7 +62,7 @@
             <div class="swiper-slide">
               <div class="gallery_thumbsBox">
                 <div class="thumbsImg">
-                  <img src="../assets/img/development_pic1.png">
+                  <img src="../assets/img/development_pic1.jpg">
                 </div>
                 <div class="thumbsText">
                   <div>
@@ -78,7 +80,7 @@
             <div class="swiper-slide">
               <div class="gallery_thumbsBox">
                 <div class="thumbsImg">
-                  <img src="../assets/img/development_pic2.png">
+                  <img src="../assets/img/development_pic2.jpg">
                 </div>
                 <div class="thumbsText">
                   <div>
@@ -96,7 +98,7 @@
             <div class="swiper-slide">
               <div class="gallery_thumbsBox">
                 <div class="thumbsImg">
-                  <img src="../assets/img/development_pic3.png">
+                  <img src="../assets/img/development_pic3.jpg">
                 </div>
                 <div class="thumbsText">
                   <div>
@@ -114,7 +116,7 @@
             <div class="swiper-slide">
               <div class="gallery_thumbsBox">
                 <div class="thumbsImg">
-                  <img src="../assets/img/development_pic4.png">
+                  <img src="../assets/img/development_pic4.jpg">
                 </div>
                 <div class="thumbsText">
                   <div>
@@ -492,21 +494,21 @@ export default {
 </script>
 
 <style scoped>
-@import "../assets/css/develop.css";
+/*@import "../assets/css/develop.css";*/
 .softwareDiv1{
-  background: url("../assets/img/development_pic1_l.png") no-repeat;
+  background: url("../assets/img/development_pic1_l.jpg") no-repeat;
   background-size: cover;
 }
 .softwareDiv2{
-  background: url("../assets/img/development_pic2_l.png") no-repeat;
+  background: url("../assets/img/development_pic2_l.jpg") no-repeat;
   background-size: cover;
 }
 .softwareDiv3{
-  background: url("../assets/img/development_pic3_l.png") no-repeat;
+  background: url("../assets/img/development_pic3_l.jpg") no-repeat;
   background-size: cover;
 }
 .softwareDiv4{
-  background: url("../assets/img/development_pic4_l.png") no-repeat;
+  background: url("../assets/img/development_pic4_l.jpg") no-repeat;
   background-size: cover;
 }
 </style>

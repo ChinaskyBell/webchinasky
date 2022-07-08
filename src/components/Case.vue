@@ -23,15 +23,15 @@
               </div>
 
               <div class="projectImgPc">
-                  <img :src="item.host_image">
+                  <img v-lazy="item.host_image">
               </div>
               <div class="projectImgWeb">
-                <img :src="item.vice_image">
+                <img v-lazy="item.vice_image" v-if="imgShow">
               </div>
               <div class="projectBoxText">
                 <div>
                   <div class="rpTop">
-                    <img :src="item.logo_image">
+                    <img v-lazy="item.logo_image">
                     <p class="rpTitle">{{ item.name }}</p>
                   </div>
                   <div class="rpText">
@@ -39,7 +39,6 @@
 <!--                    查看   type 0 无操作，1 链接，2 content-->
                     <a :href="item.link" target="_blank" v-if="item.type === 1"><span>{{$t("message.ChaKan")}}</span><i class="iconfont icon-Right-"></i></a>
                     <a href="javascript:;" @click="showModal(item.id)" v-if="item.type === 2"><span>{{$t("message.ChaKan")}}</span><i class="iconfont icon-Right-"></i></a>
-
                   </div>
                 </div>
               </div>
@@ -99,7 +98,8 @@ export default {
       isMoreBtn: false,
       modalTitle: "",
       modalContent: "",
-      Page: 1
+      Page: 1,
+      imgShow: false
     }
   },
   created:function () {
@@ -107,6 +107,11 @@ export default {
       this.isActive = Number(this.Active)
     }
     this.getCaseList()
+    if (document.documentElement.clientWidth < 800){
+      this.imgShow = false
+    } else {
+      this.imgShow = true
+    }
   },
   methods: {
     // 获取案例数据

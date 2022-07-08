@@ -1,5 +1,7 @@
 <template>
   <div class="ui-content">
+    <remote-js src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></remote-js>
+
     <section class="indexBannerDiv" id="jqueryImg">
       <div class="Width1000">
         <div class="indexBannerText">
@@ -64,97 +66,89 @@
           <div class="swiper-wrapper">
             <div class="swiper-slide">
               <div class="gallery_thumbsBox">
-                <div class="thumbsImg">
-                  <img src="../assets/img/home_development_pic1@1x.png">
+                <div class="thumbsImg" v-if="isAppHide">
+                  <img src="../assets/img/home_development_pic1@1x.jpg" alt="development service">
                 </div>
                 <div class="thumbsText">
                   <div>
                     <div class="run_txt">
                       <pre>{{developText}}</pre>
                     </div>
-                    <router-link to="/Website">
-                      <div class="run_btn">
-                        <span>{{$t("message.CKWZFWXQ")}}</span>
-                        <i class="iconfont icon-Right-"></i>
-                      </div>
-                    </router-link>
+                    <div @click="swiperLink('/Website')" class="run_btn">
+                      <span>{{ $t("message.CKWZFWXQ") }}</span>
+                      <i class="iconfont icon-Right-"></i>
+                    </div>
                   </div>
                 </div>
                 <div class="thumbsBg">
                   <div></div>
-                  <img src="../assets/img/bg_icon_web01.png" />
+                  <img src="../assets/img/bg_icon_web01.png" alt="development service"/>
                 </div>
               </div>
             </div>
             <div class="swiper-slide">
               <div class="gallery_thumbsBox">
-                <div class="thumbsImg">
-                  <img src="../assets/img/home_development_pic2@1x.png">
+                <div class="thumbsImg" v-if="isAppHide">
+                  <img src="../assets/img/home_development_pic2@1x.jpg" alt="development service">
                 </div>
                 <div class="thumbsText">
                   <div>
                     <div class="run_txt">
                       <pre>{{developText}}</pre>
                     </div>
-                    <router-link to="/Move">
-                      <div class="run_btn">
-                        <span>{{$t("message.CKWZFWXQ")}}</span>
-                        <i class="iconfont icon-Right-"></i>
-                      </div>
-                    </router-link>
+                    <div @click="swiperLink('/App')" class="run_btn">
+                      <span>{{ $t("message.CKWZFWXQ") }}</span>
+                      <i class="iconfont icon-Right-"></i>
+                    </div>
                   </div>
                 </div>
                 <div class="thumbsBg">
                   <div></div>
-                  <img src="../assets/img/bg_icon_app01.png" />
+                  <img src="../assets/img/bg_icon_app01.png" alt="development service" />
                 </div>
               </div>
             </div>
             <div class="swiper-slide">
               <div class="gallery_thumbsBox">
-                <div class="thumbsImg">
-                  <img src="../assets/img/home_development_pic3@1x.png">
+                <div class="thumbsImg" v-if="isAppHide">
+                  <img src="../assets/img/home_development_pic3@1x.jpg" alt="development service" />
                 </div>
                 <div class="thumbsText">
                   <div>
                     <div class="run_txt">
                       <pre>{{developText}}</pre>
                     </div>
-                    <router-link to="/WeChat">
-                      <div class="run_btn">
-                        <span>{{$t("message.CKWZFWXQ")}}</span>
-                        <i class="iconfont icon-Right-"></i>
-                      </div>
-                    </router-link>
+                    <div @click="swiperLink('/WeChat')" class="run_btn">
+                      <span>{{ $t("message.CKWZFWXQ") }}</span>
+                      <i class="iconfont icon-Right-"></i>
+                    </div>
                   </div>
                 </div>
                 <div class="thumbsBg">
                   <div></div>
-                  <img src="../assets/img/bg_icon_wechat01.png" />
+                  <img src="../assets/img/bg_icon_wechat01.png" alt="development service" />
                 </div>
               </div>
             </div>
             <div class="swiper-slide">
               <div class="gallery_thumbsBox">
-                <div class="thumbsImg">
-                  <img src="../assets/img/home_development_pic4@1x.png">
+                <div class="thumbsImg" v-if="isAppHide">
+                  <img src="../assets/img/home_development_pic4@1x.jpg" alt="development service"/>
                 </div>
                 <div class="thumbsText">
                   <div>
                     <div class="run_txt">
                       <pre>{{developText}}</pre>
                     </div>
-                    <router-link to="/Software">
-                      <div class="run_btn">
-                        <span>{{$t("message.CKWZFWXQ")}}</span>
-                        <i class="iconfont icon-Right-"></i>
-                      </div>
-                    </router-link>
+                    <div @click="swiperLink('/Software')" class="run_btn">
+                      <span>{{ $t("message.CKWZFWXQ") }}</span>
+                      <i class="iconfont icon-Right-"></i>
+                    </div>
                   </div>
                 </div>
                 <div class="thumbsBg">
                   <div></div>
-                  <img src="../assets/img/bg_icon_software01.png" />
+                  <img src="../assets/img/bg_icon_software01.png" alt="development service" />
                 </div>
               </div>
             </div>
@@ -171,32 +165,32 @@
           <div class="processStep processStepBg1 wow fadeIn" data-wow-delay="0.4s">
             <i class="iconfont icon-tounaofengbao"></i>
             <p>{{$t("message.ZhuCe")}}</p>
-            <router-link :to="{path:'/Process',query:{id:'process1'}}">{{$t("message.GenDuo")}} »</router-link>
+            <router-link to="/Process/1">{{$t("message.GenDuo")}} »</router-link>
           </div>
           <div class="processStep processStepBg2 wow fadeIn" data-wow-delay="0.8s">
             <i class="iconfont icon-tuanduichengyuan"></i>
             <p>{{$t("message.DiaoYan")}}</p>
-            <router-link :to="{path:'/Process',query:{id:'process2'}}">{{$t("message.GenDuo")}} »</router-link>
+            <router-link to="/Process/2">{{$t("message.GenDuo")}} »</router-link>
           </div>
           <div class="processStep processStepBg3 wow fadeIn" data-wow-delay="1.2s">
             <i class="iconfont icon-xiangmutixi"></i>
             <p>{{$t("message.SheJi")}}</p>
-            <router-link :to="{path:'/Process',query:{id:'process3'}}">{{$t("message.GenDuo")}} »</router-link>
+            <router-link to="/Process/3">{{$t("message.GenDuo")}} »</router-link>
           </div>
           <div class="processStep processStepBg4 wow fadeIn" data-wow-delay="1.6s">
             <i class="iconfont icon-xiangmuzhouqi"></i>
             <p>{{$t("message.Dajian")}}</p>
-            <router-link :to="{path:'/Process',query:{id:'process4'}}">{{$t("message.GenDuo")}} »</router-link>
+            <router-link to="/Process/4">{{$t("message.GenDuo")}} »</router-link>
           </div>
           <div class="processStep processStepBg5 wow fadeIn" data-wow-delay="2s">
             <i class="iconfont icon-shichangtuiguang"></i>
             <p>{{$t("message.QiDong")}}</p>
-            <router-link :to="{path:'/Process',query:{id:'process5'}}">{{$t("message.GenDuo")}} »</router-link>
+            <router-link to="/Process/5">{{$t("message.GenDuo")}} »</router-link>
           </div>
           <div class="processStep processStepBg6 wow fadeIn" data-wow-delay="2.4s">
             <i class="iconfont icon-shujufenxi"></i>
             <p>{{$t("message.ZhiChi")}}</p>
-            <router-link :to="{path:'/Process',query:{id:'process6'}}">{{$t("message.GenDuo")}} »</router-link>
+            <router-link to="/Process/6">{{$t("message.GenDuo")}} »</router-link>
           </div>
         </div>
         <div class="processBtn" @click="handleScroll('IdContactUs')">
@@ -212,64 +206,14 @@
         </div>
         <div class="serviceDiv">
           <div class="row rowCol3 rowCol2_sm rowCol1_xs">
-            <div class="wow fadeInUp" data-wow-delay="0.2s">
+            <div class="wow fadeInUp" v-for="(item,i) in ITServiceArr" :key="i" :data-wow-delay="item.time+'s'">
               <div class="serviceSingle">
-                <img src="../assets/img/itService1.png">
-                <h3>{{$t("message.ZiLiaoBFHeBZ")}}</h3>
+                <img v-lazy="item.img" alt="IT service" />
+                <h3>{{ item.title }}</h3>
                 <div class="text">
-                  {{$t("message.ITFuWuText1")}}
+                  {{ item.content }}
                 </div>
-                <router-link :to="{path:'/ITArticle',query:{id:1}}">{{$t("message.ChaKanGD")}}</router-link>
-              </div>
-            </div>
-            <div class="wow fadeInUp" data-wow-delay="0.4s">
-              <div class="serviceSingle">
-                <img src="../assets/img/itService2.png">
-                <h3>{{$t("message.ZhuoMianWH")}}</h3>
-                <div class="text">
-                  {{$t("message.ITFuWuText2")}}
-                </div>
-                <router-link :to="{path:'/ITArticle',query:{id:2}}">{{$t("message.ChaKanGD")}}</router-link>
-              </div>
-            </div>
-            <div class="wow fadeInUp" data-wow-delay="0.6s">
-              <div class="serviceSingle">
-                <img src="../assets/img/itService3.png">
-                <h3>{{$t("message.DianNaoJSZC")}}</h3>
-                <div class="text">
-                  {{$t("message.ITFuWuText3")}}
-                </div>
-                <router-link :to="{path:'/ITArticle',query:{id:3}}">{{$t("message.ChaKanGD")}}</router-link>
-              </div>
-            </div>
-            <div class="wow fadeInUp" data-wow-delay="0.8s">
-              <div class="serviceSingle">
-                <img src="../assets/img/itService4.png">
-                <h3>{{$t("message.ITWeiHu")}}</h3>
-                <div class="text">
-                  {{$t("message.ITFuWuText4")}}
-                </div>
-                <router-link :to="{path:'/ITArticle',query:{id:4}}">{{$t("message.ChaKanGD")}}</router-link>
-              </div>
-            </div>
-            <div class="wow fadeInUp" data-wow-delay="1s">
-              <div class="serviceSingle">
-                <img src="../assets/img/itService5.png">
-                <h3>{{$t("message.WangLuoGL")}}</h3>
-                <div class="text">
-                  {{$t("message.ITFuWuText5")}}
-                </div>
-                <router-link :to="{path:'/ITArticle',query:{id:5}}">{{$t("message.ChaKanGD")}}</router-link>
-              </div>
-            </div>
-            <div class="wow fadeInUp" data-wow-delay="1.2s">
-              <div class="serviceSingle">
-                <img src="../assets/img/itService6.png">
-                <h3>{{$t("message.FuWuQiGL")}}</h3>
-                <div class="text">
-                  {{$t("message.ITFuWuText6")}}
-                </div>
-                <router-link :to="{path:'/ITArticle',query:{id:6}}">{{$t("message.ChaKanGD")}}</router-link>
+                <router-link :to="{path:'/ITArticle',query:{id:i+1}}">{{$t("message.ChaKanGD")}}</router-link>
               </div>
             </div>
           </div>
@@ -289,23 +233,23 @@
           <h1 class="h1Title col_254051">{{$t("message.KaiFaAL")}}</h1>
         </div>
         <div class="projectBox">
-          <div class="projectBoxItem" v-for="item in caseList"  @click="item.type === 2 ? showModal(item.id) : toLink(item.link)">
+          <div class="projectBoxItem" v-for="(item,i) in caseList"  @click="item.type === 2 ? showModal(item.id) : toLink(item.link)" :key="i">
 
             <div class="projectBoxModal" v-if="item.type === 2">
               <input :ref="'modalTit'+item.id" :value="item.name">
-              <textarea :ref="'modalText'+item.id" >{{item.content}}</textarea>
+              <textarea :ref="'modalText'+item.id">{{item.content}}</textarea>
             </div>
 
             <div class="projectImgPc">
-              <img :src="item.host_image">
+              <img v-lazy="item.host_image" :alt="item.name" />
             </div>
-            <div class="projectImgWeb">
-              <img :src="item.vice_image">
+            <div class="projectImgWeb" v-if="isAppHide">
+              <img v-lazy="item.vice_image" :alt="item.name"/>
             </div>
             <div class="projectBoxText">
               <div>
                 <div class="rpTop">
-                  <img :src="item.logo_image">
+                  <img v-lazy="item.logo_image" :alt="item.name" />
                   <p class="rpTitle">{{ item.name }}</p>
                 </div>
                 <div class="rpText">
@@ -352,15 +296,24 @@
     <Offer></Offer>
 <!--立即订阅-->
     <section class="subscriptionBg">
-      <div class="Width1000">
+      <div class="Width1000" v-if="dinYueDiv">
         <div class="textCenter">
           <h1 class="h1Title col_FFF">{{$t("message.LiJiDY")}}</h1>
         </div>
         <div class="subscriptionDiv">
-          <input type="text" :placeholder='$t("message.QSRDYEmail")' v-model="subscriptionInput">
+          <div class="subscriptionInputDiv">
+            <input type="text" :placeholder='$t("message.QSRDYEmail")' v-model="subscriptionInput">
+            <p>{{DinYueTips}}</p>
+          </div>
           <p class="buttonIcon borderFFF" @click="getSubscription">
             <span>{{$t("message.DinYue")}}</span><i class="iconfont icon-Right-"></i>
           </p>
+        </div>
+      </div>
+      <div class="Width1000" v-else>
+        <div class="textCenter subscriptionSuccess">
+          <p>{{$t("message.DinYueSuccess1")}}</p>
+          <p>{{$t("message.DinYueSuccess2")}}</p>
         </div>
       </div>
     </section>
@@ -433,30 +386,40 @@ import {
 } from "../common/api"
 
 import $ from 'jquery'
-window.jQuery = $
 require('../assets/js/jquery.ripples.js')
+
 import Swiper from 'swiper'
 import {Pagination} from 'swiper'
+
 import calcTextareaHeight from '../assets/js/calcTextareaHeight'
-import Offer from "../components/Offer"
+
 export default {
   name: 'index',
   comments:{
     Pagination
   },
   components:{
-    Offer
+    'Offer': () => import("../components/Offer"),
+    'remote-js': {
+      render(createElement) {
+        return createElement('script', {attrs: {type: 'text/javascript', src: this.src, ref: 'preconnet'}});
+      },
+      props: {
+        src: {type: String, required: true},
+      },
+    }
   },
+  props:['isAppHide'],
   data () {
     return {
       subscriptionInput: "",
       // 打字机
-      developContent: [
+      developContent: Object.freeze([
         this.$t("message.IndexKFText1"),
         this.$t("message.IndexKFText2"),
         this.$t("message.IndexKFText3"),
         this.$t("message.IndexKFText4")
-      ],
+      ]),
       developText: "",
       isDevelopText: 0,
       timer: null,
@@ -477,7 +440,18 @@ export default {
       modalTitle: "",
       modalContent: "",
       // 驗證
-      isCodeModal:false
+      isCodeModal:false,
+      // 订阅
+      DinYueTips: '',
+      dinYueDiv: true,
+      ITServiceArr: Object.freeze([
+        {"title":this.$t("message.ZiLiaoBFHeBZ"),"content":this.$t("message.ITFuWuText1"),"img": require("../assets/img/itService1.png"),"time":0.15},
+        {"title":this.$t("message.ZhuoMianWH"),"content":this.$t("message.ITFuWuText2"),"img": require("../assets/img/itService2.png"),"time":0.3},
+        {"title":this.$t("message.DianNaoJSZC"),"content":this.$t("message.ITFuWuText3"),"img": require("../assets/img/itService3.png"),"time":0.45},
+        {"title":this.$t("message.ITWeiHu"),"content":this.$t("message.ITFuWuText4"),"img": require("../assets/img/itService4.png"),"time":0.6},
+        {"title":this.$t("message.WangLuoGL"),"content":this.$t("message.ITFuWuText5"),"img": require("../assets/img/itService5.png"),"time":0.75},
+        {"title":this.$t("message.FuWuQiGL"),"content":this.$t("message.ITFuWuText6"),"img": require("../assets/img/itService6.png"),"time":0.9}
+      ])
     }
   },
   created:function(){
@@ -495,22 +469,26 @@ export default {
     }
   },
   mounted() {
-    // 水波涟漪
-    this.$nextTick(() => {
-      $('#jqueryImg').ripples({
-        resolution: 512,
-        dropRadius: 50, //px
-        perturbance: 0.01
+    if (!this.isAppHide){
+      return false
+    }else {
+      // 水波涟漪
+      this.$nextTick(() => {
+        $('#jqueryImg').ripples({
+          resolution: 512,
+          dropRadius: 50, //px
+          perturbance: 0.01
+        })
+        setInterval(function() {
+          const $el = $('#jqueryImg');
+          const x = Math.random() * $el.outerWidth();
+          const y = Math.random() * $el.outerHeight();
+          const dropRadius = 20;
+          const strength = 0.01 + Math.random() * 0.04;
+          $el.ripples('drop', x, y, dropRadius, strength);
+        }, 8000);
       })
-      setInterval(function() {
-        const $el = $('#jqueryImg');
-        const x = Math.random() * $el.outerWidth();
-        const y = Math.random() * $el.outerHeight();
-        const dropRadius = 20;
-        const strength = 0.01 + Math.random() * 0.04;
-        $el.ripples('drop', x, y, dropRadius, strength);
-      }, 8000);
-    })
+    }
   },
   methods: {
     // 缩略图轮播
@@ -530,9 +508,8 @@ export default {
         },
         on:{
           slideChange: function(){
-            // console.log(this.activeIndex)
             if (this.activeIndex === that.developTextIndex){
-              console.log("同一个")
+              return false
             }else {
               clearInterval(that.timer)
               that.developTextIndex = this.activeIndex
@@ -546,9 +523,6 @@ export default {
     },
     galleryThumbsLunbo() {
       this.galleryThumbs = new Swiper('.gallery_thumbs', {
-        // spaceBetween: 0,
-        // slidesPerView: 4,
-        // allowTouchMove:false,
         freeMode: true,
         watchSlidesVisibility: true,
         watchSlidesProgress: true,
@@ -571,6 +545,9 @@ export default {
           }
         }
       })
+    },
+    swiperLink (Link) {
+      this.$router.push(Link)
     },
     //打字机
     typewriter (x){
@@ -603,19 +580,19 @@ export default {
         });
         return
       }else if (!verifyEmail.test(that.subscriptionInput)){
-        this.$tips({
-					msg: this.$t("message.QSRZQGSDianYou")
-        });
+        this.DinYueTips = this.$t("message.QSRZQGSDianYou")
         return
       }
       subscriptionService({
         "email": that.subscriptionInput
       }).then(res => {
-        that.$tips({
-					msg: this.$t("message.DinYueCG")
-        });
-        that.subscriptionInput = ""
-        // console.log(res)
+        if (res.code === 200){
+          this.dinYueDiv = false
+        }else if (res.code === 1000){
+          this.DinYueTips = this.$t("message.YiDinYue")
+        }else {
+          this.DinYueTips = res.message
+        }
       })
     },
     getHeight() {
@@ -629,21 +606,18 @@ export default {
         });
         return
       }
-
       if (this.aboutEmail === ""){
         this.$tips({
 					msg: that.$t("message.QSRDianYou")
         });
         return
       }
-
       if (this.aboutPhone === ""){
         this.$tips({
 					msg: that.$t("message.QSRDianHua")
         });
         return
       }
-
       that.isCodeModal = true
     },
     onSuccess() {
@@ -655,10 +629,16 @@ export default {
         "message": that.aboutMessage
       }).then(res => {
         that.isCodeModal = false
-        that.aboutName = that.aboutEmail = that.aboutPhone = that.aboutMessage = ""
-        that.$tips({
-					msg: that.$t("message.TiJiaoCG")
-        });
+        if (res.code === 200){
+          that.aboutName = that.aboutEmail = that.aboutPhone = that.aboutMessage = ""
+          that.$tips({
+            msg: that.$t("message.TiJiaoCG")
+          })
+        }else {
+          that.$tips({
+            msg: that.$t("message.Error")
+          })
+        }
       })
     },
     blurName (){
@@ -692,7 +672,7 @@ export default {
     getCaseList() {
       randomCasesService({
       }).then(res => {
-        this.caseList = res.data
+        this.caseList = Object.freeze(res.data)
       })
     },
     modalClose() {
@@ -713,9 +693,13 @@ export default {
 </script>
 
 <style scoped>
-@import "../assets/css/index.css";
+/*@import "../assets/css/index.css";*/
+@media screen and (min-width:768px){
+  .indexBannerDiv{
+    background-image: url("../assets/img/indexBanner.jpg");
+  }
+}
 .indexBannerDiv{
-  background-image: url("../assets/img/indexBanner.jpg");
   min-height: 660px;
 }
 @media screen and (max-width:1300px){
@@ -725,6 +709,7 @@ export default {
 }
 @media screen and (max-width:767px){
   .indexBannerDiv{
+    background-image: url("../assets/img/process_pic5.jpg");
     min-height: 400px;
   }
 }

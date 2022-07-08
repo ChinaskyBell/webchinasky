@@ -291,6 +291,21 @@ module.exports = {
     QSRZQGSDianYou: 'Please enter the correct email format',
     DinYueCG: 'Subscription successful',
     TiJiaoCG: 'Submitted successfully',
-    JiaZaiGD: 'Load More'
+    JiaZaiGD: 'Load More',
+    Error: 'Error',
+    DinYueSuccess1: 'Thank You Your Subscribption ! ',
+    DinYueSuccess2: 'Expect Great Content ! ',
+    YiDinYue: 'This email is subscribed already',
+    // 頭部
+    HomeSpan: 'Superior IT Service & Great Development Experience',
+    GuanYuWMSpan: 'Proven Our Industry Advantange In Different Area',
+    LianXiWMSpan: 'Welcome Get In Touch With Us',
+    // ITArticle
+    itArticleBtn1: 'Request a Quote',
+    itArticleBtn2: 'Request a Quote',
+    itArticleBtn3: 'Contact UsTechnical Support',
+    itArticleBtn4: 'Request an IT Maintenance Quote',
+    itArticleBtn5: 'Request a Maintenance Quote',
+    itArticleBtn6: 'Contact Us for Support'
   }
 }
